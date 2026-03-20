@@ -12,11 +12,8 @@ import { homedir } from 'os';
 const USER_DIR = join(homedir(), '.star-ai-daily');
 const CONFIG_PATH = join(USER_DIR, 'config.json');
 
-// Star AI 日报的上游 feed 数据源
 const FEED_BASE = 'https://raw.githubusercontent.com/Stargod-0812/star-ai-daily/main';
-const FEED_X_URL = `${FEED_BASE}/feed-x.json`;
-const FEED_PODCASTS_URL = `${FEED_BASE}/feed-podcasts.json`;
-const FEED_CN_URL = `${FEED_BASE}/feed-cn.json`;
+const FEED_DAILY_URL = `${FEED_BASE}/feed-daily.json`;
 
 const PROMPTS_BASE = `${FEED_BASE}/prompts`;
 const PROMPT_FILES = [
@@ -54,16 +51,9 @@ async function main() {
     }
   }
 
-  const [feedX, feedPodcasts, feedCn] = await Promise.all([
-    fetchJSON(FEED_X_URL),
-    fetchJSON(FEED_PODCASTS_URL),
-    fetchJSON(FEED_CN_URL)
-  ]);
+  const dailyFeed = await fetchJSON(FEED_DAILY_URL);
+  if (!dailyFeed) errors.push('daily feed 获取失败');
 
-  if (!feedX) errors.push('推文 feed 获取失败');
-  if (!feedPodcasts) errors.push('播客 feed 获取失败');
-
-  // 加载 prompt，优先级：用户自定义 > 本地(Star版) > 远程(兜底)
   const prompts = {};
   const scriptDir = decodeURIComponent(new URL('.', import.meta.url).pathname);
   const localPromptsDir = join(scriptDir, '..', 'prompts');
@@ -103,16 +93,18 @@ async function main() {
       delivery: config.delivery || { method: 'stdout' }
     },
 
-    podcasts: feedPodcasts?.podcasts || [],
-    x: feedX?.x || [],
-    cnArticles: feedCn?.articles || [],
+    x: dailyFeed?.builders || [],
+    podcasts: dailyFeed?.podcasts || [],
+    cnArticles: dailyFeed?.cnMedia || [],
+    officialBlogs: dailyFeed?.officialBlogs || [],
 
     stats: {
-      podcastEpisodes: feedPodcasts?.podcasts?.length || 0,
-      xBuilders: feedX?.x?.length || 0,
-      totalTweets: (feedX?.x || []).reduce((sum, a) => sum + a.tweets.length, 0),
-      cnArticles: feedCn?.articles?.length || 0,
-      feedGeneratedAt: feedX?.generatedAt || feedPodcasts?.generatedAt || null
+      xBuilders: dailyFeed?.stats?.builders || 0,
+      totalTweets: dailyFeed?.stats?.tweets || 0,
+      cnArticles: dailyFeed?.stats?.cnArticles || 0,
+      officialBlogs: dailyFeed?.stats?.officialBlogs || 0,
+      podcastEpisodes: dailyFeed?.stats?.podcasts || 0,
+      feedGeneratedAt: dailyFeed?.generatedAt || null
     },
 
     prompts,
