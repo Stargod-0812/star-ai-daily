@@ -16,6 +16,7 @@ const CONFIG_PATH = join(USER_DIR, 'config.json');
 const FEED_BASE = 'https://raw.githubusercontent.com/Stargod-0812/star-ai-daily/main';
 const FEED_X_URL = `${FEED_BASE}/feed-x.json`;
 const FEED_PODCASTS_URL = `${FEED_BASE}/feed-podcasts.json`;
+const FEED_CN_URL = `${FEED_BASE}/feed-cn.json`;
 
 const PROMPTS_BASE = `${FEED_BASE}/prompts`;
 const PROMPT_FILES = [
@@ -53,9 +54,10 @@ async function main() {
     }
   }
 
-  const [feedX, feedPodcasts] = await Promise.all([
+  const [feedX, feedPodcasts, feedCn] = await Promise.all([
     fetchJSON(FEED_X_URL),
-    fetchJSON(FEED_PODCASTS_URL)
+    fetchJSON(FEED_PODCASTS_URL),
+    fetchJSON(FEED_CN_URL)
   ]);
 
   if (!feedX) errors.push('推文 feed 获取失败');
@@ -103,11 +105,13 @@ async function main() {
 
     podcasts: feedPodcasts?.podcasts || [],
     x: feedX?.x || [],
+    cnArticles: feedCn?.articles || [],
 
     stats: {
       podcastEpisodes: feedPodcasts?.podcasts?.length || 0,
       xBuilders: feedX?.x?.length || 0,
       totalTweets: (feedX?.x || []).reduce((sum, a) => sum + a.tweets.length, 0),
+      cnArticles: feedCn?.articles?.length || 0,
       feedGeneratedAt: feedX?.generatedAt || feedPodcasts?.generatedAt || null
     },
 
