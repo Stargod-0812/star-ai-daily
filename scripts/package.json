@@ -1,0 +1,14 @@
+{
+  "name": "star-ai-daily-scripts",
+  "version": "1.0.0",
+  "description": "Star AI 日报 — feed 生成、日报准备、投递脚本",
+  "type": "module",
+  "scripts": {
+    "generate-feed": "node generate-feed.js",
+    "prepare-digest": "node prepare-digest.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "proper-lockfile": "^4.1.0"
+  }
+}

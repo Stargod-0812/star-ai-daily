@@ -1,0 +1,534 @@
+{
+  "generatedAt": "2026-03-20T06:52:33.100Z",
+  "lookbackHours": 24,
+  "x": [
+    {
+      "source": "x",
+      "name": "Andrej Karpathy",
+      "handle": "karpathy",
+      "bio": "I like to train large deep neural nets. Previously Director of AI @ Tesla, founding team @ OpenAI, PhD @ Stanford.",
+      "tweets": [
+        {
+          "id": "2034873049753997619",
+          "text": "Andy Weir showing some of the spreadsheets underlying the calculations in the book\nhttps://t.co/3CyprVTzXX\ni mean, it's not quality scifi if it doesn't come with a supplementary whitepaper https://t.co/MsDnEoNBA7",
+          "createdAt": "2026-03-20T06:01:55.000Z",
+          "url": "https://x.com/karpathy/status/2034873049753997619",
+          "likes": 132,
+          "retweets": 10,
+          "replies": 14,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034865693544604001",
+          "text": "Had to go see Project Hail Mary right away (it's based on the book of Andy Weir, of also The Martian fame). Both very pleased and relieved to say that 1) the movie sticks very close to the book in both content and tone and 2) is really well executed.\n\nThe book is one of my favorites when it comes to alien portrayals because a lot of thought was clearly given to the scientific details of an alternate biochemistry, evolutionary history, sensorium, psychology, language, tech tree, etc. It's different enough that it is highly creative and plausible, but also similar enough that you get a compelling story and one of the best bromances in fiction. Not to mention the other (single-cellular) aliens. I can count fictional portrayals of aliens of this depth on one hand. A lot of these aspects are briefly featured - if you read the book you'll spot them but if you haven't, the movie can't spend the time to do them justice.\n\nI'll say that the movie inches a little too much into the superhero movie tropes with the pacing, the quips, the Bathos and such for my taste, and we get a little bit less the grand of Interstellar and a little bit less of the science of The Martian, but I think it's ok considering the tone of the original content. And it does really well where it counts - on Rocky and the bromance. Thank you to the film crew for the gem!",
+          "createdAt": "2026-03-20T05:32:41.000Z",
+          "url": "https://x.com/karpathy/status/2034865693544604001",
+          "likes": 1835,
+          "retweets": 76,
+          "replies": 113,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Swyx",
+      "handle": "swyx",
+      "bio": "achieve ambition with intentionality, intensity, integrity & insanity.\n\naffiliations:\n- @dxtipshq \n- @cognition\n- @temporalio\n- @aidotengineer\n- @latentspacepod",
+      "tweets": [
+        {
+          "id": "2034833969204928781",
+          "text": "lol\n\nlmao, even https://t.co/SonUroNO09 https://t.co/hE0OFCSp23",
+          "createdAt": "2026-03-20T03:26:38.000Z",
+          "url": "https://x.com/swyx/status/2034833969204928781",
+          "likes": 21,
+          "retweets": 0,
+          "replies": 7,
+          "isQuote": true,
+          "quotedTweetId": "2034764840808718768"
+        },
+        {
+          "id": "2034802359470330249",
+          "text": "to: every single dev that works with a designer\n\nmsg: Give your designer access to your coding agent. It is imperative that you do so. You'll see the most productivity and beauty in your work in a month. And then you'll realize just how much -you- were holding them back this entire time.",
+          "createdAt": "2026-03-20T01:21:01.000Z",
+          "url": "https://x.com/swyx/status/2034802359470330249",
+          "likes": 36,
+          "retweets": 1,
+          "replies": 8,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034790106549428680",
+          "text": "@auth0 @WorkOS @Cloudflare boosting https://t.co/b86WcG3BvA",
+          "createdAt": "2026-03-20T00:32:20.000Z",
+          "url": "https://x.com/swyx/status/2034790106549428680",
+          "likes": 1,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "2034768621067755872"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Josh Woodward",
+      "handle": "joshwoodward",
+      "bio": "VP, @Google @GoogleLabs @GeminiApp @GoogleAIStudio",
+      "tweets": [
+        {
+          "id": "2034797067344998862",
+          "text": "✅ Papercut fixed: Gemini won’t cut you off if you pause while talking on Android anymore. (iOS in a few weeks!)\n\nSo next time you hit the mic icon, feel free to pause, take a breath, or ramble. No more anxiety to speak it all out before @GeminiApp jumps in prematurely. https://t.co/SatN6Gf6gW",
+          "createdAt": "2026-03-20T01:00:00.000Z",
+          "url": "https://x.com/joshwoodward/status/2034797067344998862",
+          "likes": 746,
+          "retweets": 41,
+          "replies": 87,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034665935777477005",
+          "text": "Start building your first app for free at https://t.co/WNp6rOvCYr https://t.co/xRjlrVDOXc",
+          "createdAt": "2026-03-19T16:18:56.000Z",
+          "url": "https://x.com/joshwoodward/status/2034665935777477005",
+          "likes": 214,
+          "retweets": 10,
+          "replies": 14,
+          "isQuote": true,
+          "quotedTweetId": "2034656376450908203"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Peter Yang",
+      "handle": "petergyang",
+      "bio": "I share extremely practical AI tutorials and interviews | Join 140K+ readers at https://t.co/XYKTmGVH14 | Product at Roblox",
+      "tweets": [
+        {
+          "id": "2034786835088764952",
+          "text": "@trq212 it’s weird to call this thing Claude Code still if I’m just using it to text my AI friend in bed\n\nHow about Clawd 😅",
+          "createdAt": "2026-03-20T00:19:20.000Z",
+          "url": "https://x.com/petergyang/status/2034786835088764952",
+          "likes": 11,
+          "retweets": 0,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034786020160635031",
+          "text": "I think OpenAI’s strategy is pretty clear:\n\n1. More people have ChatGPT installed than any other AI product\n\n2. Make ChatGPT great for coding and knowledge work\n\n3. Make it a personal assistant like OpenClaw that knows you and can do whatever you want \n\nThey just need to do 2 and 3 faster before people switch to Claude or Gemini for the same use cases.",
+          "createdAt": "2026-03-20T00:16:06.000Z",
+          "url": "https://x.com/petergyang/status/2034786020160635031",
+          "likes": 188,
+          "retweets": 8,
+          "replies": 27,
+          "isQuote": true,
+          "quotedTweetId": "2034769466433913082"
+        },
+        {
+          "id": "2034784797168685322",
+          "text": "Research preview is the new beta",
+          "createdAt": "2026-03-20T00:11:14.000Z",
+          "url": "https://x.com/petergyang/status/2034784797168685322",
+          "likes": 10,
+          "retweets": 0,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nan Yu",
+      "handle": "thenanyu",
+      "bio": "head of product @linear",
+      "tweets": [
+        {
+          "id": "2034870724930801715",
+          "text": "Harry Potter and LotR references henceforth banned. Just Death Note and Evangelion from here on out.",
+          "createdAt": "2026-03-20T05:52:41.000Z",
+          "url": "https://x.com/thenanyu/status/2034870724930801715",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034869255150198982",
+          "text": "I always enjoy Nikita’s product management truth telling from the front lines. In a world of bland podcast interviews, this is a taste of what big time PM work is like https://t.co/Ib9MyhSz9i",
+          "createdAt": "2026-03-20T05:46:51.000Z",
+          "url": "https://x.com/thenanyu/status/2034869255150198982",
+          "likes": 6,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2034863618182062448"
+        },
+        {
+          "id": "2034776884085469323",
+          "text": "Forbes 30 under 30 remains undefeated (fraud)",
+          "createdAt": "2026-03-19T23:39:48.000Z",
+          "url": "https://x.com/thenanyu/status/2034776884085469323",
+          "likes": 33,
+          "retweets": 0,
+          "replies": 7,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Amanda Askell",
+      "handle": "AmandaAskell",
+      "bio": "Philosopher & ethicist trying to make AI be good @AnthropicAI.\nPersonal account. All opinions come from my training data.",
+      "tweets": [
+        {
+          "id": "2034690963696967822",
+          "text": "Perhaps I should get married again so that the media has a more recent man they can reference any time they mention me or my work.",
+          "createdAt": "2026-03-19T17:58:23.000Z",
+          "url": "https://x.com/AmandaAskell/status/2034690963696967822",
+          "likes": 2647,
+          "retweets": 70,
+          "replies": 245,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Thariq",
+      "handle": "trq212",
+      "bio": "Claude Code @anthropicai.   prev YC W20, mit media lab. \n\ntowards machines of loving grace",
+      "tweets": [
+        {
+          "id": "2034761704601690432",
+          "text": "This is a research preview that we'll be expanding more on.\n\nRead more in our docs on Channels here: https://t.co/apaPL9496Z",
+          "createdAt": "2026-03-19T22:39:29.000Z",
+          "url": "https://x.com/trq212/status/2034761704601690432",
+          "likes": 413,
+          "retweets": 31,
+          "replies": 22,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034761017771925996",
+          "text": "read here on how to setup Telegram: https://t.co/fT5VfGwIVc\n\nand Discord: https://t.co/vyXtbUox2N",
+          "createdAt": "2026-03-19T22:36:45.000Z",
+          "url": "https://x.com/trq212/status/2034761017771925996",
+          "likes": 777,
+          "retweets": 53,
+          "replies": 34,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034761016320696565",
+          "text": "We just released Claude Code channels, which allows you to control your Claude Code session through select MCPs, starting with Telegram and Discord. \n\nUse this to message Claude Code directly from your phone. https://t.co/sl3BP2BEzS",
+          "createdAt": "2026-03-19T22:36:44.000Z",
+          "url": "https://x.com/trq212/status/2034761016320696565",
+          "likes": 17162,
+          "retweets": 1536,
+          "replies": 1111,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Amjad Masad",
+      "handle": "amasad",
+      "bio": "ceo @replit. civilizationist",
+      "tweets": [
+        {
+          "id": "2034877335917519068",
+          "text": "Happy Eid! 😊",
+          "createdAt": "2026-03-20T06:18:57.000Z",
+          "url": "https://x.com/amasad/status/2034877335917519068",
+          "likes": 596,
+          "retweets": 22,
+          "replies": 53,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034702399718539355",
+          "text": "The most magical thing about this is once when you’re done infinitely exploring designs you can just click “Build” and you get a production app! https://t.co/8Jr5ev0nXh",
+          "createdAt": "2026-03-19T18:43:49.000Z",
+          "url": "https://x.com/amasad/status/2034702399718539355",
+          "likes": 251,
+          "retweets": 11,
+          "replies": 21,
+          "isQuote": true,
+          "quotedTweetId": "2034686382527193256"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Aaron Levie",
+      "handle": "levie",
+      "bio": "ceo @box - your business lives in content. unleash it with AI",
+      "tweets": [
+        {
+          "id": "2034833274506281061",
+          "text": "Without getting into the specific numbers, this underlying concept and trend is going to be very real. For any worker who is able to wield AI agents effectively in an organization, their compute budgets are just going to monotonically go up over time. \n\nThis will of course start in engineering, where we already know developers can run multiple agents in parallel, or have projects going over night. But this eventually hit the rest of knowledge work as well. Lawyers that can create and review more drafts, marketed that can build more campaigns and test more ideals in parallel, sales reps that can reach out to more customers and process more leads. \n\nMany of these activities will essentially be token-dependent in how much work a single person can do. These aren’t chatbot workflows answering a simple question, but agents that are running and processing through incredible amounts of data at scale, and generating all new forms of information.\n\nCompanies will have to figure out how they budget for this, and it likely won’t be an IT budget item over time, but ultimately owned and allocated by the business. Maybe the CFO is ultimately the head of AI :-).",
+          "createdAt": "2026-03-20T03:23:52.000Z",
+          "url": "https://x.com/levie/status/2034833274506281061",
+          "likes": 261,
+          "retweets": 25,
+          "replies": 46,
+          "isQuote": true,
+          "quotedTweetId": "2034725105285353962"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Ryo Lu",
+      "handle": "ryolu_",
+      "bio": "Design @Cursor_ai. Early @NotionHQ, @Stripe, built startups. I make a world where anyone can make software. Aspiring k-pop idol.",
+      "tweets": [
+        {
+          "id": "2034690837444272266",
+          "text": "Frontier intelligence.\nFraction of cost.\nFast.\nComposer 2. https://t.co/lQjEbZbcOp",
+          "createdAt": "2026-03-19T17:57:53.000Z",
+          "url": "https://x.com/ryolu_/status/2034690837444272266",
+          "likes": 351,
+          "retweets": 8,
+          "replies": 14,
+          "isQuote": true,
+          "quotedTweetId": "2034668950240329837"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Garry Tan",
+      "handle": "garrytan",
+      "bio": "President & CEO @ycombinator —Founder https://t.co/7aoJjp1iIK—designer/engineer who helps founders—SF Dem accelerating the boom loop—haters not allowed in my sauna",
+      "tweets": [
+        {
+          "id": "2034883862460080542",
+          "text": "I am so thankful for @paulg @jesslivingston @bchesky @cjoneslevy for believing me and selecting me to be the President &amp; CEO of YC. To be able to lead this brilliant band of partners is beyond the best job I’ve ever had!\n\nIf you love what you do, you never work a day in your life https://t.co/v4Aonvke1a",
+          "createdAt": "2026-03-20T06:44:53.000Z",
+          "url": "https://x.com/garrytan/status/2034883862460080542",
+          "likes": 9,
+          "retweets": 0,
+          "replies": 4,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034881003140129145",
+          "text": "Markdown+LLM is code and for creating high value complex contextual and intelligence-required tasks it is much much better than any deterministic language https://t.co/Q8I2vfITGR",
+          "createdAt": "2026-03-20T06:33:32.000Z",
+          "url": "https://x.com/garrytan/status/2034881003140129145",
+          "likes": 28,
+          "retweets": 3,
+          "replies": 7,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034853668739252419",
+          "text": "I did slip one easter egg for YC into my /office-hours skill https://t.co/w4ohWMvBEk",
+          "createdAt": "2026-03-20T04:44:55.000Z",
+          "url": "https://x.com/garrytan/status/2034853668739252419",
+          "likes": 75,
+          "retweets": 0,
+          "replies": 9,
+          "isQuote": true,
+          "quotedTweetId": "2034852781618811272"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Matt Turck",
+      "handle": "mattturck",
+      "bio": "VC at @FirstMarkCap.  Host: MAD Podcast; Organizer: Data Driven NYC, Author: MAD Landscape.",
+      "tweets": [
+        {
+          "id": "2034667424377700676",
+          "text": "This awesome conversation with @benedictevans is also available on Spotify, Apple Podcasts and here on YouTube:\n\nhttps://t.co/F9T2xJiiMP",
+          "createdAt": "2026-03-19T16:24:50.000Z",
+          "url": "https://x.com/mattturck/status/2034667424377700676",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034661487445258382",
+          "text": "My latest conversation with the always incredible @benedictevans: OpenAI’s moat problem, the rise of ephemeral and improvised sofware, OpenClaw & agents.\n\n00:00 Intro\n\n01:06 OpenAI's Focus Shift\n\n03:12 ChatGPT usage: a \"mile wide, inch deep\"\n\n09:03 Why better models do not solve the real problem\n\n13:58 Why AI product teams are strategy takers, not strategy setters\n\n15:38 Do agents help create defensibility?\n\n20:06 OpenClaw and the \"Desktop Linux\" moment for AI\n\n25:52 Why \"everyone will build their own software\" is completely wrong\n\n28:09 Improvised software vs. institutionalized software\n\n29:23 Why there will be more software, not less\n\n36:15 Are we heading toward value destruction before value creation?\n\n38:03 Circular revenue, leverage, and AI bubble dynamics\n\n38:53 Big Tech's Trillion-Dollar CapEx Crisis & Financial Gravity\n\n45:23 Why AI job exposure charts can be misleading\n\n52:15 How Fortune 500 Execs are actually deploying AI today\n\n56:45 The White Space: What this means for founders and investors",
+          "createdAt": "2026-03-19T16:01:15.000Z",
+          "url": "https://x.com/mattturck/status/2034661487445258382",
+          "likes": 201,
+          "retweets": 24,
+          "replies": 17,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Zara Zhang",
+      "handle": "zarazhangrui",
+      "bio": "Builder. Dangerously skips permissions. Harvard’17. YouTube: https://t.co/8xzbGWtf6w Substack: https://t.co/dDPEWGiuBW",
+      "tweets": [
+        {
+          "id": "2034700826992939255",
+          "text": "Powered by @GeminiApp Live API cc @googleaidevs",
+          "createdAt": "2026-03-19T18:37:34.000Z",
+          "url": "https://x.com/zarazhangrui/status/2034700826992939255",
+          "likes": 5,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034699688226787496",
+          "text": "Try it now at https://t.co/dwtb34iKcj",
+          "createdAt": "2026-03-19T18:33:03.000Z",
+          "url": "https://x.com/zarazhangrui/status/2034699688226787496",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034699643104501958",
+          "text": "Introducing MySay, an AI that asks you questions via voice, and turns what you said into tweets and LinkedIn posts that actually sound like you.\n\nThis is the only AI writing solution I've found that doesn't produce slop.\n\nIt's like a smart podcast host that guides you to share your most unique insights through great questions.\n\nTry it at mysay dot ai",
+          "createdAt": "2026-03-19T18:32:52.000Z",
+          "url": "https://x.com/zarazhangrui/status/2034699643104501958",
+          "likes": 231,
+          "retweets": 9,
+          "replies": 26,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nikunj Kothari",
+      "handle": "nikunj",
+      "bio": "partner @fpvventures - investing in seed/A. previous: early hire @meter, @opendoor, @atlassian & others. love @shimoleejhaveri + 👦👧",
+      "tweets": [
+        {
+          "id": "2034833966835134612",
+          "text": "I *think* the tide is finally going to turn on all the actors (LPs, VCs, founders, employees) who believe momentum is simply everything.. \n\nIt has led to terrible trickle down effects across the entire ecosystem (manipulating data, no diligence, growth at all costs etc.)\n\nAs they say, what goes up must eventually come down. I hope these are not infamous last words, but I’m hopeful 🤞",
+          "createdAt": "2026-03-20T03:26:37.000Z",
+          "url": "https://x.com/nikunj/status/2034833966835134612",
+          "likes": 145,
+          "retweets": 6,
+          "replies": 12,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034765202420650480",
+          "text": "Inspired to build this after listening to the latest episode of @dwarkesh_sp &amp; @dylan522p on the bottlenecks behind AI.\n\nLink here: https://t.co/HUdzvwGcbc",
+          "createdAt": "2026-03-19T22:53:23.000Z",
+          "url": "https://x.com/nikunj/status/2034765202420650480",
+          "likes": 14,
+          "retweets": 1,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034764522662281562",
+          "text": "Ever wondered what are ALL the layers behind the answer when you get a response from ChatGPT..\n\nIntroducing Prompt to Chip 💬\n\nFull visualization with explainers on how your prompt literally gets to the chip and all the way back. \n\nPlay with it at prompt to chip dot com https://t.co/aIhRPcfbZV",
+          "createdAt": "2026-03-19T22:50:40.000Z",
+          "url": "https://x.com/nikunj/status/2034764522662281562",
+          "likes": 71,
+          "retweets": 9,
+          "replies": 8,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Peter Steinberger",
+      "handle": "steipete",
+      "bio": "Polyagentmorous ClawFather. Came back from retirement to mess with AI and help a lobster take over the world @openclaw🦞",
+      "tweets": [
+        {
+          "id": "2034778291845132389",
+          "text": "\"Your frustration is the product.\" https://t.co/6eeio8gBde",
+          "createdAt": "2026-03-19T23:45:23.000Z",
+          "url": "https://x.com/steipete/status/2034778291845132389",
+          "likes": 224,
+          "retweets": 12,
+          "replies": 35,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Dan Shipper",
+      "handle": "danshipper",
+      "bio": "ceo @every — the only subscription you need to stay at the edge of AI",
+      "tweets": [
+        {
+          "id": "2034746435401314659",
+          "text": "i asked composer 2 to optimize my production QA process and pitted it against gpt-5.4\n\ncomposer 2's response won (as judged by both 5.4 and opus 4.6): https://t.co/IWdOum0JV0",
+          "createdAt": "2026-03-19T21:38:48.000Z",
+          "url": "https://x.com/danshipper/status/2034746435401314659",
+          "likes": 117,
+          "retweets": 7,
+          "replies": 11,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034723450644840606",
+          "text": "we just published the definitive guide to writing good prose with your AI\n\nread it on @every: https://t.co/N8H3p5doOM https://t.co/SxlqXIJAJ8",
+          "createdAt": "2026-03-19T20:07:28.000Z",
+          "url": "https://x.com/danshipper/status/2034723450644840606",
+          "likes": 848,
+          "retweets": 53,
+          "replies": 12,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2034703852012769499",
+          "text": "learn to surf the models, read @every:\nhttps://t.co/9wRhOCUCAk",
+          "createdAt": "2026-03-19T18:49:35.000Z",
+          "url": "https://x.com/danshipper/status/2034703852012769499",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "xBuilders": 16,
+    "totalTweets": 36
+  }
+}

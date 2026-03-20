@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Star AI 日报用户配置。存储于 ~/.star-ai-daily/config.json",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "string",
+      "enum": ["openclaw", "other"],
+      "description": "运行平台：openclaw 或 other (Claude Code, Cursor 等)"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["zh", "en", "bilingual"],
+      "default": "zh",
+      "description": "日报语言：zh (中文), en (English), bilingual (双语)"
+    },
+    "timezone": {
+      "type": "string",
+      "default": "Asia/Shanghai",
+      "description": "IANA 时区字符串（如 Asia/Shanghai, America/New_York）"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": ["daily", "weekly"],
+      "default": "daily",
+      "description": "推送频率"
+    },
+    "deliveryTime": {
+      "type": "string",
+      "default": "08:00",
+      "description": "推送时间，24小时制 HH:MM 格式"
+    },
+    "weeklyDay": {
+      "type": "string",
+      "enum": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+      "default": "monday",
+      "description": "每周推送的星期几（仅每周模式）"
+    },
+    "delivery": {
+      "type": "object",
+      "description": "日报投递方式",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["stdout", "telegram", "email"],
+          "default": "stdout",
+          "description": "投递方式：stdout (终端/agent), telegram (机器人), email (Resend)"
+        },
+        "chatId": {
+          "type": "string",
+          "description": "Telegram chat ID（仅 telegram 方式）"
+        },
+        "email": {
+          "type": "string",
+          "description": "邮箱地址（仅 email 方式）"
+        }
+      }
+    },
+    "onboardingComplete": {
+      "type": "boolean",
+      "default": false,
+      "description": "是否完成首次设置"
+    }
+  }
+}
