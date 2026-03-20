@@ -172,7 +172,7 @@ function buildDailyFeed(upstream, rssArticles) {
       title: p.title,
       url: p.url,
       publishedAt: p.publishedAt,
-      transcript: (p.transcript || '').slice(0, 5000),
+      transcript: p.transcript || '',
     })),
 
     stats: {
