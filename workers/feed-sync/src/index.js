@@ -221,6 +221,17 @@ function randomDelay() {
   return Math.floor(Math.random() * 50 * 60 * 1000);
 }
 
+// --- Archive ---
+
+function buildArchiveFeed(dailyFeed) {
+  return {
+    ...dailyFeed,
+    podcasts: dailyFeed.podcasts.map(p => ({
+      name: p.name, title: p.title, url: p.url, publishedAt: p.publishedAt,
+    })),
+  };
+}
+
 // --- Entry ---
 
 async function run(env) {
@@ -233,9 +244,13 @@ async function run(env) {
   const content = JSON.stringify(dailyFeed, null, 2);
   const ok = await pushToGitee(env.GITEE_TOKEN, 'feed-daily.json', content);
 
-  const msg = `${dailyFeed.stats.builders} builders, ${dailyFeed.stats.cnArticles} cn, ${dailyFeed.stats.officialBlogs} blogs, ${dailyFeed.stats.podcasts} pods → ${ok ? 'OK' : 'FAIL'}`;
+  const archivePath = `archive/feed-${dailyFeed.edition}.json`;
+  const archiveContent = JSON.stringify(buildArchiveFeed(dailyFeed), null, 2);
+  const archiveOk = await pushToGitee(env.GITEE_TOKEN, archivePath, archiveContent);
+
+  const msg = `${dailyFeed.stats.builders} builders, ${dailyFeed.stats.cnArticles} cn, ${dailyFeed.stats.officialBlogs} blogs, ${dailyFeed.stats.podcasts} pods → daily:${ok ? 'OK' : 'FAIL'} archive:${archiveOk ? 'OK' : 'FAIL'}`;
   console.log(msg);
-  return { ok, stats: dailyFeed.stats, message: msg };
+  return { ok, archiveOk, stats: dailyFeed.stats, message: msg };
 }
 
 export default {

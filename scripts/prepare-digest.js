@@ -21,6 +21,7 @@ const PROMPT_FILES = [
   'summarize-tweets.md',
   'summarize-cn-articles.md',
   'signal-guide.md',
+  'daily-diff.md',
   'digest-intro.md',
   'translate.md'
 ];
@@ -55,6 +56,10 @@ async function main() {
 
   const dailyFeed = await fetchJSON(FEED_DAILY_URL);
   if (!dailyFeed) errors.push('daily feed 获取失败');
+
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const yesterdayURL = `https://gitee.com/stargod0812/star-ai-daily/raw/master/archive/feed-${yesterday}.json`;
+  const feedYesterday = await fetchJSON(yesterdayURL);
 
   const prompts = {};
   const scriptDir = decodeURIComponent(new URL('.', import.meta.url).pathname);
@@ -99,6 +104,14 @@ async function main() {
     podcasts: dailyFeed?.podcasts || [],
     cnArticles: dailyFeed?.cnMedia || [],
     officialBlogs: dailyFeed?.officialBlogs || [],
+    _crossSignals: dailyFeed?._crossSignals || null,
+
+    yesterday: feedYesterday ? {
+      edition: feedYesterday.edition,
+      builders: (feedYesterday.builders || []).map(b => b.handle),
+      cnTitles: (feedYesterday.cnMedia || []).map(a => a.title),
+      blogTitles: (feedYesterday.officialBlogs || []).map(a => a.title),
+    } : null,
 
     stats: {
       xBuilders: dailyFeed?.stats?.builders || 0,

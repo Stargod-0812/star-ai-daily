@@ -352,9 +352,20 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 - `prompts.summarize_tweets` — 推文混编方式
 - `prompts.summarize_cn_articles` — 中文资讯混编方式
 - `prompts.summarize_podcast` — 播客混编方式
+- `prompts.signal_guide` — 信号判读指南（辅助判断内容优先级）
+- `prompts.daily_diff` — 每日变化洞察规则
 - `prompts.translate` — 翻译为中文的方式
 
 **处理顺序：**
+
+**0. 变化洞察：** 如果 JSON 中 `yesterday` 字段不为 null：
+1. 对比今天的 `x` 数组中的 handle 列表和 `yesterday.builders`，找出新出现/消失的人物
+2. 对比今天的 `cnArticles`/`officialBlogs` 标题和 `yesterday.cnTitles`/`yesterday.blogTitles`，找出新话题
+3. 按 `prompts.daily_diff` 写一句变化洞察，放在"今日必看"板块下方
+4. 如果 `yesterday` 为 null（首日），跳过此步
+
+**信号参考：** 在整个混编过程中，参考 `prompts.signal_guide` 判断内容优先级。
+每条推文的 `_metrics` 和顶层的 `_crossSignals` 提供量化指标辅助你的判断。
 
 **1. 推文：** `x` 数组中包含建造者及其推文。逐个处理：
 1. 用 `bio` 字段获取身份信息（如 bio 写着 "ceo @box" → "Box CEO Aaron Levie"）
