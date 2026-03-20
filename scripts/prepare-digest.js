@@ -19,6 +19,7 @@ const PROMPTS_BASE = `${FEED_BASE}/prompts`;
 const PROMPT_FILES = [
   'summarize-podcast.md',
   'summarize-tweets.md',
+  'summarize-cn-articles.md',
   'digest-intro.md',
   'translate.md'
 ];

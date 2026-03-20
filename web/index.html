@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StarrLiao AI 日报</title>
+<title>Star AI 日报</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0e;--surface:#141416;--elevated:#1a1a1e;--divider:rgba(255,255,255,0.06);--divider-strong:rgba(255,255,255,0.1);--text-primary:#f0ede8;--text-secondary:#a09b93;--text-tertiary:#5c5850;--accent:#c8a44e;--accent-subtle:rgba(200,164,78,0.08);--link:#8ab4f8;--serif:'Playfair Display','Georgia',serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace}
+:root{--bg:#0c0c0e;--surface:#141416;--elevated:#1a1a1e;--divider:rgba(255,255,255,0.06);--divider-strong:rgba(255,255,255,0.1);--text-primary:#f0ede8;--text-secondary:#a09b93;--text-tertiary:#5c5850;--accent:#c8a44e;--accent-subtle:rgba(200,164,78,0.08);--link:#8ab4f8;--cn-accent:#e06050;--blog-accent:#50b080;--serif:'Playfair Display','Georgia',serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:var(--sans);background:var(--bg);color:var(--text-primary);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 ::selection{background:var(--accent);color:var(--bg)}
@@ -20,19 +20,22 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text-primary);-web
 .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(36px,6vw,64px);line-height:1.08;color:var(--text-primary);letter-spacing:-0.025em;margin-bottom:20px}
 .hero h1 em{font-style:italic;font-weight:600;color:var(--accent)}
 .hero-sub{font-size:17px;line-height:1.6;color:var(--text-secondary);max-width:520px;margin:0 auto;font-weight:300}
-.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:40px;padding-top:32px;border-top:1px solid var(--divider)}
-.hero-stat-val{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--text-primary);line-height:1}
+.hero-stats{display:flex;justify-content:center;gap:36px;margin-top:40px;padding-top:32px;border-top:1px solid var(--divider);flex-wrap:wrap}
+.hero-stat-val{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--text-primary);line-height:1}
 .hero-stat-label{font-size:11px;color:var(--text-tertiary);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px}
 .content{max-width:720px;margin:0 auto;padding:0 24px 96px}
 .section{margin-top:64px}
 .section-label{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--divider-strong);display:flex;align-items:center;justify-content:space-between}
+.section-label.cn{color:var(--cn-accent)}
+.section-label.blog{color:var(--blog-accent)}
 .section-count{font-family:var(--mono);font-size:11px;color:var(--text-tertiary);letter-spacing:0.05em}
 .entry{padding:32px 0;border-bottom:1px solid var(--divider);animation:fadeUp .5s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .entry-header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .entry-name{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.2;color:var(--text-primary)}
 .entry-handle{font-family:var(--mono);font-size:12px;color:var(--text-tertiary)}
-.entry-tag{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border:1px solid rgba(200,164,78,0.2);border-radius:3px}
+.entry-tag{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:3px}
+.entry-tag.cn{color:var(--cn-accent);border:1px solid rgba(224,96,80,0.2)}
 .entry-bio{font-size:13px;color:var(--text-tertiary);line-height:1.5;margin-bottom:20px;font-style:italic}
 .tweet{margin-bottom:20px;padding-left:16px;border-left:2px solid var(--divider-strong)}
 .tweet:last-child{margin-bottom:0}
@@ -40,12 +43,19 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text-primary);-web
 .tweet-meta{display:flex;align-items:center;gap:16px;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--text-tertiary)}
 .tweet-meta a{color:var(--link);text-decoration:none;transition:opacity .2s}
 .tweet-meta a:hover{opacity:.7}
+.article{padding:24px 0;border-bottom:1px solid var(--divider)}
+.article-source{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.article-source.cn{color:var(--cn-accent)}
+.article-source.blog{color:var(--blog-accent)}
+.article-title{font-size:16px;font-weight:600;line-height:1.4;margin-bottom:8px}
+.article-title a{color:var(--text-primary);text-decoration:none;transition:color .2s}
+.article-title a:hover{color:var(--accent)}
+.article-summary{font-size:14px;line-height:1.7;color:var(--text-tertiary)}
 .podcast-entry{padding:32px 0;border-bottom:1px solid var(--divider)}
 .podcast-show{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
 .podcast-title{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.25;margin-bottom:16px}
 .podcast-title a{color:var(--text-primary);text-decoration:none;transition:color .2s}
 .podcast-title a:hover{color:var(--accent)}
-.podcast-date{font-family:var(--mono);font-size:11px;color:var(--text-tertiary);margin-bottom:20px}
 .podcast-transcript{font-size:15px;line-height:1.9;color:var(--text-secondary);position:relative}
 .podcast-transcript.collapsed{max-height:200px;overflow:hidden}
 .podcast-transcript.collapsed::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
@@ -61,24 +71,25 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text-primary);-web
 .colophon{max-width:720px;margin:0 auto;padding:40px 24px;border-top:1px solid var(--divider-strong);text-align:center}
 .colophon-brand{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--accent);margin-bottom:8px}
 .colophon-note{font-size:12px;color:var(--text-tertiary);line-height:1.6}
-@media(max-width:600px){.hero{padding:48px 20px 40px}.hero-stats{gap:28px}.hero-stat-val{font-size:26px}.entry-name{font-size:19px}.podcast-title{font-size:22px}.content{padding:0 20px 64px}}
+@media(max-width:600px){.hero{padding:48px 20px 40px}.hero-stats{gap:20px}.hero-stat-val{font-size:24px}.entry-name{font-size:19px}.podcast-title{font-size:22px}.content{padding:0 20px 64px}}
 </style>
 </head>
 <body>
-<header class="masthead"><div class="masthead-inner"><span class="masthead-mark">StarrLiao</span><span class="masthead-dot">·</span><span class="masthead-mark">AI Daily Brief</span></div></header>
-<section class="hero"><div class="hero-date" id="dateLabel"></div><h1>Today in <em>AI</em></h1><p class="hero-sub">StarrLiao 精选全球 AI 建造者的声音。追踪真正在做事的人，不追网红。</p><div class="hero-stats"><div><div class="hero-stat-val" id="statBuilders">—</div><div class="hero-stat-label">Builders</div></div><div><div class="hero-stat-val" id="statTweets">—</div><div class="hero-stat-label">Posts</div></div><div><div class="hero-stat-val" id="statPodcasts">—</div><div class="hero-stat-label">Episodes</div></div></div></section>
+<header class="masthead"><div class="masthead-inner"><span class="masthead-mark">Star</span><span class="masthead-dot">·</span><span class="masthead-mark">AI Daily</span></div></header>
+<section class="hero"><div class="hero-date" id="dateLabel"></div><h1>Today in <em>AI</em></h1><p class="hero-sub">Star 精选全球 AI 建造者的声音 + 国内外 AI 资讯。追踪真正在做事的人。</p><div class="hero-stats"><div><div class="hero-stat-val" id="statBuilders">—</div><div class="hero-stat-label">Builders</div></div><div><div class="hero-stat-val" id="statTweets">—</div><div class="hero-stat-label">Posts</div></div><div><div class="hero-stat-val" id="statCn">—</div><div class="hero-stat-label">CN News</div></div><div><div class="hero-stat-val" id="statBlogs">—</div><div class="hero-stat-label">Blogs</div></div><div><div class="hero-stat-val" id="statPodcasts">—</div><div class="hero-stat-label">Episodes</div></div></div></section>
 <main class="content" id="content"><div class="loading-state"><div class="loading-bar"></div><div class="loading-text">Loading brief...</div></div></main>
-<footer class="colophon"><div class="colophon-brand">StarrLiao AI Daily Brief</div><div class="colophon-note">信息源由 StarrLiao 统一精选维护，每日自动更新。<br>追踪研究员、创始人、产品负责人、工程师——真正在做事的人。</div></footer>
+<footer class="colophon"><div class="colophon-brand">Star AI Daily</div><div class="colophon-note">全球 AI 建造者动态 + 国内 AI 资讯 + 官方博客，每小时自动更新。</div></footer>
 <script>
-const FEED_BASE='https://raw.githubusercontent.com/Stargod-0812/star-ai-daily/main';
-const CN=new Set(['khazix0918','dotey','op7418','vista8','lijigang_com','gorden_sun']);
+const FEED_URL='https://gitee.com/stargod0812/star-ai-daily/raw/master/feed-daily.json';
+const CN_HANDLES=new Set(['khazix0918','dotey','op7418','vista8','lijigang_com','gorden_sun']);
 function esc(s){const d=document.createElement('span');d.textContent=s;return d.innerHTML}
 function fmtDate(iso){return new Date(iso).toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}
 function relTime(iso){const h=Math.floor((Date.now()-new Date(iso).getTime())/3.6e6);if(h<1)return'Just now';if(h<24)return h+'h ago';return Math.floor(h/24)+'d ago'}
-function renderBuilders(list){if(!list.length)return'<div class="empty-state">No new posts today.</div>';return list.map((b,i)=>{const cn=CN.has((b.handle||'').toLowerCase());const tw=(b.tweets||[]).map(t=>`<div class="tweet"><div class="tweet-body">${esc(t.text)}</div><div class="tweet-meta"><span>${(t.likes||0).toLocaleString()} likes</span><span>${(t.retweets||0).toLocaleString()} rt</span><span>${relTime(t.createdAt)}</span><a href="${t.url}" target="_blank" rel="noopener">Source ↗</a></div></div>`).join('');return`<article class="entry" style="animation-delay:${i*.04}s"><div class="entry-header"><span class="entry-name">${esc(b.name)}</span><span class="entry-handle">@${esc(b.handle)}</span>${cn?'<span class="entry-tag">中文</span>':''}</div>${b.bio?`<div class="entry-bio">${esc(b.bio.length>120?b.bio.slice(0,120)+'...':b.bio)}</div>`:''}${tw}</article>`}).join('')}
-function renderPodcasts(list){if(!list.length)return'<div class="empty-state">No new episodes today.</div>';return list.map(p=>{const id='tx-'+(p.videoId||Math.random().toString(36).slice(2));return`<article class="podcast-entry"><div class="podcast-show">${esc(p.name)}</div><h3 class="podcast-title"><a href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a></h3>${p.publishedAt?`<div class="podcast-date">${fmtDate(p.publishedAt)}</div>`:''}<div class="podcast-transcript collapsed" id="${id}">${esc((p.transcript||'').slice(0,600))}</div><button class="read-more" onclick="toggleTx('${id}',this)">Read transcript ↓</button></article>`}).join('')}
-function toggleTx(id,btn){const el=document.getElementById(id);el.classList.toggle('collapsed');btn.textContent=el.classList.contains('collapsed')?'Read transcript ↓':'Collapse ↑'}
-async function init(){const el=document.getElementById('content');try{const[xr,pr]=await Promise.all([fetch(FEED_BASE+'/feed-x.json'),fetch(FEED_BASE+'/feed-podcasts.json')]);if(!xr.ok&&!pr.ok)throw new Error('Failed to load feeds');const xd=xr.ok?await xr.json():{x:[]};const pd=pr.ok?await pr.json():{podcasts:[]};const builders=xd.x||[];const pods=pd.podcasts||[];const tweets=builders.reduce((s,b)=>s+(b.tweets?.length||0),0);document.getElementById('dateLabel').textContent=fmtDate(xd.generatedAt||pd.generatedAt||new Date().toISOString());document.getElementById('statBuilders').textContent=builders.length;document.getElementById('statTweets').textContent=tweets;document.getElementById('statPodcasts').textContent=pods.length;if(!builders.length&&!pods.length){el.innerHTML='<div class="empty-state">今天 AI 圈比较安静，明天见。</div>';return}let html='';if(builders.length){html+=`<section class="section"><div class="section-label"><span>X / Twitter</span><span class="section-count">${builders.length} builders · ${tweets} posts</span></div>${renderBuilders(builders)}</section>`}if(pods.length){html+=`<section class="section"><div class="section-label"><span>Podcasts</span><span class="section-count">${pods.length} episode${pods.length>1?'s':''}</span></div>${renderPodcasts(pods)}</section>`}el.innerHTML=html}catch(err){el.innerHTML=`<div class="error-state"><p>Unable to load today's brief.</p><p style="font-size:12px;margin-top:8px;color:var(--text-tertiary)">${esc(err.message)}</p></div>`}}
+function renderBuilders(list){if(!list.length)return'';return list.map((b,i)=>{const cn=CN_HANDLES.has((b.handle||'').toLowerCase());const tw=(b.tweets||[]).map(t=>`<div class="tweet"><div class="tweet-body">${esc(t.text)}</div><div class="tweet-meta"><span>${(t.likes||0).toLocaleString()} likes</span><span>${(t.retweets||0).toLocaleString()} rt</span><span>${relTime(t.createdAt)}</span><a href="${t.url}" target="_blank" rel="noopener">Source</a></div></div>`).join('');return`<article class="entry" style="animation-delay:${i*.04}s"><div class="entry-header"><span class="entry-name">${esc(b.name)}</span><span class="entry-handle">${esc(b.handle)}</span>${cn?'<span class="entry-tag cn">CN</span>':''}</div>${b.bio?`<div class="entry-bio">${esc(b.bio.length>120?b.bio.slice(0,120)+'...':b.bio)}</div>`:''}${tw}</article>`}).join('')}
+function renderArticles(list,cls){if(!list.length)return'';return list.map(a=>`<article class="article"><div class="article-source ${cls}">${esc(a.source)}</div><div class="article-title"><a href="${a.url}" target="_blank" rel="noopener">${esc(a.title)}</a></div>${a.summary?`<div class="article-summary">${esc(a.summary.slice(0,150))}</div>`:''}</article>`).join('')}
+function renderPodcasts(list){if(!list.length)return'';return list.map(p=>{const id='tx-'+Math.random().toString(36).slice(2);return`<article class="podcast-entry"><div class="podcast-show">${esc(p.name)}</div><h3 class="podcast-title"><a href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a></h3><div class="podcast-transcript collapsed" id="${id}">${esc((p.transcript||'').slice(0,600))}</div><button class="read-more" onclick="toggleTx('${id}',this)">Read transcript</button></article>`}).join('')}
+function toggleTx(id,btn){const el=document.getElementById(id);el.classList.toggle('collapsed');btn.textContent=el.classList.contains('collapsed')?'Read transcript':'Collapse'}
+async function init(){const el=document.getElementById('content');try{const r=await fetch(FEED_URL);if(!r.ok)throw new Error('Feed unavailable');const d=await r.json();const s=d.stats||{};document.getElementById('dateLabel').textContent=fmtDate(d.generatedAt||new Date().toISOString());document.getElementById('statBuilders').textContent=s.builders||0;document.getElementById('statTweets').textContent=s.tweets||0;document.getElementById('statCn').textContent=s.cnArticles||0;document.getElementById('statBlogs').textContent=s.officialBlogs||0;document.getElementById('statPodcasts').textContent=s.podcasts||0;let html='';const builders=d.builders||[];const cn=d.cnMedia||[];const blogs=d.officialBlogs||[];const pods=d.podcasts||[];if(!builders.length&&!cn.length&&!blogs.length&&!pods.length){el.innerHTML='<div class="empty-state">Today is quiet. See you tomorrow.</div>';return}if(builders.length){html+=`<section class="section"><div class="section-label"><span>Builders</span><span class="section-count">${builders.length} builders · ${s.tweets||0} posts</span></div>${renderBuilders(builders)}</section>`}if(cn.length){html+=`<section class="section"><div class="section-label cn"><span>CN AI News</span><span class="section-count">${cn.length} articles</span></div>${renderArticles(cn,'cn')}</section>`}if(blogs.length){html+=`<section class="section"><div class="section-label blog"><span>Official Blogs</span><span class="section-count">${blogs.length} posts</span></div>${renderArticles(blogs,'blog')}</section>`}if(pods.length){html+=`<section class="section"><div class="section-label"><span>Podcasts</span><span class="section-count">${pods.length} episode${pods.length>1?'s':''}</span></div>${renderPodcasts(pods)}</section>`}el.innerHTML=html}catch(err){el.innerHTML=`<div class="error-state"><p>Unable to load today's brief.</p><p style="font-size:12px;margin-top:8px;color:var(--text-tertiary)">${esc(err.message)}</p></div>`}}
 init();
 </script>
 </body>

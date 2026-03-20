@@ -338,7 +338,7 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 
 ### 步骤 3：检查内容
 
-如果 `stats.podcastEpisodes` 为 0 且 `stats.xBuilders` 也为 0，告诉用户：
+如果所有 stats 字段都为 0，告诉用户：
 "今天 AI 圈比较安静，没有什么新动态。明天见！—— Star" 然后停止。
 
 ### 步骤 4：混编内容
@@ -348,21 +348,34 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 一切素材都在 JSON 里。
 
 从 JSON 的 `prompts` 字段读取指令：
-- `prompts.digest_intro` — 整体框架规则
-- `prompts.summarize_podcast` — 播客混编方式
+- `prompts.digest_intro` — 整体框架和板块顺序
 - `prompts.summarize_tweets` — 推文混编方式
+- `prompts.summarize_cn_articles` — 中文资讯混编方式
+- `prompts.summarize_podcast` — 播客混编方式
 - `prompts.translate` — 翻译为中文的方式
 
-**推文（先处理）：** `x` 数组中包含建造者及其推文。逐个处理：
+**处理顺序：**
+
+**1. 推文：** `x` 数组中包含建造者及其推文。逐个处理：
 1. 用 `bio` 字段获取身份信息（如 bio 写着 "ceo @box" → "Box CEO Aaron Levie"）
 2. 按 `prompts.summarize_tweets` 混编推文
 3. 每条推文必须包含 JSON 中的 `url`
 
-**播客（后处理）：** `podcasts` 数组最多 1 期节目。如果有：
+**2. 中文资讯：** `cnArticles` 数组中包含中文 AI 媒体文章。
+1. 按 `prompts.summarize_cn_articles` 混编
+2. 最多挑 3 条最有价值的，跳过碎片快讯和水文
+3. 每条附上 `url` 字段的原文链接
+
+**3. 官方博客：** `officialBlogs` 数组中包含 OpenAI / Google AI / Hugging Face 的博客。
+1. 最多挑 3 条有信息量的
+2. 每条 1-2 句话提炼核心内容，附链接
+3. 纯营销/招聘类的跳过
+
+**4. 播客：** `podcasts` 数组最多 1 期节目。如果有：
 1. 按 `prompts.summarize_podcast` 混编文字稿
 2. 使用 JSON 中的 `name`、`title` 和 `url`——不要从文字稿中提取
 
-按 `prompts.digest_intro` 组装日报。
+按 `prompts.digest_intro` 的板块顺序组装日报。先写"今日必看"，从所有素材中挑最重要的 1-2 条。
 
 **铁律：**
 - 绝不编造内容。只用 JSON 里有的。
