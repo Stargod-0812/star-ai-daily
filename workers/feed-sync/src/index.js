@@ -124,6 +124,27 @@ async function fetchRssArticles() {
   return articles;
 }
 
+const SIGNAL_TERMS = [
+  'AI', 'LLM', 'GPT', 'Claude', 'Gemini', 'Cursor', 'Copilot', 'Replit',
+  'agent', 'coding', 'reasoning', 'inference', 'training', 'fine-tuning',
+  'open source', 'benchmark', 'multimodal', 'voice', 'RAG', 'MCP',
+  'OpenAI', 'Anthropic', 'Google', 'Meta', 'Apple',
+];
+
+function findSharedTopics(builders) {
+  const termByBuilder = {};
+  for (const term of SIGNAL_TERMS) {
+    const re = new RegExp(`\\b${term}\\b`, 'i');
+    const mentionedBy = builders
+      .filter(b => b.tweets.some(t => re.test(t.text)))
+      .map(b => b.handle);
+    if (mentionedBy.length >= 2) {
+      termByBuilder[term] = mentionedBy;
+    }
+  }
+  return termByBuilder;
+}
+
 function buildDailyFeed(upstream, rssArticles) {
   const feedX = upstream['feed-x.json'];
   const feedPodcasts = upstream['feed-podcasts.json'];
@@ -142,13 +163,17 @@ function buildDailyFeed(upstream, rssArticles) {
       name: b.name,
       handle: b.handle,
       bio: b.bio,
-      tweets: b.tweets.map(t => ({
-        text: t.text,
-        url: t.url,
-        createdAt: t.createdAt,
-        likes: t.likes,
-        retweets: t.retweets,
-      })),
+      tweets: b.tweets.map(t => {
+        const score = (t.likes || 0) + (t.retweets || 0) * 3;
+        return {
+          text: t.text,
+          url: t.url,
+          createdAt: t.createdAt,
+          likes: t.likes,
+          retweets: t.retweets,
+          _metrics: { engagementScore: score, isHighEngagement: score > 500 },
+        };
+      }),
     })),
 
     cnMedia: cnArticles.map(a => ({
@@ -174,6 +199,11 @@ function buildDailyFeed(upstream, rssArticles) {
       publishedAt: p.publishedAt,
       transcript: p.transcript || '',
     })),
+
+    _crossSignals: {
+      sharedTopics: findSharedTopics(builders),
+      activeBuilders: builders.length,
+    },
 
     stats: {
       builders: builders.length,

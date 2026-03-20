@@ -20,6 +20,7 @@ const PROMPT_FILES = [
   'summarize-podcast.md',
   'summarize-tweets.md',
   'summarize-cn-articles.md',
+  'signal-guide.md',
   'digest-intro.md',
   'translate.md'
 ];
