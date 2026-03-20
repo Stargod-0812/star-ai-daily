@@ -12,9 +12,9 @@ import { homedir } from 'os';
 const USER_DIR = join(homedir(), '.star-ai-daily');
 const CONFIG_PATH = join(USER_DIR, 'config.json');
 
-const FEED_BASE = 'https://raw.githubusercontent.com/Stargod-0812/star-ai-daily/main';
-const FEED_DAILY_URL = `${FEED_BASE}/feed-daily.json`;
+const FEED_DAILY_URL = 'https://gitee.com/stargod0812/star-ai-daily/raw/master/feed-daily.json';
 
+const FEED_BASE = 'https://raw.githubusercontent.com/Stargod-0812/star-ai-daily/main';
 const PROMPTS_BASE = `${FEED_BASE}/prompts`;
 const PROMPT_FILES = [
   'summarize-podcast.md',

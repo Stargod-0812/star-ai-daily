@@ -1,6 +1,6 @@
 const UPSTREAM = 'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main';
-const OWNER = 'Stargod-0812';
-const REPO = 'star-ai-daily';
+const GITEE_OWNER = 'stargod0812';
+const GITEE_REPO = 'star-ai-daily';
 
 const RSS_SOURCES = [
   { name: '36氪', url: 'https://36kr.com/feed', lang: 'zh', needsFilter: true },
@@ -37,7 +37,7 @@ function extractTag(block, tag) {
   return plainMatch ? plainMatch[1].trim() : '';
 }
 
-// --- GitHub API ---
+// --- Gitee API ---
 
 function toBase64(str) {
   const bytes = new TextEncoder().encode(str);
@@ -48,33 +48,40 @@ function toBase64(str) {
   return btoa(binary);
 }
 
-async function pushFile(token, filename, content) {
-  const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${filename}`;
-  const headers = {
-    'Authorization': `Bearer ${token}`,
-    'Accept': 'application/vnd.github.v3+json',
-    'User-Agent': 'feed-sync',
-  };
+async function pushToGitee(token, filename, content) {
+  const apiUrl = `https://gitee.com/api/v5/repos/${GITEE_OWNER}/${GITEE_REPO}/contents/${filename}`;
+  const encoded = toBase64(content);
+  const message = `update ${filename}`;
 
-  const existing = await fetch(apiUrl, { headers });
-  const body = {
-    message: `chore: sync feed ${new Date().toISOString().slice(0, 16)} [skip ci]`,
-    content: toBase64(content),
-  };
+  const existing = await fetch(`${apiUrl}?access_token=${token}`);
   if (existing.ok) {
     const data = await existing.json();
-    body.sha = data.sha;
+    const res = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_token: token,
+        content: encoded,
+        message,
+        sha: data.sha,
+      }),
+    });
+    return res.ok;
+  } else {
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_token: token,
+        content: encoded,
+        message,
+      }),
+    });
+    return res.ok;
   }
-
-  const res = await fetch(apiUrl, {
-    method: 'PUT',
-    headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  return res.ok;
 }
 
-// --- Main logic ---
+// --- Data fetching ---
 
 async function fetchUpstreamFeeds() {
   const results = {};
@@ -178,17 +185,41 @@ function buildDailyFeed(upstream, rssArticles) {
   };
 }
 
+// --- Random delay: 0~50 minutes within the hour ---
+
+function randomDelay() {
+  return Math.floor(Math.random() * 50 * 60 * 1000);
+}
+
+// --- Entry ---
+
+async function run(env) {
+  const [upstream, rssArticles] = await Promise.all([
+    fetchUpstreamFeeds(),
+    fetchRssArticles(),
+  ]);
+
+  const dailyFeed = buildDailyFeed(upstream, rssArticles);
+  const content = JSON.stringify(dailyFeed, null, 2);
+  const ok = await pushToGitee(env.GITEE_TOKEN, 'feed-daily.json', content);
+
+  const msg = `${dailyFeed.stats.builders} builders, ${dailyFeed.stats.cnArticles} cn, ${dailyFeed.stats.officialBlogs} blogs, ${dailyFeed.stats.podcasts} pods → ${ok ? 'OK' : 'FAIL'}`;
+  console.log(msg);
+  return { ok, stats: dailyFeed.stats, message: msg };
+}
+
 export default {
   async scheduled(event, env, ctx) {
-    const [upstream, rssArticles] = await Promise.all([
-      fetchUpstreamFeeds(),
-      fetchRssArticles(),
-    ]);
+    const delay = randomDelay();
+    console.log(`waiting ${Math.round(delay / 60000)}min before sync...`);
+    await scheduler.wait(delay);
+    await run(env);
+  },
 
-    const dailyFeed = buildDailyFeed(upstream, rssArticles);
-    const content = JSON.stringify(dailyFeed, null, 2);
-    const ok = await pushFile(env.GITHUB_TOKEN, 'feed-daily.json', content);
-
-    console.log(`daily feed: ${dailyFeed.stats.builders} builders, ${dailyFeed.stats.cnArticles} cn, ${dailyFeed.stats.officialBlogs} blogs, ${dailyFeed.stats.podcasts} podcasts → push ${ok ? 'OK' : 'FAIL'}`);
+  async fetch(request, env) {
+    const result = await run(env);
+    return new Response(JSON.stringify(result, null, 2), {
+      headers: { 'Content-Type': 'application/json' },
+    });
   },
 };
