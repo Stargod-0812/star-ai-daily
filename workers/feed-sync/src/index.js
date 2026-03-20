@@ -4,13 +4,12 @@ const GITEE_REPO = 'star-ai-daily';
 
 const RSS_SOURCES = [
   { name: '36氪', url: 'https://36kr.com/feed', lang: 'zh', needsFilter: true },
-  { name: '少数派', url: 'https://sspai.com/feed', lang: 'zh', needsFilter: true },
   { name: 'OpenAI', url: 'https://openai.com/blog/rss.xml', lang: 'en', needsFilter: false },
   { name: 'Google AI', url: 'https://blog.google/technology/ai/rss/', lang: 'en', needsFilter: false },
   { name: 'Hugging Face', url: 'https://huggingface.co/blog/feed.xml', lang: 'en', needsFilter: false },
 ];
 
-const AI_KEYWORDS = /AI|人工智能|大模型|LLM|Agent|智能体|GPT|Claude|Gemini|OpenAI|Anthropic|深度学习|神经网络|AIGC|Copilot|Sora|diffusion|transformer|token|RAG|向量|embedding|微调|fine.?tun|Cursor|Replit|机器人|自动驾驶|芯片|GPU|算力|训练|推理|生成式/i;
+const AI_KEYWORDS = /\bAI\b|人工智能|大模型|LLM|Agent|智能体|GPT|Claude|Gemini|OpenAI|Anthropic|深度学习|神经网络|AIGC|Copilot|Sora|diffusion|transformer|\bRAG\b|embedding|微调|fine.?tun|Cursor|Replit|自动驾驶|\bGPU\b|算力|生成式|机器学习|Coding Agent|开源模型|智能编程|Skills市场/i;
 
 // --- RSS parsing ---
 
@@ -24,7 +23,8 @@ function parseRssItems(xml) {
     const link = extractTag(block, 'link');
     const pubDate = extractTag(block, 'pubDate');
     const desc = extractTag(block, 'description');
-    const plainDesc = desc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 200);
+    const decoded = desc.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#34;/g, '"').replace(/&#39;/g, "'");
+    const plainDesc = decoded.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 200);
     if (title && link) items.push({ title, link, pubDate, description: plainDesc });
   }
   return items;
@@ -172,7 +172,7 @@ function buildDailyFeed(upstream, rssArticles) {
       title: p.title,
       url: p.url,
       publishedAt: p.publishedAt,
-      transcript: p.transcript || '',
+      transcript: (p.transcript || '').slice(0, 5000),
     })),
 
     stats: {
