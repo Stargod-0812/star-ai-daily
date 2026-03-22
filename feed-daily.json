@@ -1,0 +1,816 @@
+{
+  "generatedAt": "2026-03-22T17:37:04.317Z",
+  "edition": "2026-03-22",
+  "lookbackHours": 24,
+  "builders": [
+    {
+      "source": "x",
+      "name": "Peter Yang",
+      "handle": "petergyang",
+      "bio": "I share extremely practical AI tutorials and interviews | Join 140K+ readers at https://t.co/XYKTmGVH14 | Product at Roblox",
+      "tweets": [
+        {
+          "id": "2035725826315170155",
+          "text": "Also available on:\n\nSpotify: https://t.co/YJbSn9eKmz\n\nApple: https://t.co/shNRmPP2Wb\n\nNewsletter: https://t.co/3bvmeErlio",
+          "createdAt": "2026-03-22T14:30:33.000Z",
+          "url": "https://x.com/petergyang/status/2035725826315170155",
+          "likes": 1,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 4,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035725814357279117",
+          "text": "A designer who can ship code is one of the most valuable hires in tech today.\n\nHere's my new episode with @felixleezd (CEO of @ADPList) where he showed me how to use Claude Code and Figma MCP to go from:\n\n✅ Figma → Code: Design to website in 15 min\n✅ Code → Figma: App back to editable design\n\nFelix also demoed a few apps he's designed and built in Claude Code, including a 3D globe website and a landing page analyzer.\n\nSome takeaways from Felix:\n\n1. Stop pasting screenshots into Claude Code. Instead, use Figma MCP to pull in all your assets, icons, and images automatically.\n\n2. You can use the same MCP to convert code back into editable Figma layers to explore more variations.\n\n3. An underrated way to build: Use FigJam to plan a flowchart of your app first, then paste the link into Claude Code with the MCP.\n\n📌 Watch now: https://t.co/rIDCvPJoN9\n\nThanks to our sponsors:\n\n@Replit: Plan, design, and build with AI agents https://t.co/w6kab0zMqN\n\n@linear: The AI agent platform for modern teams https://t.co/lI40xrrDsr",
+          "createdAt": "2026-03-22T14:30:30.000Z",
+          "url": "https://x.com/petergyang/status/2035725814357279117",
+          "likes": 96,
+          "retweets": 11,
+          "replies": 13,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 129,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035564345430872095",
+          "text": "What is your preferred interface/process to switch between Claude and Codex? \n\nComposer? Cursor? Terminal? https://t.co/jFhOmoaVpR",
+          "createdAt": "2026-03-22T03:48:53.000Z",
+          "url": "https://x.com/petergyang/status/2035564345430872095",
+          "likes": 133,
+          "retweets": 2,
+          "replies": 73,
+          "isQuote": true,
+          "quotedTweetId": "2035529405540585899",
+          "_metrics": {
+            "engagementScore": 139,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035551775005229371",
+          "text": "Is Project Hail Mary appropriate for a 7 year old to watch?",
+          "createdAt": "2026-03-22T02:58:56.000Z",
+          "url": "https://x.com/petergyang/status/2035551775005229371",
+          "likes": 57,
+          "retweets": 0,
+          "replies": 38,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 57,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035434707941515608",
+          "text": "Visiting Shanghai / Hangzhou for 2 weeks in early April. Was born there but haven’t been back in over a decade. \n\nAny good tech scenes to check out? https://t.co/M2g6LqY3nS",
+          "createdAt": "2026-03-21T19:13:45.000Z",
+          "url": "https://x.com/petergyang/status/2035434707941515608",
+          "likes": 51,
+          "retweets": 0,
+          "replies": 16,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 51,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nan Yu",
+      "handle": "thenanyu",
+      "bio": "head of product @linear",
+      "tweets": [
+        {
+          "id": "2035562680623272312",
+          "text": "https://t.co/seaTPamh7U",
+          "createdAt": "2026-03-22T03:42:16.000Z",
+          "url": "https://x.com/thenanyu/status/2035562680623272312",
+          "likes": 1,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2035387292311769278",
+          "_metrics": {
+            "engagementScore": 1,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035540228983648311",
+          "text": "🤔 \nhttps://t.co/7XyoRRrHoa",
+          "createdAt": "2026-03-22T02:13:03.000Z",
+          "url": "https://x.com/thenanyu/status/2035540228983648311",
+          "likes": 0,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2035533726319357956",
+          "_metrics": {
+            "engagementScore": 0,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035534048940958015",
+          "text": "It is indeed crazy! considering how many more startups have been funded, the fact that survival rates didn’t drop off a cliff is remarkable https://t.co/AfnvelfNs6 https://t.co/8c73SqFYa7",
+          "createdAt": "2026-03-22T01:48:30.000Z",
+          "url": "https://x.com/thenanyu/status/2035534048940958015",
+          "likes": 25,
+          "retweets": 0,
+          "replies": 2,
+          "isQuote": true,
+          "quotedTweetId": "2035432705731551339",
+          "_metrics": {
+            "engagementScore": 25,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Aaron Levie",
+      "handle": "levie",
+      "bio": "ceo @box - your business lives in content. unleash it with AI",
+      "tweets": [
+        {
+          "id": "2035762343502836020",
+          "text": "We are so unbelievably early with agents right now. The majority of companies aren’t even using coding agents at scale, let alone for the rest of knowledge work. We’re still mostly in the chatbot era of work for most of AI right now. \n\nDiffusion of tech takes time, even in the most breakneck of markets, because there are major workflows that need to be reinvented, any regulated or large business has huge governance processes for deploying new tech or agents, data needs to get into well-organized environments, and there’s technical literacy that needs to be established. All things that get solved, but takes time nonetheless.\n\nA point of comparison for technology diffusion: in 2010, a time by which every person in silicon valley knew that cloud was the future, AWS revenue was $500 million, Azure had only launched that year, and GCP was called Google App Engine. By 2025, these 3 platforms generated around $225 billion in revenue. And that’s only about 60% of the cloud market.\n\nSo from the moment the tech industry saw the future of cloud to today, the market is nearly 1,000 times bigger. And it’s still growing at an insane rate. \n\nThe same will happen for agents. Coding agents are like the early days of cloud computing when developers got on board for initial use cases. Then came the bigger workloads. This gives you a sense for how early we actually are in this transformation.",
+          "createdAt": "2026-03-22T16:55:39.000Z",
+          "url": "https://x.com/levie/status/2035762343502836020",
+          "likes": 100,
+          "retweets": 9,
+          "replies": 17,
+          "isQuote": true,
+          "quotedTweetId": "2035607979932991916",
+          "_metrics": {
+            "engagementScore": 127,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Garry Tan",
+      "handle": "garrytan",
+      "bio": "President & CEO @ycombinator —Founder https://t.co/7aoJjp1iIK—designer/engineer who helps founders—SF Dem accelerating the boom loop—haters not allowed in my sauna",
+      "tweets": [
+        {
+          "id": "2035741166805635577",
+          "text": "Weird realization: The best AI coding is in the morning when you are fresh from a night full of dreaming about latent space. Sleep early. Wake up early. The best ideas are in the morning. \n\nIt's not just about raw token maxxing. It is about teaching the machines the right abstraction that comes out of your own personal experience and the synthesis that comes from a good night's sleep.",
+          "createdAt": "2026-03-22T15:31:31.000Z",
+          "url": "https://x.com/garrytan/status/2035741166805635577",
+          "likes": 655,
+          "retweets": 34,
+          "replies": 111,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 757,
+            "isHighEngagement": true
+          }
+        },
+        {
+          "id": "2035739261929140672",
+          "text": "GStack slowly climbing to level 7.1 or so on the 'autonomous software factory' - one plan mode and PR at a time https://t.co/k0YXBcqSBY",
+          "createdAt": "2026-03-22T15:23:56.000Z",
+          "url": "https://x.com/garrytan/status/2035739261929140672",
+          "likes": 95,
+          "retweets": 4,
+          "replies": 20,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 107,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035726469520142805",
+          "text": "Many such cases https://t.co/YTtubMV4sc",
+          "createdAt": "2026-03-22T14:33:06.000Z",
+          "url": "https://x.com/garrytan/status/2035726469520142805",
+          "likes": 46,
+          "retweets": 6,
+          "replies": 8,
+          "isQuote": true,
+          "quotedTweetId": "2035726244331860068",
+          "_metrics": {
+            "engagementScore": 64,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035724535790715113",
+          "text": "GStack is useful for non-coders too. The beauty of open source: someone ported it to Claude web app skills\n\nhttps://t.co/cIfjBS05D7",
+          "createdAt": "2026-03-22T14:25:25.000Z",
+          "url": "https://x.com/garrytan/status/2035724535790715113",
+          "likes": 192,
+          "retweets": 15,
+          "replies": 21,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 237,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035634992211190214",
+          "text": "Yeah we have an AI addiction and it’s awesome https://t.co/gsrIPjQLXE",
+          "createdAt": "2026-03-22T08:29:37.000Z",
+          "url": "https://x.com/garrytan/status/2035634992211190214",
+          "likes": 194,
+          "retweets": 22,
+          "replies": 56,
+          "isQuote": true,
+          "quotedTweetId": "2035121401754263768",
+          "_metrics": {
+            "engagementScore": 260,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Matt Turck",
+      "handle": "mattturck",
+      "bio": "VC at @FirstMarkCap.  Host: MAD Podcast; Organizer: Data Driven NYC, Author: MAD Landscape.",
+      "tweets": [
+        {
+          "id": "2035751244325662798",
+          "text": "some of the best career advice you’ll hear https://t.co/g98jhNFLG8",
+          "createdAt": "2026-03-22T16:11:33.000Z",
+          "url": "https://x.com/mattturck/status/2035751244325662798",
+          "likes": 15,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 18,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035458987940880466",
+          "text": "LinkedIn launched in 2003\n\nYouTube launched in 2005 \n\nTwitter/X launched in 2006 \n\n(Facebook 2004, Insta 2010, Snap 2011 etc)\n\nNetwork effects create massive long term staying power.  \n\nUnclear yet if the AI era can build its own strong flywheels (data loops etc) https://t.co/4BZbL2eFWY",
+          "createdAt": "2026-03-21T20:50:14.000Z",
+          "url": "https://x.com/mattturck/status/2035458987940880466",
+          "likes": 53,
+          "retweets": 3,
+          "replies": 15,
+          "isQuote": true,
+          "quotedTweetId": "20",
+          "_metrics": {
+            "engagementScore": 62,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nikunj Kothari",
+      "handle": "nikunj",
+      "bio": "partner @fpvventures - investing in seed/A. previous: early hire @meter, @opendoor, @atlassian & others. love @shimoleejhaveri + 👦👧",
+      "tweets": [
+        {
+          "id": "2035764531587342813",
+          "text": "Even better day to watch airplanes https://t.co/DPTD5jKQRt",
+          "createdAt": "2026-03-22T17:04:21.000Z",
+          "url": "https://x.com/nikunj/status/2035764531587342813",
+          "likes": 0,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 0,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Dan Shipper",
+      "handle": "danshipper",
+      "bio": "ceo @every | the only subscription you need to stay at the edge of AI",
+      "tweets": [
+        {
+          "id": "2035734115324944737",
+          "text": "i think it's great to have Claude or other coding agents listed as a developer on PRs—and i think this will get more common with OpenClaws that develop their own personality and perspective.\n\nwe also do this with writing @every, listing Claude and our Claws as co-writers: https://t.co/0DTAIGq5Ql",
+          "createdAt": "2026-03-22T15:03:29.000Z",
+          "url": "https://x.com/danshipper/status/2035734115324944737",
+          "likes": 34,
+          "retweets": 0,
+          "replies": 11,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 34,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Ethan Mollick",
+      "handle": "emollick",
+      "bio": "Professor @Wharton studying AI, innovation & startups. Democratizing education using tech\nBook: https://t.co/CSmipbJ2jV\nSubstack: https://t.co/UIBhxu4bgq",
+      "tweets": [
+        {
+          "id": "2035756883328237776",
+          "text": "Also performance in MOBAs like League of Legends correlates with IQ but performance in FPSs like Battlefield 3, Destiny, etc. don't show the same correlation with intelligence.\n\nAnd guild leaders in World of Warcraft were more likely to be good leaders in real life https://t.co/gWVvxtrviy",
+          "createdAt": "2026-03-22T16:33:58.000Z",
+          "url": "https://x.com/emollick/status/2035756883328237776",
+          "likes": 50,
+          "retweets": 4,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 62,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035726331854356485",
+          "text": "AI can help us learn hard-to-teach skills, like empathy. Preregistered study of 968 people found almost no correlation between feeling empathic &amp; communicating empathy. But a single practice session with an AI coach made people measurably better at it https://t.co/VDtdiNpw1J https://t.co/a6dxvxQDK5",
+          "createdAt": "2026-03-22T14:32:34.000Z",
+          "url": "https://x.com/emollick/status/2035726331854356485",
+          "likes": 202,
+          "retweets": 29,
+          "replies": 20,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 289,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035562216485781541",
+          "text": "Previous attempt https://t.co/8awkVMjQ8r",
+          "createdAt": "2026-03-22T03:40:25.000Z",
+          "url": "https://x.com/emollick/status/2035562216485781541",
+          "likes": 15,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "1856360794486665555",
+          "_metrics": {
+            "engagementScore": 15,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035561955964891578",
+          "text": "This was kind of fun. Codex: \"download nethack, add new items that would make the game easy to win and make me feel powerful\"\n\nIt did &amp; it successfully gave me a new .exe file, navigating various issues to do so, which used to be something beyond the abilities of older AI tools. https://t.co/WMkLxbwQjW",
+          "createdAt": "2026-03-22T03:39:23.000Z",
+          "url": "https://x.com/emollick/status/2035561955964891578",
+          "likes": 122,
+          "retweets": 9,
+          "replies": 29,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 149,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035533726319357956",
+          "text": "Its not Simcity, but business school students who were good at Civ V also turn out to be better planners, organizers, and problem-solvers in this small experiment. https://t.co/WGbAboe8kx https://t.co/BrcTlTX3NY",
+          "createdAt": "2026-03-22T01:47:13.000Z",
+          "url": "https://x.com/emollick/status/2035533726319357956",
+          "likes": 7247,
+          "retweets": 730,
+          "replies": 90,
+          "isQuote": true,
+          "quotedTweetId": "2035475789555143079",
+          "_metrics": {
+            "engagementScore": 9437,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Bindu Reddy",
+      "handle": "bindureddy",
+      "bio": "CEO of @abacusai, the world’s first AI super assistant and general-purpose agent - your AGI control center! ex-GM, AWS, and Google",
+      "tweets": [
+        {
+          "id": "2035704542348857728",
+          "text": "NEXT FRONTIER- Recursive self improvement will make AI better than humans in most tasks \n\nOnce you have a closed loop verification and measurement loop in place\n\nAll you need is an AI agent that experiments, measure and improves the outcome you desire \n\nEventually all strategic job roles will be automated this way",
+          "createdAt": "2026-03-22T13:05:59.000Z",
+          "url": "https://x.com/bindureddy/status/2035704542348857728",
+          "likes": 138,
+          "retweets": 10,
+          "replies": 44,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 168,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "数字生命卡兹克",
+      "handle": "Khazix0918",
+      "bio": "愿我们永远对世界保持好奇。\n公众号：数字生命卡兹克",
+      "tweets": [
+        {
+          "id": "2035760405797347735",
+          "text": "聊聊微信的Agent野心。\n\n周末微信上线了官方的ClawBot插件。\n\n打开微信 → 我 → 设置 → 插件，你会看到一个红色图标的新面孔。\n它的功能描述只有一句话：链接OpenClaw与微信。\n\n链接好以后，就可以直接在微信里面用了，入口类似于文件传输助手。\n\n要理解这个东西，我觉得还得先知道一个前提，就是微信里面，已经有一个同等级的AI入口了，就是元宝。\n\n微信ClawBot的插件，跟元宝AI的最大的不同，本质上，这个插件它本质上，是一个链接外部Agent的管道。\n\n这个插件背后跑的，从来没有说只能小龙虾，你也可以跑Claude code、OpenCode，什么都行。\n\n今天已经看到无数大神做完了。\n\n微信不关心你用谁的模型，也不关心到底背后是什么东西，它就是建了一条管道，也只关心一件事，就是这个交互，到底是不是发生在微信里。\n\n说实话，如果回顾微信过去十几年的每一次的，重大开放，公众号、小程序、视频号、微信支付等等，全都是自建生态。\n\n开发者如果要接入微信，必须用微信的SDK，遵守微信的协议，AI时代以后，有很多人其实都把自己的AI助手接入到了微信里，但是很容易被封号，因为确实违规了。\n\n在过去，微信从来没有说过“你随便跑个什么东西都行，我给你一条官方管道，你直接跟用”。\n\n从来没有过。\n\n而现在，ClawBot打破了这个模式。\n\n也就是说，通道是我的，但通道里跑什么，我不管。你的OpenClaw在你自己的电脑上，装了什么模型、跑了什么任务、执行了什么操作，我也不管。\n\n微信这次动作非常的快，也是因为OpenClaw跑的太快了，各种野生微信接入方案满天飞。\n\n与其让野路子遍地开花，不如自己做一条官方管道，至少消息链路还在自己手上。\n\n其实已经能看出来，从微信的决策上，未来真正的核心的，是渠道，是入口，这个是命门。\n\n而且在服务协议里面，有一段话：\n微信有权决定可连接的第三方AI服务的类型、范围、信息收发规模或频率，有权对输入内容和输出结果进行识别，并根据安全或风险情况采取拦截、阻断等措施。\n\n君士坦丁堡为什么能繁荣一千五百年？它不生产丝绸，不生产香料，不生产黄金。\n\n它有个很重要的因素，就是坐在黑海和地中海之间那条最窄的水道上。所有东西方贸易要过博斯普鲁斯海峡，就得交过路费，用它的港口，遵守它的规则。\n\n通道的价值，永远高于通道里流过的任何单一货物。城市兴亡更迭，海峡的价值从来没变过。\n\n所以微信还是强，想的非常清楚。\n\n这年头，做不做自己的小龙虾根本不重要。\n\n重要的是，入口在哪。",
+          "createdAt": "2026-03-22T16:47:57.000Z",
+          "url": "https://x.com/Khazix0918/status/2035760405797347735",
+          "likes": 15,
+          "retweets": 1,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 18,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "宝玉",
+      "handle": "dotey",
+      "bio": "Prompt Engineer, dedicated to learning and disseminating knowledge about AI, software engineering, and engineering management.",
+      "tweets": [
+        {
+          "id": "2035754880275501405",
+          "text": "感谢大家支持，从第一次发布 baoyu-skills ，到现在 2 个多月时间已经 10K+ stars 了。\nhttps://t.co/0Vly8Dcn68 上的数据：\n193.7K total installs，当前最受欢迎的 skill 排名在 170\nhttps://t.co/YZtwkjcgME https://t.co/Vsu6jmHSbX https://t.co/Dpf4lnPvXz",
+          "createdAt": "2026-03-22T16:26:00.000Z",
+          "url": "https://x.com/dotey/status/2035754880275501405",
+          "likes": 88,
+          "retweets": 12,
+          "replies": 11,
+          "isQuote": true,
+          "quotedTweetId": "2011907793520116215",
+          "_metrics": {
+            "engagementScore": 124,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035749966694465678",
+          "text": "说的没有错的，不过这里重点不是当没当过 Manager，而是同时有架构能力和管理能力，能拆分任务，能管理 Agent。\n\n说实话，很多 manager 技术不咋地，就会向上管理和 PUA，但管 Agent 重要的不是向上管理，也不是 PUA，而是“定义问题”和“知人善用”。 https://t.co/eJ4R1icAjN https://t.co/Kby7Cjj0Cd",
+          "createdAt": "2026-03-22T16:06:29.000Z",
+          "url": "https://x.com/dotey/status/2035749966694465678",
+          "likes": 43,
+          "retweets": 7,
+          "replies": 7,
+          "isQuote": true,
+          "quotedTweetId": "2035711109240438957",
+          "_metrics": {
+            "engagementScore": 64,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035621498707177923",
+          "text": "https://t.co/vDH6mz0hB7",
+          "createdAt": "2026-03-22T07:35:59.000Z",
+          "url": "https://x.com/dotey/status/2035621498707177923",
+          "likes": 65,
+          "retweets": 16,
+          "replies": 12,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 113,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035601778062840128",
+          "text": "微信成也张小龙，败也张小龙\n微信早死早超生 https://t.co/vvMCiSL1sb",
+          "createdAt": "2026-03-22T06:17:38.000Z",
+          "url": "https://x.com/dotey/status/2035601778062840128",
+          "likes": 154,
+          "retweets": 1,
+          "replies": 45,
+          "isQuote": true,
+          "quotedTweetId": "2035572359944659312",
+          "_metrics": {
+            "engagementScore": 157,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035601041337602298",
+          "text": "我这个时间轴导出srt没问题，是原始的时间戳很准，但是生成文本的时候不准的，因为组合段落的时候，有时候要按照标点分割segment，这时候是按字符长度去估算时长的，会导致分割的不准。\nhttps://t.co/DdD4Zw4A6n\n但这个本身也不是为了生成字幕，而是为了看文本的，所以要求没那么高。如果要准得用whisper，就得要加载模型了",
+          "createdAt": "2026-03-22T06:14:42.000Z",
+          "url": "https://x.com/dotey/status/2035601041337602298",
+          "likes": 6,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2035595981102928189",
+          "_metrics": {
+            "engagementScore": 9,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "歸藏",
+      "handle": "op7418",
+      "bio": "关注人工智能、LLM 、 AI 图像视频和设计（Interested in AI, LLM, Stable Diffusion, and design）\n\n歸藏的 AIGC 周刊｜公众号：歸藏的AI工具箱",
+      "tweets": [
+        {
+          "id": "2035744449129783600",
+          "text": "今晚上线 https://t.co/vsAcE38SP1",
+          "createdAt": "2026-03-22T15:44:33.000Z",
+          "url": "https://x.com/op7418/status/2035744449129783600",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 4,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035735415534256424",
+          "text": "今晚上线 https://t.co/i3iF8IdpCl https://t.co/YMbKNmgIZH",
+          "createdAt": "2026-03-22T15:08:39.000Z",
+          "url": "https://x.com/op7418/status/2035735415534256424",
+          "likes": 15,
+          "retweets": 2,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2035564154636087770",
+          "_metrics": {
+            "engagementScore": 21,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035564154636087770",
+          "text": "微信这次也是急了，第一次这么快的追热点\n\n上线 Openclaw 官方插件，只支持私聊\n\n在“我-设置-插件”中启用微信 Clawbot 插件\n\n然后在 Openclaw 安装后，扫描展示的二维码就能启用\n\n目前正在灰度\n\n我看看能不接到我的 Claude-to-im Skills 里面，让你的 Codex 和 Claude Code 也可以跟微信聊天 https://t.co/ck4Jf42XpY",
+          "createdAt": "2026-03-22T03:48:08.000Z",
+          "url": "https://x.com/op7418/status/2035564154636087770",
+          "likes": 41,
+          "retweets": 3,
+          "replies": 28,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 50,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "向阳乔木",
+      "handle": "vista8",
+      "bio": "喜欢摇滚乐、爱钓鱼的PM\n网站：https://t.co/vnUpLt752o",
+      "tweets": [
+        {
+          "id": "2035756241285480690",
+          "text": "终于1.5倍速听完了，原始有7个小时，很棒的访谈。\n\n印象最深刻的是何恺明被提及n多次。\n\n还有这两个顶级AI研究员的娱乐也是打魔兽世界和炉石传说 ，哈哈哈！ https://t.co/G0vdwiuFJ5",
+          "createdAt": "2026-03-22T16:31:25.000Z",
+          "url": "https://x.com/vista8/status/2035756241285480690",
+          "likes": 6,
+          "retweets": 0,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 6,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035588915139399771",
+          "text": "飞书Skill：https://t.co/PY1BppBiS3\n\n任意网页转Markdown，支持微信、X和飞书：https://t.co/vJWsVbvw2u\n\nLenny 的产品经理宝典Skill：https://t.co/krdtlax54e",
+          "createdAt": "2026-03-22T05:26:31.000Z",
+          "url": "https://x.com/vista8/status/2035588915139399771",
+          "likes": 24,
+          "retweets": 5,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 39,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035588381426757983",
+          "text": "客观说说微信龙虾clawbot的优点和缺点：\n\n优点：\n1. 离用户最近，对国内普通人友好。\n2. 原生支持语音输入。\n\n缺点：\n1. 只支持手机，不支持Mac，第一次在微信看到这么割裂的体验。\n2. 目前Bug不少，不支持流式输出，信息回复都是乱的。\n3. Markdown支持很差很差，链接都不能点\n\n还有工作区独立，需要同步Claude Code已有Skill，没有开箱即用。\n\n评论分享几个自己写Skill，读写飞书文档/表格等，增强龙虾实用性。",
+          "createdAt": "2026-03-22T05:24:24.000Z",
+          "url": "https://x.com/vista8/status/2035588381426757983",
+          "likes": 61,
+          "retweets": 2,
+          "replies": 23,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 67,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035572151915618614",
+          "text": "第三方接入微信机器人项目 https://t.co/dMRIN8D6lP",
+          "createdAt": "2026-03-22T04:19:54.000Z",
+          "url": "https://x.com/vista8/status/2035572151915618614",
+          "likes": 2,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "2035568871588217019",
+          "_metrics": {
+            "engagementScore": 2,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035551180403933549",
+          "text": "腾讯官方终于也推出龙虾机器人了。\n\n有几个安装坑需注意：\n\n1. 更新微信到最新版本\n\n2. 龙虾所在的电脑或服务器的终端运行\nnpx -y @tencent-weixin/openclaw-weixin-cli@latest install\n\n3. 扫二维码链接微信，记住一定要微信里跟龙虾对话并置顶，否则搜不到。\n\n4. 工作区独立，安装后需要添加skill https://t.co/lX8S7OebHY",
+          "createdAt": "2026-03-22T02:56:34.000Z",
+          "url": "https://x.com/vista8/status/2035551180403933549",
+          "likes": 156,
+          "retweets": 32,
+          "replies": 26,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 252,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Gorden Sun",
+      "handle": "Gorden_Sun",
+      "bio": "只发AI相关信息，个人维护的AI资讯日报（已连续日更3年）👇",
+      "tweets": [
+        {
+          "id": "2035710386473959847",
+          "text": "AI资讯日报，3月22日：https://t.co/cxvwWSSavf https://t.co/1G4FFlLnOK",
+          "createdAt": "2026-03-22T13:29:12.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2035710386473959847",
+          "likes": 1,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 4,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035707457390211402",
+          "text": "Claude Code推出云端定时任务\n不需要电脑上的Claude Code开着，也能定时自动执行任务。需要关联Github仓库，可以在夜间自动解决未解决的问题、自动更新项目文档等，也可以用来做日报、资料收集，只不过内容是放在Github仓库里。\n有了云端定时任务后，Claude Code直接成为了谷歌Jules的竞品。 https://t.co/u6zXJHsEtM",
+          "createdAt": "2026-03-22T13:17:34.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2035707457390211402",
+          "likes": 5,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 5,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035703414722789403",
+          "text": "Browser Use发布Browser Use CLI 2.0\n速度翻倍，成本减半，可以直接使用CDP连接到Chrome。支持三种浏览器模式：无头Chromium、带用户Profile的真实Chrome、云端托管浏览器。\n官方文档：https://t.co/56NMGtQuFM https://t.co/LIPe0vNjud",
+          "createdAt": "2026-03-22T13:01:30.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2035703414722789403",
+          "likes": 75,
+          "retweets": 13,
+          "replies": 1,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 114,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035698488034628003",
+          "text": "DeerFlow 2.0：字节开源的Agent框架\n基于LangGraph和LangChain构建，核心理念是给Agent配备完整的电脑权限，包括沙箱环境、文件系统、长期记忆、可扩展技能，实现的效果与OpenClaw类似。\nGithub：https://t.co/Zqj3GNAbXN https://t.co/unVFBlyTLC",
+          "createdAt": "2026-03-22T12:41:55.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2035698488034628003",
+          "likes": 132,
+          "retweets": 30,
+          "replies": 3,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 222,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2035686721795563630",
+          "text": "假如我在海外VPS上部署了OpenClaw，通过便宜中转站提供Claude Opus 4.6，然后通过开多个ChatBot的方式给每个用户一个隔离上下文的微信ChatBot，最后给朋友或者买家用户，假如用户都是遵纪守法的好公民，有哪些风险？",
+          "createdAt": "2026-03-22T11:55:10.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2035686721795563630",
+          "likes": 19,
+          "retweets": 2,
+          "replies": 14,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 25,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    }
+  ],
+  "podcasts": [],
+  "cnMedia": [],
+  "officialBlogs": [],
+  "_crossSignals": {
+    "sharedTopics": {
+      "agent": [
+        "petergyang",
+        "levie",
+        "danshipper",
+        "bindureddy",
+        "Khazix0918",
+        "dotey",
+        "Gorden_Sun"
+      ],
+      "agents": [
+        "petergyang",
+        "levie",
+        "danshipper"
+      ],
+      "claude": [
+        "petergyang",
+        "garrytan",
+        "danshipper",
+        "Khazix0918",
+        "op7418",
+        "vista8",
+        "Gorden_Sun"
+      ],
+      "code": [
+        "petergyang",
+        "garrytan",
+        "emollick",
+        "Khazix0918",
+        "op7418",
+        "vista8",
+        "Gorden_Sun"
+      ],
+      "coding": [
+        "levie",
+        "garrytan",
+        "danshipper"
+      ]
+    },
+    "activeBuilders": 14
+  },
+  "stats": {
+    "builders": 14,
+    "tweets": 43,
+    "cnArticles": 0,
+    "officialBlogs": 0,
+    "podcasts": 0
+  }
+}

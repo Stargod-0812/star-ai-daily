@@ -42,6 +42,11 @@ async function getDigestText() {
     return await readFile(args[fileIdx + 1], 'utf-8');
   }
 
+  // 检测是否有管道输入，避免在终端交互时永远阻塞
+  if (process.stdin.isTTY) {
+    throw new Error('未提供日报内容。请通过 --message、--file 或管道输入提供。');
+  }
+
   const chunks = [];
   for await (const chunk of process.stdin) {
     chunks.push(chunk);
@@ -66,7 +71,8 @@ async function sendTelegram(text, botToken, chatId) {
     remaining = remaining.slice(splitAt);
   }
 
-  for (const chunk of chunks) {
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i];
     const res = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,
       {
@@ -82,9 +88,12 @@ async function sendTelegram(text, botToken, chatId) {
     );
 
     if (!res.ok) {
-      const err = await res.json();
+      let err;
+      try { err = await res.json(); } catch { err = { description: `HTTP ${res.status}` }; }
+
       if (err.description && err.description.includes("can't parse")) {
-        await fetch(
+        // Markdown 解析失败，降级为纯文本重试
+        const retryRes = await fetch(
           `https://api.telegram.org/bot${botToken}/sendMessage`,
           {
             method: 'POST',
@@ -96,18 +105,24 @@ async function sendTelegram(text, botToken, chatId) {
             })
           }
         );
+        if (!retryRes.ok) {
+          let retryErr;
+          try { retryErr = await retryRes.json(); } catch { retryErr = { description: `HTTP ${retryRes.status}` }; }
+          throw new Error(`Telegram API 降级重试仍失败: ${retryErr.description}`);
+        }
       } else {
         throw new Error(`Telegram API 错误: ${err.description}`);
       }
     }
 
-    if (chunks.length > 1) await new Promise(r => setTimeout(r, 500));
+    // 多片时在非最后一片后延迟，避免触发限流
+    if (i < chunks.length - 1) await new Promise(r => setTimeout(r, 500));
   }
 }
 
 // -- Email 投递 (Resend) -----------------------------------------------------
 
-async function sendEmail(text, apiKey, toEmail) {
+async function sendEmail(text, htmlContent, apiKey, toEmail) {
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -120,76 +135,232 @@ async function sendEmail(text, apiKey, toEmail) {
       subject: `⭐ Star AI 日报 — ${new Date().toLocaleDateString('zh-CN', {
         year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
       })}`,
-      text: text
+      text: text,
+      html: htmlContent
     })
   });
 
   if (!res.ok) {
-    const err = await res.json();
+    let err;
+    try { err = await res.json(); } catch { err = { message: `HTTP ${res.status}` }; }
     throw new Error(`Resend API 错误: ${err.message || JSON.stringify(err)}`);
   }
 }
 
-// -- HTML 日报生成 -----------------------------------------------------------
+// -- Markdown → HTML 渲染 ----------------------------------------------------
+
+function esc(s) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * 将一行文本中的 markdown 内联语法转换为 HTML：
+ * - **粗体** → <strong>
+ * - [文字](url) → <a>
+ * - *斜体* → <em>（仅单星号且非粗体）
+ */
+function inlineMarkdown(text) {
+  let s = esc(text);
+  // 行内链接 [text](url) — 先处理，避免被粗体匹配干扰
+  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a class="inline-link" href="$2" target="_blank" rel="noopener">$1</a>');
+  // 纯文本链接 → https://... — 文字版日报使用完整 URL 格式
+  s = s.replace(/→\s*(https?:\/\/\S+)/g,
+    '→ <a class="inline-link" href="$1" target="_blank" rel="noopener">$1</a>');
+  // 粗体 **text**
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  // 斜体 *text*（排除已被粗体消耗的）
+  s = s.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
+  return s;
+}
+
+/**
+ * 从日报文本中提取统计信息用于顶部统计条
+ */
+function extractStats(text) {
+  const sections = {
+    builders: 0,
+    cnArticles: 0,
+    blogs: 0,
+    podcasts: 0
+  };
+  // 统计 ### 开头的建造者小标题数量
+  const builderMatches = text.match(/^### .+/gm);
+  if (builderMatches) sections.builders = builderMatches.length;
+  // 检测板块存在
+  if (/🇨🇳/.test(text)) {
+    const cnSection = text.split(/🇨🇳[^\n]*/)[1]?.split(/\n(?=🌐|🎙)/)?.[0] || '';
+    const cnParas = cnSection.split(/\n\n/).filter(p => p.trim() && !p.startsWith('🇨🇳'));
+    sections.cnArticles = cnParas.length;
+  }
+  if (/🌐/.test(text)) {
+    const blogSection = text.split(/🌐[^\n]*/)[1]?.split(/\n(?=🎙)/)?.[0] || '';
+    const blogParas = blogSection.split(/\n\n/).filter(p => p.trim() && !p.startsWith('🌐'));
+    sections.blogs = blogParas.length;
+  }
+  if (/🎙/.test(text)) sections.podcasts = 1;
+
+  // 估算阅读时间（中文约 400 字/分钟）
+  const charCount = text.replace(/https?:\/\/\S+/g, '').replace(/\s+/g, '').length;
+  const readMin = Math.max(2, Math.round(charCount / 400));
+
+  return { ...sections, readMin };
+}
 
 function generateHtmlDigest(text) {
-  const dateStr = new Date().toLocaleDateString('en-US', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  const dateStr = new Date().toLocaleDateString('zh-CN', {
+    year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
   });
-
-  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const stats = extractStats(text);
 
   const lines = text.split('\n');
   let html = '';
+  let inBlockquote = false;
+
   for (const line of lines) {
     const trimmed = line.trim();
-    if (!trimmed) { html += '<div class="spacer"></div>'; continue; }
-    const urlMatch = trimmed.match(/^(https?:\/\/\S+)$/);
-    if (urlMatch) {
-      html += `<a class="link" href="${esc(urlMatch[1])}" target="_blank" rel="noopener">${esc(urlMatch[1])}</a>`;
-    } else if (trimmed.startsWith('⭐') || trimmed.match(/^Star\s?AI/i)) {
-      html += `<h1 class="digest-title">${esc(trimmed.replace(/^⭐\s*/, ''))}</h1>`;
-    } else if (trimmed.startsWith('🐦') || trimmed.startsWith('🎙') || trimmed.match(/^(X\s*\/|TWITTER|播客)/i)) {
-      html += `<h2 class="section-head">${esc(trimmed)}</h2>`;
-    } else {
-      html += `<p>${esc(trimmed)}</p>`;
+
+    // 空行
+    if (!trimmed) {
+      if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
+      html += '<div class="spacer"></div>';
+      continue;
     }
+
+    // 关闭上一个引用块（如果当前行不是引用）
+    if (inBlockquote && !trimmed.startsWith('>')) {
+      html += '</blockquote>';
+      inBlockquote = false;
+    }
+
+    // --- 分隔线
+    if (/^---+$/.test(trimmed)) {
+      html += '<hr class="divider">';
+      continue;
+    }
+
+    // 主标题 ⭐ Star AI 日报
+    if (trimmed.startsWith('⭐') || /^Star\s?AI/i.test(trimmed)) {
+      html += `<h1 class="digest-title">${esc(trimmed.replace(/^⭐\s*/, ''))}</h1>`;
+      continue;
+    }
+
+    // 引用块（> 开头）— 用于主线判断和播客原话
+    if (trimmed.startsWith('>')) {
+      const content = trimmed.replace(/^>\s*/, '');
+      if (!inBlockquote) {
+        html += '<blockquote class="quote">';
+        inBlockquote = true;
+      }
+      html += `<p>${inlineMarkdown(content)}</p>`;
+      continue;
+    }
+
+    // 板块标题（emoji 开头）
+    if (/^(?:🐦|🎙|🔥|🇨🇳|🌐|💬|🏢)/.test(trimmed)) {
+      html += `<h2 class="section-head">${esc(trimmed)}</h2>`;
+      continue;
+    }
+
+    // 三级标题 ### 建造者名 · 身份
+    if (trimmed.startsWith('### ')) {
+      const titleText = trimmed.replace(/^###\s*/, '');
+      const parts = titleText.split(/\s*·\s*/);
+      if (parts.length >= 2) {
+        html += `<h3 class="builder-name">${esc(parts[0])}<span class="builder-role"> · ${esc(parts[1])}</span></h3>`;
+      } else {
+        html += `<h3 class="builder-name">${esc(titleText)}</h3>`;
+      }
+      continue;
+    }
+
+    // 变化洞察（斜体行 *变化洞察：...*）
+    if (/^\*变化洞察[：:]/.test(trimmed)) {
+      const content = trimmed.replace(/^\*/, '').replace(/\*$/, '');
+      html += `<p class="diff-insight"><em>${inlineMarkdown(content)}</em></p>`;
+      continue;
+    }
+
+    // 普通段落
+    html += `<p>${inlineMarkdown(trimmed)}</p>`;
   }
+
+  if (inBlockquote) html += '</blockquote>';
+
+  // 统计条文案
+  const statParts = [];
+  if (stats.builders > 0) statParts.push(`${stats.builders} 位建造者`);
+  if (stats.cnArticles > 0) statParts.push(`${stats.cnArticles} 条国内资讯`);
+  if (stats.blogs > 0) statParts.push(`${stats.blogs} 条官方博客`);
+  if (stats.podcasts > 0) statParts.push(`${stats.podcasts} 期播客`);
+  statParts.push(`约 ${stats.readMin} 分钟`);
+  const statsLine = statParts.join(' · ');
 
   return `<!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>StarrLiao AI 日报 — ${dateStr}</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<title>Star AI 日报 — ${esc(dateStr)}</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:#0c0c0e;color:#f0ede8;line-height:1.8;-webkit-font-smoothing:antialiased}
-::selection{background:#c8a44e;color:#0c0c0e}
-.masthead{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0;text-align:center}
-.masthead span{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:#c8a44e;letter-spacing:.15em;text-transform:uppercase}
-.masthead .dot{color:#5c5850;font-size:10px;margin:0 12px}
-.wrap{max-width:640px;margin:0 auto;padding:56px 24px 72px}
-.date{font-family:'JetBrains Mono',monospace;font-size:11px;color:#5c5850;letter-spacing:.12em;text-transform:uppercase;text-align:center;margin-bottom:32px}
-.digest-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px;color:#f0ede8}
-.section-head{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:#c8a44e;letter-spacing:.12em;text-transform:uppercase;margin:36px 0 16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08)}
-p{font-size:15px;line-height:1.85;color:#a09b93;margin:6px 0}
-.link{display:block;font-family:'JetBrains Mono',monospace;font-size:12px;color:#8ab4f8;text-decoration:none;word-break:break-all;margin:4px 0 12px;transition:opacity .2s}
-.link:hover{opacity:.7}
-.spacer{height:12px}
-.colophon{max-width:640px;margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,0.06);text-align:center}
-.colophon-brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:#c8a44e;margin-bottom:6px}
+body{font-family:'Inter',-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;background:#0a0a0c;color:#e8e4df;line-height:1.8;-webkit-font-smoothing:antialiased}
+::selection{background:#c8a44e;color:#0a0a0c}
+
+.masthead{border-bottom:1px solid rgba(255,255,255,0.05);padding:16px 0;text-align:center}
+.masthead-brand{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#c8a44e;letter-spacing:.18em;text-transform:uppercase}
+
+.wrap{max-width:960px;margin:0 auto;padding:48px 32px 80px}
+
+.stats-bar{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b6560;letter-spacing:.05em;text-align:center;margin-bottom:36px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+
+.digest-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px;color:#f0ede8}
+
+.quote{border-left:3px solid #c8a44e;padding:12px 16px;margin:16px 0;background:rgba(200,164,78,0.04);border-radius:0 8px 8px 0}
+.quote p{color:#c8c0b4;font-size:15px;margin:4px 0}
+
+.section-head{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:#c8a44e;letter-spacing:.14em;text-transform:uppercase;margin:40px 0 18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+
+.builder-name{font-size:16px;font-weight:600;color:#f0ede8;margin:28px 0 8px;letter-spacing:-.01em}
+.builder-role{font-weight:400;color:#8a8580;font-size:14px}
+
+p{font-size:15px;line-height:1.85;color:#a8a29e;margin:6px 0 10px}
+strong{color:#e8e4df;font-weight:600}
+
+.inline-link{color:#7cb3e8;text-decoration:none;font-size:13px;font-weight:500;transition:color .15s}
+.inline-link:hover{color:#a8d0f5;text-decoration:underline}
+
+.diff-insight{padding:10px 14px;background:rgba(124,179,232,0.05);border-radius:6px;margin:12px 0 20px}
+.diff-insight em{color:#8a9bae;font-size:14px}
+
+.divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:32px 0}
+
+.spacer{height:10px}
+
+.colophon{max-width:960px;margin:0 auto;padding:28px 32px;border-top:1px solid rgba(255,255,255,0.04);text-align:center}
+.colophon-brand{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#c8a44e;margin-bottom:6px}
 .colophon-note{font-size:11px;color:#5c5850;line-height:1.6}
-@media(max-width:600px){.wrap{padding:36px 18px 56px}.digest-title{font-size:24px}}
+
+@media(max-width:600px){
+  .wrap{padding:32px 16px 60px}
+  .digest-title{font-size:24px}
+  .builder-name{font-size:15px}
+}
 </style></head>
 <body>
-<header class="masthead"><span>StarrLiao</span><span class="dot">·</span><span>AI Daily Brief</span></header>
+<header class="masthead"><div class="masthead-brand">Star AI 日报</div></header>
 <div class="wrap">
-  <div class="date">${dateStr}</div>
+  <div class="stats-bar">${esc(dateStr)} · ${esc(statsLine)}</div>
   ${html}
 </div>
 <footer class="colophon">
-  <div class="colophon-brand">StarrLiao AI Daily Brief</div>
-  <div class="colophon-note">信息源由 StarrLiao 统一精选维护，每日自动更新。</div>
+  <div class="colophon-brand">Star AI 日报</div>
+  <div class="colophon-note">追踪真正在做事的人，不追网红。信息源由 Star 统一精选维护。</div>
 </footer>
 </body></html>`;
 }
@@ -205,7 +376,7 @@ async function saveHtml(digestText) {
   const htmlContent = generateHtmlDigest(digestText);
   await writeFile(htmlPath, htmlContent);
   await writeFile(latestPath, htmlContent);
-  return latestPath;
+  return { latestPath, htmlContent };
 }
 
 async function main() {
@@ -216,7 +387,11 @@ async function main() {
 
   let config = {};
   if (existsSync(CONFIG_PATH)) {
-    config = JSON.parse(await readFile(CONFIG_PATH, 'utf-8'));
+    try {
+      config = JSON.parse(await readFile(CONFIG_PATH, 'utf-8'));
+    } catch {
+      console.error('config.json 解析失败，使用默认配置');
+    }
   }
 
   const delivery = config.delivery || { method: 'stdout' };
@@ -229,9 +404,16 @@ async function main() {
 
   // 始终生成 HTML 存档
   let htmlPath;
+  let htmlContent;
+  let htmlError;
   try {
-    htmlPath = await saveHtml(digestText);
-  } catch {}
+    const result = await saveHtml(digestText);
+    htmlPath = result.latestPath;
+    htmlContent = result.htmlContent;
+  } catch (err) {
+    htmlError = err.message;
+    console.error(`HTML 生成失败: ${err.message}`);
+  }
 
   // --html-only 模式：只生成 HTML，不投递
   if (htmlOnly) {
@@ -266,7 +448,7 @@ async function main() {
         const toEmail = delivery.email;
         if (!apiKey) throw new Error('.env 中未找到 RESEND_API_KEY');
         if (!toEmail) throw new Error('config.json 中未找到 delivery.email');
-        await sendEmail(digestText, apiKey, toEmail);
+        await sendEmail(digestText, htmlContent, apiKey, toEmail);
         console.log(JSON.stringify({
           status: 'ok',
           method: 'email',
@@ -278,8 +460,6 @@ async function main() {
 
       case 'stdout':
       default:
-        // stdout 模式下不打印日报文本（LLM 自己会输出给用户）
-        // 只输出状态信息供 LLM 确认 HTML 已生成
         console.log(JSON.stringify({
           status: 'ok',
           method: 'stdout',
@@ -298,4 +478,10 @@ async function main() {
   }
 }
 
-main();
+main().catch(err => {
+  console.error(JSON.stringify({
+    status: 'error',
+    message: err.message
+  }));
+  process.exit(1);
+});

@@ -13,7 +13,7 @@ feed JSON 中每条推文附带 `_metrics` 字段，顶层有 `_crossSignals`。
 - `sharedTopics`: 被 2 个以上 builder 同时提到的关键词及提及者列表
 - `activeBuilders`: 今天有动态的 builder 总数
 
-## 高信号特征（优先放入"今日必看"）
+## 高信号特征（优先放入"全球 AI 大事"）
 
 - `isHighEngagement: true` 且内容有实质观点（不是段子或社交寒暄）
 - `sharedTopics` 中某个话题被 3+ 个 builder 提及，说明行业注意力聚焦
@@ -30,6 +30,6 @@ feed JSON 中每条推文附带 `_metrics` 字段，顶层有 `_crossSignals`。
 ## 规则
 
 - 这些指标是辅助参考，不是硬性规则。你的判断力比数字重要。
-- 一条推文 engagement 低但观点独到，仍然可以进"今日必看"。
+- 一条推文 engagement 低但观点独到，仍然可以进"全球 AI 大事"。
 - 一条推文 engagement 爆表但只是个梗图，应该降级或跳过。
 - 如果 `sharedTopics` 为空，说明今天没有明显的话题聚焦，正常处理即可。

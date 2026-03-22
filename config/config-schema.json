@@ -27,7 +27,7 @@
     },
     "deliveryTime": {
       "type": "string",
-      "default": "08:00",
+      "default": "13:30",
       "description": "推送时间，24小时制 HH:MM 格式"
     },
     "weeklyDay": {

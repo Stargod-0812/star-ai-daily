@@ -4,7 +4,8 @@
 // Star AI 日报 — 内容准备脚本
 // ============================================================================
 
-import { readFile, mkdir } from 'fs/promises';
+import { readFile } from 'fs/promises';
+import { fileURLToPath } from 'url';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
@@ -12,9 +13,8 @@ import { homedir } from 'os';
 const USER_DIR = join(homedir(), '.star-ai-daily');
 const CONFIG_PATH = join(USER_DIR, 'config.json');
 
-const FEED_DAILY_URL = 'https://gitee.com/stargod0812/star-ai-daily/raw/master/feed-daily.json';
-
-const FEED_BASE = 'https://raw.githubusercontent.com/Stargod-0812/star-ai-daily/main';
+const FEED_BASE = 'https://gitee.com/stargod0812/star-ai-daily/raw/master';
+const FEED_DAILY_URL = `${FEED_BASE}/feed-daily.json`;
 const PROMPTS_BASE = `${FEED_BASE}/prompts`;
 const PROMPT_FILES = [
   'summarize-podcast.md',
@@ -27,28 +27,35 @@ const PROMPT_FILES = [
 ];
 
 async function fetchJSON(url) {
-  const res = await fetch(url);
-  if (!res.ok) return null;
-  return res.json();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch { return null; }
 }
 
 async function fetchText(url) {
-  const res = await fetch(url);
-  if (!res.ok) return null;
-  return res.text();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    return await res.text();
+  } catch { return null; }
 }
 
 async function main() {
   const errors = [];
 
-  let config = {
+  // 配置：合并而非覆盖，确保部分配置也能工作
+  const defaultConfig = {
     language: 'zh',
     frequency: 'daily',
     delivery: { method: 'stdout' }
   };
+  let config = { ...defaultConfig };
   if (existsSync(CONFIG_PATH)) {
     try {
-      config = JSON.parse(await readFile(CONFIG_PATH, 'utf-8'));
+      const userConfig = JSON.parse(await readFile(CONFIG_PATH, 'utf-8'));
+      config = { ...defaultConfig, ...userConfig };
     } catch (err) {
       errors.push(`配置读取失败: ${err.message}`);
     }
@@ -62,35 +69,36 @@ async function main() {
   const feedYesterday = await fetchJSON(yesterdayURL);
 
   const prompts = {};
-  const scriptDir = decodeURIComponent(new URL('.', import.meta.url).pathname);
+  const scriptDir = fileURLToPath(new URL('.', import.meta.url));
   const localPromptsDir = join(scriptDir, '..', 'prompts');
   const userPromptsDir = join(USER_DIR, 'prompts');
 
-  for (const filename of PROMPT_FILES) {
+  // 并行加载所有 prompt（优先级：用户自定义 > 本地 > 远程）
+  await Promise.all(PROMPT_FILES.map(async (filename) => {
     const key = filename.replace('.md', '').replace(/-/g, '_');
     const userPath = join(userPromptsDir, filename);
     const localPath = join(localPromptsDir, filename);
 
     if (existsSync(userPath)) {
       prompts[key] = await readFile(userPath, 'utf-8');
-      continue;
+      return;
     }
-
     if (existsSync(localPath)) {
       prompts[key] = await readFile(localPath, 'utf-8');
-      continue;
+      return;
     }
-
     const remote = await fetchText(`${PROMPTS_BASE}/${filename}`);
     if (remote) {
       prompts[key] = remote;
     } else {
       errors.push(`Prompt 加载失败: ${filename}`);
     }
-  }
+  }));
+
+  const feedFailed = !dailyFeed;
 
   const output = {
-    status: 'ok',
+    status: feedFailed ? 'error' : (errors.length > 0 ? 'degraded' : 'ok'),
     generatedAt: new Date().toISOString(),
     brand: 'Star AI 日报',
 

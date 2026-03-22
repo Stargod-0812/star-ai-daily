@@ -1,6 +1,9 @@
 name: Star AI 日报 Feed 生成
 
 on:
+  schedule:
+    # 每天北京时间 9:30 (UTC 1:30)
+    - cron: '30 1 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -40,10 +43,17 @@ jobs:
             cd scripts && node generate-feed.js
           fi
 
-      - name: 提交并推送 Feed
+      - name: 提交到本仓库
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add feed-x.json feed-podcasts.json state-feed.json
-          git diff --cached --quiet || git commit -m "chore: 更新 feed [skip ci]"
+          git add feed-daily.json state-feed.json
+          git diff --cached --quiet || git commit -m "chore: 更新 feed-daily.json $(date -u +%Y-%m-%d)"
           git push
+
+      - name: 同步到 Gitee
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          git remote add gitee https://oauth2:${GITEE_TOKEN}@gitee.com/stargod0812/star-ai-daily.git 2>/dev/null || true
+          git push gitee HEAD:master --force

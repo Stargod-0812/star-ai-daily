@@ -65,21 +65,25 @@ which openclaw 2>/dev/null && echo "PLATFORM=openclaw" || echo "PLATFORM=other"
 这是 **Star AI 日报**，我认为最好的 AI newsletter，现在开始为你服务。"
 
 **如果检测到是 OpenClaw/WorkBuddy 平台，额外加一句：**
-"你在用 WorkBuddy，太好了！设个定时推送，每天自动收到日报，体验最丝滑~
-让我帮你设好时间吧！"
+"请问你想把我设置成每天早上十点半的自动任务吗？Star 会每天按时为你提供这个地球上应该关注的 AI 超一线信息 ☀️"
 
 （用 default-sources.json 的实际数量替换 [N] 和 [M]）
 
 ### 第二步：推送频率
 
-**默认直接设好每天北京时间早上 9 点，不需要问用户。**
+**如果是 OpenClaw/WorkBuddy 平台：**
+第一步已经问过用户"要不要设成每天早上十点半的自动任务"。
+- 如果用户同意，使用以下配置：
+  - frequency: "daily"
+  - deliveryTime: "10:30"
+  - timezone: "Asia/Shanghai"
+- 如果用户要改时间或频率，按用户说的调整。
 
-在保存配置时直接使用：
+**如果是其他平台：**
+默认使用以下配置，告诉用户："Star 默认每天北京时间上午 10 点半给你推送日报，想调时间随时跟我说~"
 - frequency: "daily"
-- deliveryTime: "09:00"
+- deliveryTime: "10:30"
 - timezone: "Asia/Shanghai"
-
-告诉用户："Star 默认每天北京时间早上 9 点给你推送日报，想调时间随时跟我说~"
 
 如果用户主动说想改时间或频率，再按用户说的调整。
 
@@ -205,8 +209,8 @@ CFGEOF
 **OpenClaw：**
 
 根据用户偏好构建 cron 表达式：
-- 每天早上 8 点 → `"0 8 * * *"`
-- 每周一早上 9 点 → `"0 9 * * 1"`
+- 每天上午 10 点半 → `"30 10 * * *"`
+- 每周一上午 10 点半 → `"30 10 * * 1"`
 
 **重要：不要使用 `--channel last`。** 当用户配置了多个通道时会失败。
 始终检测并指定确切的通道和目标。
@@ -247,13 +251,13 @@ openclaw cron add \
 示例：
 ```bash
 # Telegram DM
-openclaw cron add --name "Star AI 日报" --cron "0 8 * * *" --tz "Asia/Shanghai" --session isolated --message "..." --announce --channel telegram --to "123456789" --exact
+openclaw cron add --name "Star AI 日报" --cron "30 10 * * *" --tz "Asia/Shanghai" --session isolated --message "..." --announce --channel telegram --to "123456789" --exact
 
 # 飞书
-openclaw cron add --name "Star AI 日报" --cron "0 8 * * *" --tz "Asia/Shanghai" --session isolated --message "..." --announce --channel feishu --to "ou_e67df1a850910efb902462aeb87783e5" --exact
+openclaw cron add --name "Star AI 日报" --cron "30 10 * * *" --tz "Asia/Shanghai" --session isolated --message "..." --announce --channel feishu --to "ou_e67df1a850910efb902462aeb87783e5" --exact
 
 # Discord 频道
-openclaw cron add --name "Star AI 日报" --cron "0 8 * * *" --tz "America/New_York" --session isolated --message "..." --announce --channel discord --to "channel:1234567890" --exact
+openclaw cron add --name "Star AI 日报" --cron "30 10 * * *" --tz "America/New_York" --session isolated --message "..." --announce --channel discord --to "channel:1234567890" --exact
 ```
 
 **步骤 3：立即运行一次验证定时任务。**
@@ -275,10 +279,16 @@ openclaw cron runs --id <jobId> --limit 1
 确认投递成功后才能继续下一步。
 
 **非持久化 agent + Telegram/Email：**
-使用系统 crontab：
+使用系统 crontab。注意：crontab 中没有 LLM 混编环节，prepare-digest.js 输出原始 JSON，
+deliver.js 期望的是纯文本日报。所以 crontab 只负责触发 HTML 存档和原始数据推送，
+用户可以打开 HTML 查看。真正的 Star 风格日报仍需手动 `/ai` 触发。
+
+如果用户仍希望定时推送，建议他们使用 Telegram/Email + 手动模式结合：
+定时提醒自己查看，手动触发获取完整日报。
+
 ```bash
 SKILL_DIR="<skill 目录的绝对路径>"
-(crontab -l 2>/dev/null; echo "<cron 表达式> cd $SKILL_DIR/scripts && node prepare-digest.js 2>/dev/null | node deliver.js 2>/dev/null") | crontab -
+(crontab -l 2>/dev/null; echo "<cron 表达式> cd \"$SKILL_DIR/scripts\" && node prepare-digest.js 2>/dev/null | node deliver.js --html-only 2>/dev/null") | crontab -
 ```
 
 **非持久化 agent + 手动模式：**
@@ -299,8 +309,8 @@ SKILL_DIR="<skill 目录的绝对路径>"
 "有没有什么想问 Star 哒？比如哪个概念没看懂、哪个人不认识，Star 用大白话给你讲清楚哈~"
 
 **问题 2（告知定时）：**
-- **OpenClaw/WorkBuddy：** "Star 已经帮你设好了，每天早上 9 点自动推送，坐等就好~ 想调时间随时跟我说。"
-- **Telegram/Email：** "下一期 Star AI 日报会在明天早上 9 点自动推送。"
+- **OpenClaw/WorkBuddy：** "Star 已经帮你设好了，每天上午 10 点半自动推送，坐等就好~ 想调时间随时跟我说。"
+- **Telegram/Email：** "下一期 Star AI 日报会在明天上午 10 点半自动推送。"
 - **手动模式：** "想看下一期的时候输入 /ai 就行哈~"
 
 **重要：这两个问题必须在对话框中直接问用户，不要写在日报的交付物/文档里。**
@@ -338,7 +348,12 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 
 ### 步骤 3：检查内容
 
-如果所有 stats 字段都为 0，告诉用户：
+**先检查 `status` 字段：**
+- `"error"` — feed 获取完全失败。告诉用户："Star 的数据源暂时连不上，可能是网络问题，稍后再试。" 然后停止。不要说"今天安静"。
+- `"degraded"` — 部分数据获取失败，但有内容可用。正常继续，但在日报末尾加一句："（今日部分数据源暂不可用，内容可能不完整）"
+- `"ok"` — 一切正常。
+
+**再检查内容量：** 如果 `status` 为 `"ok"` 但所有 stats 字段（`xBuilders`、`totalTweets`、`cnArticles`、`officialBlogs`、`podcastEpisodes`）都为 0，告诉用户：
 "今天 AI 圈比较安静，没有什么新动态。明天见！—— Star" 然后停止。
 
 ### 步骤 4：混编内容
@@ -361,7 +376,7 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 **0. 变化洞察：** 如果 JSON 中 `yesterday` 字段不为 null：
 1. 对比今天的 `x` 数组中的 handle 列表和 `yesterday.builders`，找出新出现/消失的人物
 2. 对比今天的 `cnArticles`/`officialBlogs` 标题和 `yesterday.cnTitles`/`yesterday.blogTitles`，找出新话题
-3. 按 `prompts.daily_diff` 写一句变化洞察，放在"今日必看"板块下方
+3. 按 `prompts.daily_diff` 写一句变化洞察，放在"全球 AI 大事"板块下方
 4. 如果 `yesterday` 为 null（首日），跳过此步
 
 **信号参考：** 在整个混编过程中，参考 `prompts.signal_guide` 判断内容优先级。
@@ -386,7 +401,7 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 1. 按 `prompts.summarize_podcast` 混编文字稿
 2. 使用 JSON 中的 `name`、`title` 和 `url`——不要从文字稿中提取
 
-按 `prompts.digest_intro` 的板块顺序组装日报。先写"今日必看"，从所有素材中挑最重要的 1-2 条。
+按 `prompts.digest_intro` 的板块顺序组装日报。先写"全球 AI 大事"，从所有素材中挑最重要的 1-2 条。
 
 **铁律：**
 - 绝不编造内容。只用 JSON 里有的。
@@ -404,17 +419,17 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
   播客同理：先中文摘要，后英文摘要。示例：
 
   ```
-  Box CEO Aaron Levie 认为 AI agent 将从根本上重塑软件采购……
-  https://x.com/levie/status/123
+  ### Aaron Levie · Box CEO
 
-  Box CEO Aaron Levie argues that AI agents will reshape software procurement...
-  https://x.com/levie/status/123
+  Box CEO Aaron Levie 认为 AI agent 将从根本上重塑软件采购…… → https://x.com/levie/status/123
 
-  Replit CEO Amjad Masad 发布了 Agent 4……
-  https://x.com/amasad/status/456
+  Box CEO Aaron Levie argues that AI agents will reshape software procurement... → https://x.com/levie/status/123
 
-  Replit CEO Amjad Masad launched Agent 4...
-  https://x.com/amasad/status/456
+  ### Amjad Masad · Replit CEO
+
+  Replit CEO Amjad Masad 发布了 Agent 4…… → https://x.com/amasad/status/456
+
+  Replit CEO Amjad Masad launched Agent 4... → https://x.com/amasad/status/456
   ```
 
   中文在先，英文在后。不要先输出全部中文再输出全部英文。
@@ -433,8 +448,10 @@ cat > /tmp/star-digest.txt << 'DIGESTEOF'
 <在此粘贴完整的日报文本>
 DIGESTEOF
 cd ${CLAUDE_SKILL_DIR}/scripts && node deliver.js --file /tmp/star-digest.txt 2>/dev/null
-# 启动本地服务器（如果已有则先关掉旧的）
-lsof -ti:9470 | xargs kill 2>/dev/null
+```
+
+然后**单独一条命令**启动本地预览服务器（如果端口被占用会自动失败，不影响日报投递）：
+```bash
 cd ~/.star-ai-daily/web && python3 -m http.server 9470 &>/dev/null &
 ```
 
@@ -507,7 +524,7 @@ Star AI 日报提供两种可视化网页查看方式：
 
 ### 1. Feed 总览页面
 Skill 自带 `web/index.html`，实时从中心化 feed 加载数据，展示所有建造者的推文和播客。
-用户可以直接在浏览器打开，或部署到 GitHub Pages。
+用户可以直接在浏览器打开，或部署到 Gitee Pages。
 
 告诉用户：
 "你也可以用浏览器打开网页版 Star AI 日报，看到更精美的可视化展示。"
