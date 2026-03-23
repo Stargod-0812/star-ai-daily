@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "generate-feed": "node generate-feed.js",
-    "prepare-digest": "node prepare-digest.js"
+    "prepare-digest": "node prepare-digest.js",
+    "deliver": "node deliver.js"
   },
   "dependencies": {
-    "dotenv": "^16.4.0",
-    "proper-lockfile": "^4.1.0"
+    "dotenv": "^16.4.0"
   }
 }

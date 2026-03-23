@@ -194,12 +194,12 @@ function extractStats(text) {
   if (builderMatches) sections.builders = builderMatches.length;
   // 检测板块存在
   if (/🇨🇳/.test(text)) {
-    const cnSection = text.split(/🇨🇳[^\n]*/)[1]?.split(/\n(?=🌐|🎙)/)?.[0] || '';
+    const cnSection = text.split(/🇨🇳[^\n]*/)[1]?.split(/\n(?=🌐|🎙|---)/)?.[0] || '';
     const cnParas = cnSection.split(/\n\n/).filter(p => p.trim() && !p.startsWith('🇨🇳'));
     sections.cnArticles = cnParas.length;
   }
   if (/🌐/.test(text)) {
-    const blogSection = text.split(/🌐[^\n]*/)[1]?.split(/\n(?=🎙)/)?.[0] || '';
+    const blogSection = text.split(/🌐[^\n]*/)[1]?.split(/\n(?=🎙|---)/)?.[0] || '';
     const blogParas = blogSection.split(/\n\n/).filter(p => p.trim() && !p.startsWith('🌐'));
     sections.blogs = blogParas.length;
   }
@@ -262,7 +262,7 @@ function generateHtmlDigest(text) {
     }
 
     // 板块标题（emoji 开头）
-    if (/^(?:🐦|🎙|🔥|🇨🇳|🌐|💬|🏢)/.test(trimmed)) {
+    if (/^(?:🔥|🏢|🇨🇳|🌐|🎙)/.test(trimmed)) {
       html += `<h2 class="section-head">${esc(trimmed)}</h2>`;
       continue;
     }

@@ -36,7 +36,7 @@ const RSS_SOURCES = [
   { name: 'Hugging Face', url: 'https://huggingface.co/blog/feed.xml', lang: 'en', needsFilter: false },
 ];
 
-const AI_KEYWORDS = /\bAI\b|人工智能|大模型|LLM|Agent|智能体|GPT|Claude|Gemini|OpenAI|Anthropic|深度学习|AIGC|Copilot|Cursor|Replit|\bRAG\b|embedding|微调|fine.?tun|\bGPU\b|算力|生成式|Coding Agent|开源模型/i;
+const AI_KEYWORDS = /\bAI\b|人工智能|大模型|LLM|Agent|智能体|GPT|Claude|Gemini|OpenAI|Anthropic|深度学习|神经网络|AIGC|Copilot|Sora|diffusion|transformer|\bRAG\b|embedding|微调|fine.?tun|Cursor|Replit|自动驾驶|\bGPU\b|算力|生成式|机器学习|Coding Agent|开源模型|智能编程|Skills市场/i;
 
 // -- RSS 解析 ----------------------------------------------------------------
 
@@ -230,10 +230,12 @@ function findSharedTopics(builders) {
   const keywords = [
     'agent', 'agents', 'claude', 'gpt', 'gemini', 'cursor', 'copilot',
     'reasoning', 'scaling', 'inference', 'fine-tuning', 'rag', 'mcp',
-    'open source', 'open-source', 'llm', 'multimodal', 'vision',
+    'open source', 'open-source', 'llm', 'multimodal', 'vision', 'voice',
     'code', 'coding', 'vibe coding', 'prompt', 'tool use', 'function calling',
+    'training', 'benchmark', 'replit',
     'o1', 'o3', 'o4', 'grok', 'llama', 'mistral', 'deepseek',
-    'anthropic', 'openai', 'google', 'meta', 'microsoft',
+    'anthropic', 'openai', 'google', 'meta', 'microsoft', 'apple',
+    '大模型', '智能体', 'AIGC', '开源模型',
   ];
   const topicMap = {};
   for (const b of builders) {
