@@ -81,7 +81,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text-primary);-web
 <footer class="colophon"><div class="colophon-brand">Star AI Daily</div><div class="colophon-note">全球 AI 建造者动态 + 国内 AI 资讯 + 官方博客，每小时自动更新。</div></footer>
 <script>
 const FEED_URL='https://gitee.com/stargod0812/star-ai-daily/raw/master/feed-daily.json';
-const CN_HANDLES=new Set(['khazix0918','dotey','op7418','vista8','lijigang_com','gorden_sun']);
+const CN_HANDLES=new Set(['khazix0918','dotey','op7418','vista8','gorden_sun']);
 function esc(s){const d=document.createElement('span');d.textContent=s;return d.innerHTML}
 function escAttr(s){return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function fmtDate(iso){return new Date(iso).toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}

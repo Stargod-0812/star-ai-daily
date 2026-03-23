@@ -3,4 +3,5 @@ main = "src/index.js"
 compatibility_date = "2024-09-01"
 
 [triggers]
-crons = ["0 * * * *"]
+# 每天北京时间 9:30 (UTC 1:30)
+crons = ["30 1 * * *"]
