@@ -288,7 +288,7 @@ SKILL_DIR="<skill 目录的绝对路径>"
 
 告诉用户："让 Star 现在就给你看看今天的日报是什么样的。稍等一分钟。"
 
-然后立即运行下方的「内容投递」全流程（步骤 1-6），不等定时任务。
+然后立即运行下方的「日报生成 Pipeline」全流程（步骤 1-6），不等定时任务。
 
 投递完成后，在对话框中（不是在日报交付物里）做以下事情：
 
@@ -384,7 +384,7 @@ cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 每条推文的 `_metrics` 和顶层的 `_crossSignals` 提供量化指标辅助你的判断。
 
 **1. 推文：** `x` 数组中包含 AI 关键人物及其推文。逐个处理：
-1. 用 `bio` 字段获取身份信息（如 bio 写着 "ceo @box" → "Box CEO Aaron Levie"）
+1. 用 `bio` 字段获取身份信息（如 bio 写 "President of Product @OpenAI" → "OpenAI 产品副总裁 Kevin Weil"）
 2. 按 `prompts.summarize_tweets` 混编推文
 3. 每条推文必须包含 JSON 中的 `url`
 

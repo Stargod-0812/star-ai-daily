@@ -11,7 +11,7 @@
 ### 全名 · 身份
 ```
 
-身份从 `bio` 字段提取。如 bio 写 "ceo @box" → `### Aaron Levie · Box CEO`。
+身份从 `bio` 字段提取。如 bio 写 "President of Product @OpenAI" → `### Kevin Weil · OpenAI 产品副总裁`。
 如果 bio 不清晰，只用全名：`### Andrej Karpathy`。
 
 不要只用姓。不要写带 @ 的 Twitter 用户名。
