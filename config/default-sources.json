@@ -29,6 +29,12 @@
       "type": "youtube_channel",
       "url": "https://www.youtube.com/@DataDrivenNYC",
       "channelHandle": "DataDrivenNYC"
+    },
+    {
+      "name": "张小珺·商业访谈录",
+      "type": "youtube_channel",
+      "url": "https://www.youtube.com/@xiaojunpodcast",
+      "channelHandle": "xiaojunpodcast"
     }
   ],
   "x_accounts": [
