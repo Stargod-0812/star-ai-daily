@@ -1,18 +1,6 @@
 {
   "podcasts": [
     {
-      "name": "Latent Space",
-      "type": "youtube_channel",
-      "url": "https://www.youtube.com/@LatentSpacePod",
-      "channelHandle": "LatentSpacePod"
-    },
-    {
-      "name": "Training Data",
-      "type": "youtube_playlist",
-      "url": "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8",
-      "playlistId": "PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
-    },
-    {
       "name": "No Priors",
       "type": "youtube_channel",
       "url": "https://www.youtube.com/@NoPriorsPodcast",
@@ -35,6 +23,24 @@
       "type": "youtube_channel",
       "url": "https://www.youtube.com/@xiaojunpodcast",
       "channelHandle": "xiaojunpodcast"
+    },
+    {
+      "name": "TWIML AI Podcast",
+      "type": "youtube_channel",
+      "url": "https://www.youtube.com/@twimlai",
+      "channelHandle": "twimlai"
+    },
+    {
+      "name": "Practical AI",
+      "type": "youtube_channel",
+      "url": "https://www.youtube.com/@PracticalAI",
+      "channelHandle": "PracticalAI"
+    },
+    {
+      "name": "The Artificial Intelligence Show",
+      "type": "youtube_channel",
+      "url": "https://www.youtube.com/@aishowpod",
+      "channelHandle": "aishowpod"
     }
   ],
   "x_accounts": [
