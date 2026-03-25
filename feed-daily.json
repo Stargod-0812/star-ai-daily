@@ -1,46 +1,60 @@
 {
-  "edition": "2026-03-24",
-  "generatedAt": "2026-03-24T06:44:25.106Z",
+  "edition": "2026-03-25",
+  "generatedAt": "2026-03-25T08:13:18.619Z",
   "lookbackHours": 24,
   "builders": [],
   "cnMedia": [
     {
       "source": "36氪",
-      "title": "珀乐互动完成天使轮融资，以AI+IP重塑数字内容生态 | 36氪首发",
-      "url": "https://36kr.com/p/3735324365094918?f=rss",
-      "publishedAt": "2026-03-24 10:00:00  +0800",
-      "summary": "36氪获悉，以AI为核心的数字内容公司珀乐互动科技（下称“珀乐互动”）已完成天使轮融资，金额为数千万元人民币。本轮投资由星连资本领投、春华创投跟投，资金将重点用于技术研发、团队扩充与IP商业化开发，全面加速公司多模态泛娱乐生态的战略布局。 珀乐互动成立于2025年，是一家聚焦于“AI+IP”融合模式的科技公司。其核心业务是通过自研技术中台，将AI大模型能力深度应用于IP的开发、运营与衍生环节，提升"
+      "title": "Vol1.人才留言板｜第一期：这20家AI明星公司正在等你",
+      "url": "https://36kr.com/p/3738023110230272?f=rss",
+      "publishedAt": "2026-03-25 15:23:01  +0800",
+      "summary": "图源:36kr 每周精选30+优质岗位，覆盖AI、硬科技等领域，帮你找到下一个职业爆发点。 本期合作企业：红杉中国、高瓴、鼎晖、经纬被投企业｜B轮及以上占比65%。 卷首语 卷首语我们见过太多这样的场景：一家硬科技公司融完B轮，创始人却在朋友圈悄悄挂出招聘启事；一个专注大模型的算法专家，翻遍猎头推荐却找不到真正懂技术的团队。 这不是供需错配，而是信息失真。 过去十年，36氪记录了数千家公司的成长轨"
     },
     {
       "source": "36氪",
-      "title": "36氪AI测评小程序重磅上线！帮你pick最适合自己的AI神器！",
-      "url": "https://36kr.com/p/3735404612370441?f=rss",
-      "publishedAt": "2026-03-23 18:54:15  +0800",
-      "summary": "这个春天，一打开手机，全网似乎都开始“养龙虾”了。 只是从“养龙虾”再到“卸龙虾”，AI应用圈的的变化速度超乎想象。 AI应用大批涌现的当下，跟风实在易踩坑。 AI遍地走，到底谁靠谱？ 别急，36氪AI测评来帮你！ 01 36氪AI测评小程序，正式上线啦！ ⬆️扫码体验36氪AI测评小程序⬆️ 其实，36氪早就上线了AI测评网（网页版），被大家戏称为“AI应用领域的大众点评”。 现在，小程序版也正"
+      "title": "从互连工程到生态协同：TE Connectivity在机器人产业链的双重角色",
+      "url": "https://36kr.com/p/3737937096655107?f=rss",
+      "publishedAt": "2026-03-25 14:07:59  +0800",
+      "summary": "3月20日，TE Connectivity（简称 “TE” ）在苏州举办了 “机器人核心技术赋能智能工厂创新大会” 。活动通过技术交流与工厂参观等形式，邀请机器人产业链上下游企业与生态圈伙伴围绕核心技术与落地问题展开讨论，搭建起面向产业的交流与对接平台。与会讨论折射出一个共同背景：机器人正从技术验证加速走向工程化与规模化落地。 今年，政府工作报告连续第三年提出“人工智能+”，并首次提出“打造智能经"
     },
     {
       "source": "36氪",
-      "title": "硬氪首发 | 前华为自动驾驶核心成员创业，要做“会走路”的情绪陪伴机器人",
-      "url": "https://36kr.com/p/3735384009048325?f=rss",
-      "publishedAt": "2026-03-23 18:29:50  +0800",
-      "summary": "作者&nbsp;|&nbsp;林晴晴 编辑&nbsp;|&nbsp;袁斯来 硬氪获悉，情绪陪伴场景小型具身机器人公司「青心意创」已于近期完成Pre-A轮融资，本轮融资由厚雪资本和天际资本领投，老股东乐朴资本持续跟投，新辉资本担任长期财务顾问。本轮融资将主要用于超小型双足陪伴机器人的产品研发及技术平台搭建、核心算法迭代与团队扩充。此前，公司已完成由初心资本、乐朴资本及多位科技领域个人投资者参与的天使"
+      "title": "AI智能体下场：新药开发如何告别单步解题、突破认知盲区？  | 最前线",
+      "url": "https://36kr.com/p/3736278401286401?f=rss",
+      "publishedAt": "2026-03-25 08:24:07  +0800",
+      "summary": "当AI落地到新药研发全流程，会带来怎样的改变？ “对于阿斯利康而言，AI已不再是仅用于药物发现的单一工具，我们正在打造‘AI First’的研发文化。从早期的药物发现，到后期的临床转化，我们希望研发全流程都能被AI深度赋能。”3月21日，阿斯利康全球高级副总裁、全球研发中国负责人何静在接受媒体访谈时表示。 3月20日，阿斯利康与清华大学签署校级科研合作协议，宣布成立“清华大学（智能产业研究院）- "
     },
     {
       "source": "36氪",
-      "title": "“华科冷芯”完成数千万元Pre-A轮融资",
-      "url": "https://36kr.com/newsflashes/3736553079849221?f=rss",
-      "publishedAt": "2026-03-24 14:18:21  +0800",
-      "summary": "36氪获悉，近日，“华科冷芯”已完成数千万元Pre-A轮融资，由格致资本领投，液冷技术创新企业飞荣达、水木清华校友基金、华工创投联合投资，深度孵化股东中科创星持续加注参与。融资资金将用于加速拓展高性能微型泵在AIDC（人工智能数据中心）、具身机器人、商业航天等领域的液冷应用。"
-    },
-    {
-      "source": "36氪",
-      "title": "美团魏巍：中国消费者已在全球率先探索用AI体验世界美食",
-      "url": "https://36kr.com/newsflashes/3736549775491076?f=rss",
-      "publishedAt": "2026-03-24 14:14:59  +0800",
-      "summary": "3月23日，2026黑珍珠餐厅指南中国港澳台及海外地区发布会在新加坡举行。美团副总裁、美团到店餐饮事业部总经理魏巍表示，中国消费者已在全球率先探索用AI体验世界美食。数据显示，2026年春节期间，美团、大众点评“海外美食/餐厅”相关页面浏览量较节前增长近20%，AI问小团成为食客与餐厅新的沟通方式。当下，黑珍珠正跟随中国食客真实的旅行半径、消费兴趣与生活方式同步生长，新发布的2026黑珍珠境外榜单"
+      "title": "MOVA割草机器人预计2026年将突破100万台",
+      "url": "https://36kr.com/newsflashes/3737977599934470?f=rss",
+      "publishedAt": "2026-03-25 14:27:26  +0800",
+      "summary": "36氪获悉，近日，科技品牌MOVA旗下ViAX系列割草机器人凭借全球首创双目AI视觉技术，登顶德国、意大利、比利时、荷兰、西班牙等亚马逊多国Best Sellers榜首。截至2026年3月，MOVA割草机器人累计出货量已超30万台，同比增长500%，预计2026年将突破100万台。"
     }
   ],
   "officialBlogs": [
+    {
+      "source": "OpenAI",
+      "title": "Helping developers build safer AI experiences for teens",
+      "url": "https://openai.com/index/teen-safety-policies-gpt-oss-safeguard",
+      "publishedAt": "Tue, 24 Mar 2026 11:00:00 GMT",
+      "summary": "OpenAI releases prompt-based teen safety policies for developers using gpt-oss-safeguard, helping moderate age-specific risks in AI systems."
+    },
+    {
+      "source": "OpenAI",
+      "title": "Update on the OpenAI Foundation",
+      "url": "https://openai.com/index/update-on-the-openai-foundation",
+      "publishedAt": "Tue, 24 Mar 2026 09:00:00 GMT",
+      "summary": "The OpenAI Foundation announces plans to invest at least $1 billion in curing diseases, economic opportunity, AI resilience, and community programs."
+    },
+    {
+      "source": "OpenAI",
+      "title": "Powering product discovery in ChatGPT",
+      "url": "https://openai.com/index/powering-product-discovery-in-chatgpt",
+      "publishedAt": "Tue, 24 Mar 2026 09:00:00 GMT",
+      "summary": "ChatGPT introduces richer, visually immersive shopping powered by the Agentic Commerce Protocol, enabling product discovery, side-by-side comparisons, and merchant integration."
+    },
     {
       "source": "OpenAI",
       "title": "Creating with Sora Safely",
@@ -54,27 +68,6 @@
       "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment",
       "publishedAt": "Thu, 19 Mar 2026 10:00:00 GMT",
       "summary": "How OpenAI uses chain-of-thought monitoring to study misalignment in internal coding agents—analyzing real-world deployments to detect risks and strengthen AI safety safeguards."
-    },
-    {
-      "source": "OpenAI",
-      "title": "OpenAI to acquire Astral",
-      "url": "https://openai.com/index/openai-to-acquire-astral",
-      "publishedAt": "Thu, 19 Mar 2026 00:00:00 GMT",
-      "summary": "Accelerates Codex growth to power the next generation of Python developer tools"
-    },
-    {
-      "source": "OpenAI",
-      "title": "OpenAI Japan announces Japan Teen Safety Blueprint to put teen safety first",
-      "url": "https://openai.com/index/japan-teen-safety-blueprint",
-      "publishedAt": "Tue, 17 Mar 2026 10:00:00 GMT",
-      "summary": "OpenAI Japan announces the Japan Teen Safety Blueprint, introducing stronger age protections, parental controls, and well-being safeguards for teens using generative AI."
-    },
-    {
-      "source": "OpenAI",
-      "title": "Introducing GPT-5.4 mini and nano",
-      "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano",
-      "publishedAt": "Tue, 17 Mar 2026 10:00:00 GMT",
-      "summary": "GPT-5.4 mini and nano are smaller, faster versions of GPT-5.4 optimized for coding, tool use, multimodal reasoning, and high-volume API and sub-agent workloads."
     },
     {
       "source": "Google AI",
@@ -155,7 +148,7 @@
   "stats": {
     "builders": 0,
     "tweets": 0,
-    "cnArticles": 5,
+    "cnArticles": 4,
     "officialBlogs": 15,
     "podcasts": 0
   }
