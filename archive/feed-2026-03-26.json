@@ -1,0 +1,1205 @@
+{
+  "edition": "2026-03-26",
+  "generatedAt": "2026-03-26T06:48:41.002Z",
+  "lookbackHours": 24,
+  "builders": [
+    {
+      "source": "x",
+      "name": "Andrej Karpathy",
+      "handle": "karpathy",
+      "bio": "I like to train large deep neural nets. Previously Director of AI @ Tesla, founding team @ OpenAI, PhD @ Stanford.",
+      "tweets": [
+        {
+          "id": "2036841069636370467",
+          "text": "(I cycle through all LLMs over time and all of them seem to do this so it's not any particular implementation but something deeper, e.g. maybe during training, a lot of the information in the context window is relevant to the task, so the LLMs develop a bias to use what is given, then at test time overfit to anything that happens to RAG its way there via a memory feature (?))",
+          "createdAt": "2026-03-25T16:22:08.000Z",
+          "url": "https://x.com/karpathy/status/2036841069636370467",
+          "likes": 1226,
+          "retweets": 30,
+          "replies": 100,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 1316,
+            "isHighEngagement": true
+          }
+        },
+        {
+          "id": "2036836816654147718",
+          "text": "One common issue with personalization in all LLMs is how distracting memory seems to be for the models. A single question from 2 months ago about some topic can keep coming up as some kind of a deep interest of mine with undue mentions in perpetuity. Some kind of trying too hard.",
+          "createdAt": "2026-03-25T16:05:14.000Z",
+          "url": "https://x.com/karpathy/status/2036836816654147718",
+          "likes": 16254,
+          "retweets": 806,
+          "replies": 1420,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 18672,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Swyx",
+      "handle": "swyx",
+      "bio": "achieve ambition with intentionality, intensity, integrity & insanity.\n\naffiliations:\n- @dxtipshq \n- @cognition\n- @temporalio\n- @aidotengineer\n- @latentspacepod",
+      "tweets": [
+        {
+          "id": "2036925527441965164",
+          "text": "@aiDotEngineer *support from GDM, OAI, Braintrust, WorkOS AND EVERYONE OF OUR BEAUTIFUL, HANDSOME, AI NATIVE, TECH FORWARD SPONSORS has been so invaluable in keeping us afloat https://t.co/heZBFEH9FN",
+          "createdAt": "2026-03-25T21:57:44.000Z",
+          "url": "https://x.com/swyx/status/2036925527441965164",
+          "likes": 7,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 7,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036919167639839193",
+          "text": "@aiDotEngineer afterparty at Fabric (thanks to @tokengobbler for the hookup) is good for any companies who are 1) fun/chill vibe 2) generative media (art/music)  - reach out to  sponsorships @ ai . engineer https://t.co/EH8xYGJozg",
+          "createdAt": "2026-03-25T21:32:28.000Z",
+          "url": "https://x.com/swyx/status/2036919167639839193",
+          "likes": 8,
+          "retweets": 1,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "2028536051376218611",
+          "_metrics": {
+            "engagementScore": 11,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036918746854678830",
+          "text": "Clawfather and friends are coming to @aidotengineer in London in 2 weeks :)\n\nsome transparency from me - running the first international AIE has been extremely hard on our team - even though booths and tickets are ALL sold out, we're still not profitable*. We'll be ok, all first years are investment years, but support from GDM, OAI, Braintrust and WorkOS has been so invaluable in keeping us afloat.\n\nWe still have our Afterparty, Leadership Luncheon, and Expo Cafe available for sponsors who'd like to support and attend on short notice. Would deeply appreciate all referrals!\n\n*events have superlinear cost and logistical complexity curves, i hate it",
+          "createdAt": "2026-03-25T21:30:48.000Z",
+          "url": "https://x.com/swyx/status/2036918746854678830",
+          "likes": 74,
+          "retweets": 3,
+          "replies": 15,
+          "isQuote": true,
+          "quotedTweetId": "2036917348729491755",
+          "_metrics": {
+            "engagementScore": 83,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Kevin Weil",
+      "handle": "kevinweil",
+      "bio": "VP Science @OpenAI, BoD @Cisco @nature_org, LTC @USArmyReserve\nEx: Pres @Planet, Head of Product @Instagram @Twitter\n❤️ @elizabeth ultramarathons kids cats math",
+      "tweets": [
+        {
+          "id": "2036809393405317545",
+          "text": "👀 https://t.co/ce5Y3hmImm",
+          "createdAt": "2026-03-25T14:16:16.000Z",
+          "url": "https://x.com/kevinweil/status/2036809393405317545",
+          "likes": 126,
+          "retweets": 6,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2036795612004499798",
+          "_metrics": {
+            "engagementScore": 144,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Peter Yang",
+      "handle": "petergyang",
+      "bio": "I share extremely practical AI tutorials and interviews | Join 140K+ readers at https://t.co/XYKTmGVH14 | Product at Roblox",
+      "tweets": [
+        {
+          "id": "2037042313361588701",
+          "text": "How can I sleep now this shit is like crack 🥲 https://t.co/c32g5whf6I",
+          "createdAt": "2026-03-26T05:41:48.000Z",
+          "url": "https://x.com/petergyang/status/2037042313361588701",
+          "likes": 2,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 2,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037029503177023705",
+          "text": "Got a squat rack finally so why not vibe design and code my own fitness app while I'm at it. https://t.co/0utcVSDSsw",
+          "createdAt": "2026-03-26T04:50:54.000Z",
+          "url": "https://x.com/petergyang/status/2037029503177023705",
+          "likes": 12,
+          "retweets": 0,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 12,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036812870365917284",
+          "text": "The biggest time-waster at most tech companies isn't meetings or Slack.\n\nIt's trying to predict what your leader wants.\n\nIn my latest post, I break down how a VP at Meta solved this by building an AI skill that reviews docs in his voice:\n\n→ What the /exec-review skill does\n→ How to build a leader profile in 6 steps\n→ The full skill files so you can set it up today\n\n📌 Read now: https://t.co/CyoSh2WEb9",
+          "createdAt": "2026-03-25T14:30:05.000Z",
+          "url": "https://x.com/petergyang/status/2036812870365917284",
+          "likes": 112,
+          "retweets": 10,
+          "replies": 6,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 142,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nan Yu",
+      "handle": "thenanyu",
+      "bio": "head of product @linear",
+      "tweets": [
+        {
+          "id": "2037042617213481410",
+          "text": "I really wish we could reclaim design back to meaning “a plan for arranging elements to accomplish a particular purpose”\n\nWe got overly obsessed with arranging elements and forgot about the purpose. https://t.co/Ii2EXoeC0J",
+          "createdAt": "2026-03-26T05:43:01.000Z",
+          "url": "https://x.com/thenanyu/status/2037042617213481410",
+          "likes": 20,
+          "retweets": 1,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2036972031405658600",
+          "_metrics": {
+            "engagementScore": 23,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037035153566953870",
+          "text": "https://t.co/nBCIKq8e41",
+          "createdAt": "2026-03-26T05:13:21.000Z",
+          "url": "https://x.com/thenanyu/status/2037035153566953870",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2036512905785659508",
+          "_metrics": {
+            "engagementScore": 4,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037008518515953803",
+          "text": "For those people who say there’s a third option which tries to balance both — sometimes there’s not. \n\nYou’re in charge of Instagram do you completely rip Snapchat stories or not? You already know what happens.",
+          "createdAt": "2026-03-26T03:27:31.000Z",
+          "url": "https://x.com/thenanyu/status/2037008518515953803",
+          "likes": 3,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 3,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037006445422559245",
+          "text": "Probably true\n\nhttps://t.co/OUY7mnUidW",
+          "createdAt": "2026-03-26T03:19:16.000Z",
+          "url": "https://x.com/thenanyu/status/2037006445422559245",
+          "likes": 3,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "2036939547150606531",
+          "_metrics": {
+            "engagementScore": 3,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036974717618344431",
+          "text": "It reminds me also of writers thinking Andy Weir isn’t a good writer. Dude has 2 mega best sellers which both became mega blockbuster movies. But writers think he’s not cool. \n\nhttps://t.co/UuUN8EAbZZ",
+          "createdAt": "2026-03-26T01:13:12.000Z",
+          "url": "https://x.com/thenanyu/status/2036974717618344431",
+          "likes": 5,
+          "retweets": 0,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2036164094160409059",
+          "_metrics": {
+            "engagementScore": 5,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Cat Wu",
+      "handle": "_catwu",
+      "bio": "claude code + cowork @anthropicai, prev: @dagster, @scale_ai",
+      "tweets": [
+        {
+          "id": "2036852880624541938",
+          "text": "Auto mode is a step change improvement in the Claude Code UX, balancing autonomy and safety. Almost everyone on our team uses this as a daily driver. \n\nNow available to Claude for Team users! `claude --enable-auto-mode` to turn on, then Shift + Tab to enter the mode https://t.co/m1A6BIBeMa",
+          "createdAt": "2026-03-25T17:09:04.000Z",
+          "url": "https://x.com/_catwu/status/2036852880624541938",
+          "likes": 379,
+          "retweets": 29,
+          "replies": 54,
+          "isQuote": true,
+          "quotedTweetId": "2036503582166393240",
+          "_metrics": {
+            "engagementScore": 466,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Amjad Masad",
+      "handle": "amasad",
+      "bio": "ceo @replit. civilizationist",
+      "tweets": [
+        {
+          "id": "2037004600893472936",
+          "text": "Apple seems happy with apps made with Replit as evident by the high rate of acceptance. https://t.co/R9MGgDOZ7j",
+          "createdAt": "2026-03-26T03:11:57.000Z",
+          "url": "https://x.com/amasad/status/2037004600893472936",
+          "likes": 127,
+          "retweets": 4,
+          "replies": 20,
+          "isQuote": true,
+          "quotedTweetId": "2036994224655057341",
+          "_metrics": {
+            "engagementScore": 139,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Guillermo Rauch",
+      "handle": "rauchg",
+      "bio": "@vercel CEO",
+      "tweets": [
+        {
+          "id": "2036963706576527623",
+          "text": "Every company will become an AI factory, wherein the unit of production is the token. \n\nTokens, however, create usage tracking  billing headaches that are v unlike SaaS.\n\n▲ AI Gateway now solves the metering problem across models &amp; providers with one /𝚟𝟷/𝚛𝚎𝚙𝚘𝚛𝚝 API call https://t.co/CmrCjzPPK2",
+          "createdAt": "2026-03-26T00:29:27.000Z",
+          "url": "https://x.com/rauchg/status/2036963706576527623",
+          "likes": 172,
+          "retweets": 4,
+          "replies": 24,
+          "isQuote": true,
+          "quotedTweetId": "2036937626721411241",
+          "_metrics": {
+            "engagementScore": 184,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Aaron Levie",
+      "handle": "levie",
+      "bio": "ceo @box - your business lives in content. unleash it with AI",
+      "tweets": [
+        {
+          "id": "2036832183131033977",
+          "text": "Jevons paradox is happening in real time. Companies, especially outside of tech, are realizing that they can now afford to take on software projects that they wouldn’t have been able to tackle before because now AI lets them do so. \n\nWe’re going to start to use software for all new things in the economy because it’s incrementally cheaper to produce. Marketing teams at big companies will have engineers helping to automate workflows. Engineers in life sciences and healthcare will automate research. Small businesses will hire engineers for the first to build better digital experiences.\n\nAnd as long as AI agents still require a human who understands what to prompt, how to review when an agent goes off the rails, how it guide back, how to maintain the system that was built, how to fix the ongoing bugs, and more, we will still have humans managing these agents.\n\nThis is why all the advice you get of not going into engineering is wrong. The world is going to increasingly be made up of software, and the people that understand it best will be in a strong economic position. This will happen in other roles as well where output goes up and demand increases.",
+          "createdAt": "2026-03-25T15:46:49.000Z",
+          "url": "https://x.com/levie/status/2036832183131033977",
+          "likes": 3090,
+          "retweets": 438,
+          "replies": 167,
+          "isQuote": true,
+          "quotedTweetId": "2036535460726767793",
+          "_metrics": {
+            "engagementScore": 4404,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Garry Tan",
+      "handle": "garrytan",
+      "bio": "President & CEO @ycombinator —Founder https://t.co/7aoJjp1iIK—designer/engineer who helps founders—SF Dem accelerating the boom loop—haters not allowed in my sauna",
+      "tweets": [
+        {
+          "id": "2037055498974093629",
+          "text": "One of the most important things about this new age is you have to use tokens aggressively to create something remarkable\n\nYou have to let it rip. If you do, and you have agency and taste, the result will be remarkable. \n\nSo token credits for AI is a big part of making startups accessible regardless of where you grew up or whether your family has money",
+          "createdAt": "2026-03-26T06:34:12.000Z",
+          "url": "https://x.com/garrytan/status/2037055498974093629",
+          "likes": 24,
+          "retweets": 0,
+          "replies": 6,
+          "isQuote": true,
+          "quotedTweetId": "2037002056469536921",
+          "_metrics": {
+            "engagementScore": 24,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037054022994321725",
+          "text": "Many such cases https://t.co/ANbBJXIKTb",
+          "createdAt": "2026-03-26T06:28:20.000Z",
+          "url": "https://x.com/garrytan/status/2037054022994321725",
+          "likes": 4,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2037053930694168740",
+          "_metrics": {
+            "engagementScore": 4,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037051410857283967",
+          "text": "GStack beats Superpowers head to head https://t.co/dJC3PqjfsZ https://t.co/AYTIaNgQC8",
+          "createdAt": "2026-03-26T06:17:57.000Z",
+          "url": "https://x.com/garrytan/status/2037051410857283967",
+          "likes": 36,
+          "retweets": 2,
+          "replies": 7,
+          "isQuote": true,
+          "quotedTweetId": "2036927243029713284",
+          "_metrics": {
+            "engagementScore": 42,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037042985389740084",
+          "text": "I do this out loud in meetings sometimes and people look at me like I am crazy \n\nBut actually I am just an external thinker and often my intuition arrives eventually at the right thing after some more thinking https://t.co/vhU230KZ3O",
+          "createdAt": "2026-03-26T05:44:28.000Z",
+          "url": "https://x.com/garrytan/status/2037042985389740084",
+          "likes": 35,
+          "retweets": 1,
+          "replies": 11,
+          "isQuote": true,
+          "quotedTweetId": "2036852068112371938",
+          "_metrics": {
+            "engagementScore": 38,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037037364229611884",
+          "text": "Dang I thought $40k for this mo was crazy but I guess I am rookie numbers\n\n$150k #april_goals https://t.co/j23ZkFwgCo",
+          "createdAt": "2026-03-26T05:22:08.000Z",
+          "url": "https://x.com/garrytan/status/2037037364229611884",
+          "likes": 85,
+          "retweets": 6,
+          "replies": 17,
+          "isQuote": true,
+          "quotedTweetId": "2036855323244584973",
+          "_metrics": {
+            "engagementScore": 103,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Matt Turck",
+      "handle": "mattturck",
+      "bio": "VC at @FirstMarkCap.  Host: MAD Podcast; Organizer: Data Driven NYC, Author: MAD Landscape.",
+      "tweets": [
+        {
+          "id": "2036747586468499889",
+          "text": "What VCs do on company boards, an evolution: \n\n2016: governance, guidance, support \n\n2021: cheerleaders \n\n2026: Anthropic and OpenAI sales representatives",
+          "createdAt": "2026-03-25T10:10:40.000Z",
+          "url": "https://x.com/mattturck/status/2036747586468499889",
+          "likes": 139,
+          "retweets": 4,
+          "replies": 16,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 151,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nikunj Kothari",
+      "handle": "nikunj",
+      "bio": "partner @fpvventures - investing in seed/A. previous: early hire @meter, @opendoor, @atlassian & others. love @shimoleejhaveri + 👦👧",
+      "tweets": [
+        {
+          "id": "2036936135541481923",
+          "text": "Priority given to the founders with the funniest response. \n\nLink to RSVP here: https://t.co/TDmiokqZpW",
+          "createdAt": "2026-03-25T22:39:53.000Z",
+          "url": "https://x.com/nikunj/status/2036936135541481923",
+          "likes": 0,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 0,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036935343199707640",
+          "text": "I'm generally quite low key when it comes to events. But when @andruyeung comes to town, you ball out..\n\nExcited to cohost a VERY fancy founder dinner on April 7th in SF.\n\nWe already have some fantastic founders coming &amp; would love to add a few more.\n\nRSVP link in the next post! https://t.co/o0QJcEK0Ze",
+          "createdAt": "2026-03-25T22:36:44.000Z",
+          "url": "https://x.com/nikunj/status/2036935343199707640",
+          "likes": 21,
+          "retweets": 1,
+          "replies": 6,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 24,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Peter Steinberger",
+      "handle": "steipete",
+      "bio": "Polyagentmorous ClawFather. Came back from retirement to mess with AI and help a lobster take over the world @openclaw🦞",
+      "tweets": [
+        {
+          "id": "2036824286988816737",
+          "text": "New @openclaw beta is out with better MS Teams integration, @OpenWebUI and more! https://t.co/u7sggPKlOa",
+          "createdAt": "2026-03-25T15:15:27.000Z",
+          "url": "https://x.com/steipete/status/2036824286988816737",
+          "likes": 796,
+          "retweets": 67,
+          "replies": 62,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 997,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Dan Shipper",
+      "handle": "danshipper",
+      "bio": "ceo @every | the only subscription you need to stay at the edge of AI",
+      "tweets": [
+        {
+          "id": "2036923805273129160",
+          "text": "tomorrow's gonna be a big day @every!! 👀",
+          "createdAt": "2026-03-25T21:50:54.000Z",
+          "url": "https://x.com/danshipper/status/2036923805273129160",
+          "likes": 61,
+          "retweets": 3,
+          "replies": 9,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 70,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036831785154183190",
+          "text": "YouTube: https://t.co/Lk2vg4DrAL\n\nSpotify: https://t.co/d02fXS7qy6",
+          "createdAt": "2026-03-25T15:45:14.000Z",
+          "url": "https://x.com/danshipper/status/2036831785154183190",
+          "likes": 1,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 1,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036827118915485942",
+          "text": "The rules of professional product development are being rewritten in real time. \n\n- PMs and designers can ship software as easily as engineers.\n- Software is no longer just built for humans—it’s also built for agents as first-class citizens. \n\nTo better understand how we build products in this world, I invited Mike Krieger (@mikeyk) on @every’s AI & I podcast. Mike cofounded Instagram and is now a member of the technical staff at Anthropic, co-leading Anthropic Labs, their internal incubator for experimental products. He's been at the frontier of two transformative technology waves: mobile/social and now agent-native software.\n\nWe discussed: \n- How to build a truly agent-native product. The best products today, like Claude Code, allow users to do things that their creators never intended. But that requires hard trade-offs between freedom and safety/reliability for frontier products, an issue that Mike's team is learning how to solve. \n- What's different about building now versus building Instagram. At Instagram, it took months to hit dead ends and learn what to cut. Now, that cycle runs in hours.\n- The trap of building too much, too fast with agents. You can go from idea to a nearly-shipped product in a day, but that process doesn’t give you the incremental feedback that used to tell you what not to build. The models are great at adding features, but can create a product that lacks coherence.\n- How Anthropic Labs structures product teams. New product experiments are led by only two people, usually a product manager or designer paired with an engineer. Mike says bigger teams tend to be too slow because of coordination costs.\n- Why you need to throw out your product and start over every three to six months. AI progress means most of your harness will be outdated quickly—the best teams build this into their product strategy.\n\nAnd much more! You should watch this one.\n\nTimestamps\nIntroduction: \nWhat's gotten easier—and what hasn't—about building products in the age of AI: \nWhy vibe coding creates \"indoor trees\": \nHow rewrites have become a normal part of the development process: \nWhat \"agent native\" product design means: \nHow Mike's labs team is structured and the cofounder model: \nThe best signal for a product bet is someone with \"break through walls\" conviction: \nNavigating enterprise customers while keeping pace with rapid AI change: \nOpenClaw, personal agents, and the product question defining 2026:",
+          "createdAt": "2026-03-25T15:26:42.000Z",
+          "url": "https://x.com/danshipper/status/2036827118915485942",
+          "likes": 118,
+          "retweets": 9,
+          "replies": 14,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 145,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Aditya Agarwal",
+      "handle": "adityaag",
+      "bio": "General Partner @SouthPkCommons, Co-Founder @Bevel_Health | Ex: Early Eng @facebook, CTO @Dropbox, Board @Flipkart | Optimist, Builder, Dad",
+      "tweets": [
+        {
+          "id": "2036824253970923925",
+          "text": "Some observations from @HillValleyForum yesterday:\n\n- It takes three to tango for hardtech/deeptech. Builders+Investors+PolicyMakers. All 3 were out in full force.\n\n- The speaker lineup was top-tier. It's indicative of the great job that @zebulgar @CGarrett_15 @jacobhelberg have done but also to the fact that there is:\n\n- Insane energy around hardtech+deeptech. Drones, Energy, Robotics, Atoms+Bits.\n\n- This energy is infectious...but oddly not very Silicon Valley / Bay Area pilled. It's in a bunch of disparate places around the US. I think this is a good thing.\n\n- The support from Washington / the political class is very real. This was awesome to see. Every single congressman+senator that I interacted with wanted to be part of building something amazing. Having folks like @sriramk  in DC helps a lot.\n\n- @shaunmmaguire  captured this in his interview with TBPN yesterday but I think the interesting aspect of moving from bits to atoms+bits is that you also diversity your sources of capital. Lots of interesting conversations with investors who are far from traditional venture.\n\nSuper optimistic for 🇺🇸.\n\nWe have a lot to do but things are going in the right direction.",
+          "createdAt": "2026-03-25T15:15:19.000Z",
+          "url": "https://x.com/adityaag/status/2036824253970923925",
+          "likes": 122,
+          "retweets": 16,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 170,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Claude",
+      "handle": "claudeai",
+      "bio": "Claude is an AI assistant built by @anthropicai to be safe, accurate, and secure. Talk to Claude on https://t.co/ZhTwG8d1e5 or download the app.",
+      "tweets": [
+        {
+          "id": "2036850783526719610",
+          "text": "Your work tools in Claude are now available on mobile.\n\nExplore Figma designs, create Canva slides, check Amplitude dashboards, all from your phone.\n\nGive it a try: https://t.co/hwPB3zlk0w https://t.co/646YMIzYZl",
+          "createdAt": "2026-03-25T17:00:44.000Z",
+          "url": "https://x.com/claudeai/status/2036850783526719610",
+          "likes": 16586,
+          "retweets": 1233,
+          "replies": 1053,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 20285,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Ethan Mollick",
+      "handle": "emollick",
+      "bio": "Professor @Wharton studying AI, innovation & startups. Democratizing education using tech\nBook: https://t.co/CSmipbJ2jV\nSubstack: https://t.co/UIBhxu4bgq",
+      "tweets": [
+        {
+          "id": "2037009746394255492",
+          "text": "Soul of a New Machine was one of the first books (and still one of the best) to describe the ethos of computer engineers in a way that is still recognizable today. https://t.co/Is0v4bMXUR",
+          "createdAt": "2026-03-26T03:32:24.000Z",
+          "url": "https://x.com/emollick/status/2037009746394255492",
+          "likes": 54,
+          "retweets": 3,
+          "replies": 7,
+          "isQuote": true,
+          "quotedTweetId": "2036885533016596947",
+          "_metrics": {
+            "engagementScore": 63,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036998853526782425",
+          "text": "And yes, this means companies will also require a R&amp;D budget for areas of the company that traditionally have not required R&amp;D -- you need to experiment with organizational approaches, new ways of structuring projects, skill/agent building techniques, and other ways to apply AI.",
+          "createdAt": "2026-03-26T02:49:06.000Z",
+          "url": "https://x.com/emollick/status/2036998853526782425",
+          "likes": 30,
+          "retweets": 1,
+          "replies": 4,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 33,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036998249865703866",
+          "text": "The whole reason for the J-curve for new technologies is that there is some cost to learning and experimentation. And for AI, there may be outsized returns to really bold (and often quite cheap) experiments. Fast follower is a risky strategy with exponential improvement happening",
+          "createdAt": "2026-03-26T02:46:43.000Z",
+          "url": "https://x.com/emollick/status/2036998249865703866",
+          "likes": 37,
+          "retweets": 3,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 46,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036997633730896357",
+          "text": "I think that if companies are not failing at all with their AI efforts it is a sign that they are not being ambitious enough. This is a fundamentally new technology that we do not know how to use well. Achieving breakthroughs will require experimentation, which require failure.",
+          "createdAt": "2026-03-26T02:44:16.000Z",
+          "url": "https://x.com/emollick/status/2036997633730896357",
+          "likes": 217,
+          "retweets": 18,
+          "replies": 31,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 271,
+            "isHighEngagement": true
+          }
+        },
+        {
+          "id": "2036962853861662917",
+          "text": "I would say that Suno is generally a better music generator at this point (though not for all songs), but Lyria is the first music creator available through an API, and seems to not have the same copyright &amp; training issues that plague Suno and restrict how it can be used. https://t.co/qD9Icxs0FP",
+          "createdAt": "2026-03-26T00:26:03.000Z",
+          "url": "https://x.com/emollick/status/2036962853861662917",
+          "likes": 35,
+          "retweets": 0,
+          "replies": 12,
+          "isQuote": true,
+          "quotedTweetId": "2036836310447452606",
+          "_metrics": {
+            "engagementScore": 35,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Bindu Reddy",
+      "handle": "bindureddy",
+      "bio": "CEO of @abacusai, the world’s first AI super assistant and general-purpose agent - your AGI control center! ex-GM, AWS, and Google",
+      "tweets": [
+        {
+          "id": "2036881793178362247",
+          "text": "AI agents \n\n- remember too much \n- forget key details \n- make the same mistakes \n- go into death loops \n- can’t stop hallucinating \n\nYet, more often than not, they out perform most humans 😀",
+          "createdAt": "2026-03-25T19:03:57.000Z",
+          "url": "https://x.com/bindureddy/status/2036881793178362247",
+          "likes": 100,
+          "retweets": 8,
+          "replies": 40,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 124,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036712456589128169",
+          "text": "Bro disappeared like he never existed! 😲\n\nI miss Ilya https://t.co/BAQez52V2B",
+          "createdAt": "2026-03-25T07:51:04.000Z",
+          "url": "https://x.com/bindureddy/status/2036712456589128169",
+          "likes": 309,
+          "retweets": 13,
+          "replies": 26,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 348,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "数字生命卡兹克",
+      "handle": "Khazix0918",
+      "bio": "愿我们永远对世界保持好奇。\n公众号：数字生命卡兹克",
+      "tweets": [
+        {
+          "id": "2037040197465223371",
+          "text": "发现公司越来越多的小伙伴需要把自己Vibe coding的项目部署到服务器上了，于是有把公司的服务器徒手搓成了一个带权限管理的Skill。。。\n大家只要开箱即用。。。\nAI时代，真的不一样了 https://t.co/W71olSwnkD",
+          "createdAt": "2026-03-26T05:33:24.000Z",
+          "url": "https://x.com/Khazix0918/status/2037040197465223371",
+          "likes": 13,
+          "retweets": 0,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 13,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037015170091016257",
+          "text": "https://t.co/lBlcHPYxhD",
+          "createdAt": "2026-03-26T03:53:57.000Z",
+          "url": "https://x.com/Khazix0918/status/2037015170091016257",
+          "likes": 86,
+          "retweets": 7,
+          "replies": 6,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 107,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "宝玉",
+      "handle": "dotey",
+      "bio": "Prompt Engineer, dedicated to learning and disseminating knowledge about AI, software engineering, and engineering management.",
+      "tweets": [
+        {
+          "id": "2037038117677400417",
+          "text": "FYI\nhttps://t.co/zX3fUMbalD",
+          "createdAt": "2026-03-26T05:25:08.000Z",
+          "url": "https://x.com/dotey/status/2037038117677400417",
+          "likes": 2,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2037016534443503858",
+          "_metrics": {
+            "engagementScore": 5,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2037025797744033932",
+          "text": "因为现在nodejs比较普及，而 bun 可以通过 npx -y bun 运行的，这样只要有nodejs就可以用bun，所以我在 skills 里面都会让 agent 自己检查并灵活选择。\n\n还有一点，我在 skills 里面用的路径都是相对路径，但告诉了 agent 基础目录（baseDir）在哪，这样基本不会找路径出错。\nhttps://t.co/clXcN4aYFq https://t.co/Dx1LifqWQf",
+          "createdAt": "2026-03-26T04:36:10.000Z",
+          "url": "https://x.com/dotey/status/2037025797744033932",
+          "likes": 6,
+          "retweets": 2,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "2037024495647809890",
+          "_metrics": {
+            "engagementScore": 12,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036993782357324280",
+          "text": "我现在所有 skills 的脚本，默认用 bun 执行，因为 bun 可以直接执行 TypeScript，不需要预先编译，这带来的好处就是如果出错了，Agent 可以快速定位到代码里面的问题，然后直接修改代码再次运行，如果是打包后的代码这就很难打补丁。\n\n任何语言或者环境，Agent 友好才是王道！ https://t.co/84ZmL36k1x",
+          "createdAt": "2026-03-26T02:28:57.000Z",
+          "url": "https://x.com/dotey/status/2036993782357324280",
+          "likes": 313,
+          "retweets": 29,
+          "replies": 32,
+          "isQuote": true,
+          "quotedTweetId": "2036989953159422054",
+          "_metrics": {
+            "engagementScore": 400,
+            "isHighEngagement": true
+          }
+        },
+        {
+          "id": "2036990379824750996",
+          "text": "我也不知道怎么告诉老板“AI是工具不是魔法”，只能请教睿智的网友们了。\n\n也许可以扮作弱小无知的 AI 小白，给老板上难度让他施法，可能他就知难而退了 https://t.co/OkWGvV5VsY",
+          "createdAt": "2026-03-26T02:15:26.000Z",
+          "url": "https://x.com/dotey/status/2036990379824750996",
+          "likes": 33,
+          "retweets": 0,
+          "replies": 39,
+          "isQuote": true,
+          "quotedTweetId": "2036989507007119776",
+          "_metrics": {
+            "engagementScore": 33,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036986001059397886",
+          "text": "给高中生演示 AI Coding 效果最好，做个小游戏小工具都可以\n\n3 个核心观点：\n1. AI 是工具，不是魔法\n2. 有批判性思维问出好问题很重要\n3. AI 会消灭很多就的岗位也会产生更多新的机会\n\n建议：\n1. 多用 AI 但不过度依赖 AI\n2. 投资 AI 做不到的事\n3. 现在起就用 AI 编程去创造，解决自己和身边人的问题 https://t.co/LOWgapNg1K",
+          "createdAt": "2026-03-26T01:58:02.000Z",
+          "url": "https://x.com/dotey/status/2036986001059397886",
+          "likes": 54,
+          "retweets": 3,
+          "replies": 6,
+          "isQuote": true,
+          "quotedTweetId": "2036982741540233534",
+          "_metrics": {
+            "engagementScore": 63,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "向阳乔木",
+      "handle": "vista8",
+      "bio": "喜欢摇滚乐、爱钓鱼的PM\n网站：https://t.co/vnUpLt752o",
+      "tweets": [
+        {
+          "id": "2036827227778904502",
+          "text": "地址 https://t.co/VYDGtbsEQf",
+          "createdAt": "2026-03-25T15:27:08.000Z",
+          "url": "https://x.com/vista8/status/2036827227778904502",
+          "likes": 38,
+          "retweets": 4,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 50,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036827117292585393",
+          "text": "读到一篇讲如何自动迭代优化Skill的论文。\n\n好像有点东西。\n\n地址见评论区，可以复制地址让Claude Code学习下。 https://t.co/U3t8XKSha0",
+          "createdAt": "2026-03-25T15:26:41.000Z",
+          "url": "https://x.com/vista8/status/2036827117292585393",
+          "likes": 257,
+          "retweets": 52,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 413,
+            "isHighEngagement": true
+          }
+        },
+        {
+          "id": "2036820398864834897",
+          "text": "让AI重写，内容如下：\n\nAI 圈最喜欢的游戏：给旧东西起个新名字\n\n最近 AI 圈在传一篇关于「Harness Engineering」的长文，几万字，几乎可以确定是 AI 写的。\n\nSGLang 社区的工程师 Chayenne Zhao 读完第一反应不是「好概念」。\n\n而是心里想：这帮人除了给旧东西起新名字，还有别的想法吗？\n\n这个吐槽深得我心。\n\n从 Prompt Engineering 到 Context Engineering，现在又是 Harness Engineering。\n\n每隔几个月，就有人造个新词，写一篇万字长文，引几个大厂案例，整个社区开始嗡嗡作响。\n\n但你真的看进去，说的都是同一件事：\n\n设计模型运行的环境，给它什么信息，用什么工具，怎么管理记忆，怎么拦截错误。\n\nChatGPT 发布第一天这件事就存在了。\n\n换个名字不代表它变成了新学科。\n\n抱怨归抱怨，Chayenne 随后写了她自己真实踩过的坑，这部分才是文章的价值所在。\n\n她在为 SGLang 社区构建一个多智能体系统，自动回答用户的技术问题，比如怎么在 8 张 GPU 上部署 DeepSeek-V3，GLM-5 的 INT4 和 FP8 差距大不大。\n\n最开始的想法是最朴素的：做一个全知 Agent，把 SGLang 所有文档、代码、Cookbook 全部塞进去，什么都能答。\n\n结果当然失败了。\n\n上下文窗口不是内存，塞得越多，模型注意力越分散，答案越差。\n\n一个 Agent 同时要理解量化、PD 分解、扩散服务、硬件兼容性，结果哪个都不深。\n\n最后跑通的设计是：\n\n把 SGLang 文档按功能边界拆成若干独立的「子领域专家 Agent」，上面放一个 Expert Debating Manager，负责接收问题，分解子问题，查路由表激活对应 Agent，并行求解，再汇总答案。\n\n这三条经验很实在：\n\n① 信息给 Agent 要精不要多。\n② 复杂系统拆成专项子模块，不要造全知 Agent。\n③ 所有知识必须活在仓库里，口头约定不存在，路由和约束必须是结构化的，不能靠模型自己判断。\n\n这些原则在传统软件工程里叫做关注点分离、单一职责、文档即代码。\n\n现在搬到 LLM 环境里，有些人觉得这值得一个新名字。\n\nChayenne 觉得不值得给个新名字。\n\n我同意后半段，但新名字这件事我看法不同，稍后说。\n\n文章最后 Chayenne 抛了一个她自己也没想清楚的问题：\n\n如果模型能力持续指数级增长，会不会有一天，模型强大到可以自己构建运行环境？\n\n她提到 OpenClaw 这个项目，一个月内代码从 40 万行涨到 100 万行，主要由 AI 自己驱动完成。\n\n那这个项目的环境是谁搭的，是人，还是 AI？\n\n这个问题切中肯綮。\n\n我们现在讨论的所有「工程实践」，包括 Harness Engineering 这个词背后真实存在的那些经验，前提都是人在主动设计 Agent 的运行环境。\n\n但如果这件事本身将来也可以外包给 AI，那今天讨论的这些原则，两年后还剩多少是有效的？\n\nChayenne 的答案是：至少今天，这还是人的工作，而且是最有价值的那种。\n\n我觉得这个回答没问题，但藏着一种隐隐的不确定感，她自己也感受到了。\n\n回到新名字这件事，我理解 Chayenne 的烦躁，但「给旧东西起新名字」这件事本身有时候不是坏事。\n\nPrompt Engineering 这个词被造出来之前，做这件事的人是存在的，但圈子里没有形成共同语言，讨论和积累都很低效。\n\n新词的价值在于它把散落的实践收敛成一个可以对话的概念。\n\n问题在于，当造词速度超过真正的认知积累速度，那就是在消费注意力，不是在推进理解。\n\nHarness Engineering 这个词现在是后者，但 Chayenne 在 how-to-sglang 上的踩坑记录，是实实在在的前者。",
+          "createdAt": "2026-03-25T15:00:00.000Z",
+          "url": "https://x.com/vista8/status/2036820398864834897",
+          "likes": 65,
+          "retweets": 4,
+          "replies": 9,
+          "isQuote": true,
+          "quotedTweetId": "2036266930290696599",
+          "_metrics": {
+            "engagementScore": 77,
+            "isHighEngagement": false
+          }
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Gorden Sun",
+      "handle": "Gorden_Sun",
+      "bio": "只发AI相关信息，个人维护的AI资讯日报（已连续日更3年）👇",
+      "tweets": [
+        {
+          "id": "2036837416389275900",
+          "text": "写了一篇文章，更详细的介绍了Claude的操作原理和开启方法，另外也欢迎关注我的公众号。\n文章：https://t.co/uBy9KCvnkQ https://t.co/Vn0KoKigQu",
+          "createdAt": "2026-03-25T16:07:37.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2036837416389275900",
+          "likes": 9,
+          "retweets": 0,
+          "replies": 1,
+          "isQuote": true,
+          "quotedTweetId": "2036375353891991786",
+          "_metrics": {
+            "engagementScore": 9,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036820154554953916",
+          "text": "AI资讯日报，3月25日：https://t.co/13cS0KmK4v https://t.co/65ZRo0KVc9",
+          "createdAt": "2026-03-25T14:59:01.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2036820154554953916",
+          "likes": 1,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 1,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036810868185551333",
+          "text": "原来是Claude服务出问题了，我还以为是我号没了 https://t.co/zEvbpE99xb",
+          "createdAt": "2026-03-25T14:22:07.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2036810868185551333",
+          "likes": 7,
+          "retweets": 1,
+          "replies": 8,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 10,
+            "isHighEngagement": false
+          }
+        },
+        {
+          "id": "2036753997768560693",
+          "text": "适合长时间编程的Agent的Harness设计\n这里的Harness我也不知道怎么翻译比较合适，不是严格的传统框架，像是引导Agent发挥的框架，比框架更宽松，翻译成“驱动框架”或者“编排框架”比较好。\n在Anthropic发布的这篇文章里，Harness包含的内容有：任务如何分解（Sprint结构）、Agent之间如何通信（文件交接）、上下文何时重置、评估标准怎么定义、反馈如何返回给生成器等。\n\n文章本身我倒觉得没什么新奇的点，就是提出了由3个Agent组成框架，Planner(规划器)用于完善用户的提示词，Generator(生成器)用于生成方案，Evaluator(评估器)用于评估方案。\n原文：https://t.co/PONJdd7Xkr",
+          "createdAt": "2026-03-25T10:36:08.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2036753997768560693",
+          "likes": 195,
+          "retweets": 35,
+          "replies": 10,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 300,
+            "isHighEngagement": true
+          }
+        },
+        {
+          "id": "2036747685433319596",
+          "text": "继token、Agent之后，又来了一个难以翻译的词：Harness",
+          "createdAt": "2026-03-25T10:11:03.000Z",
+          "url": "https://x.com/Gorden_Sun/status/2036747685433319596",
+          "likes": 352,
+          "retweets": 16,
+          "replies": 150,
+          "isQuote": false,
+          "quotedTweetId": null,
+          "_metrics": {
+            "engagementScore": 400,
+            "isHighEngagement": true
+          }
+        }
+      ]
+    }
+  ],
+  "cnMedia": [
+    {
+      "source": "36氪",
+      "title": "第二期：百融云创、每日互动等AI大模型公司招聘大语言模型算法工程师等岗位｜人才留言板",
+      "url": "https://36kr.com/p/3738062628962563?f=rss",
+      "publishedAt": "2026-03-26 11:00:00  +0800",
+      "summary": "图源:36kr 每周精选 30 + 优质岗位，覆盖 AI 大模型、具身智能、量子计算、3D 打印、半导体等领域，帮你找到下一个职业爆发点。 &nbsp;本期合作企业：国资背景 AI、上市科技龙头、全球独角兽、前沿硬科技新锐｜B 轮及以上占比超 60% &nbsp; 本期亮点速览 图源:36kr &nbsp; 精选岗位 | 中城交科技 · 天使轮 · 交通大模型 一句话卖点： 上海首家国资背景交通垂"
+    },
+    {
+      "source": "36氪",
+      "title": "36氪独家｜红杉中国、Monolith领投AI健康硬件公司「Odyss」，金额近2亿元",
+      "url": "https://36kr.com/p/3738226479874304?f=rss",
+      "publishedAt": "2026-03-26 10:00:58  +0800",
+      "summary": "作者&nbsp;|&nbsp;张子怡 编辑&nbsp;|&nbsp;袁斯来 硬氪获悉，AI健康硬件公司「OdyssLife」（以下简称“Odyss”）已于近期连续完成多轮融资，总金额近2亿元人民币。本次融资由红杉中国、Monolith分别领投，老股东线性资本、Creekstone继续加注。 本轮融资金将主要用于产品软硬件研发、全球市场营销以及团队扩张。 在AI硬件赛道备受资本追捧的当下，Odyss"
+    },
+    {
+      "source": "36氪",
+      "title": "「傲意科技」获1.5亿元C轮融资，海外收入增速反超国内｜36氪首发",
+      "url": "https://36kr.com/p/3738341704270083?f=rss",
+      "publishedAt": "2026-03-26 08:00:00  +0800",
+      "summary": "36氪获悉，傲意科技近期已完成1.5亿元C轮融资。本轮融资由中金资本旗下深圳市脑科学与类脑智能产业投资基金（下称\"中金脑科学基金\"）领投，另有多家老股东持续跟投。 傲意科技成立于2015年，专注于非侵入式神经信号传感与AI解析技术，并已自主研发肌电/脑电传感器、智能仿生手、神经康复外骨骼及具身智能灵巧手等产品，拥有百余项自主知识产权。 作为新一代科技革命的核心前沿赛道，脑机接口和具身智能领域均获得"
+    },
+    {
+      "source": "36氪",
+      "title": "8点1氪丨张雪峰医疗文件疑似泄露，苏州卫生健康委回应；黄仁勋谈死亡：希望在工作中突然离世；OpenAI将停止Sora视频生成服务，精简产品线",
+      "url": "https://36kr.com/p/3739006287216903?f=rss",
+      "publishedAt": "2026-03-26 07:59:56  +0800",
+      "summary": "今日热点导览 于东来：超市总裁峰会门票有点高，每人退3000元 品牌金饰克价一夜大涨近70元，克价重回1400元 央行25日开展785亿元7天期逆回购操作 泡泡玛特将在今年下半年推出LABUBU 4.0系列 “中园石化”加油站被查 TOP3大新闻 张雪峰医疗文件疑似泄露，苏州卫生健康委回应 3月24日晚，江苏苏州峰学蔚来教育科技有限公司发布讣告，知名考研老师张雪峰（本名张子彪）因突发疾病，经抢救无"
+    },
+    {
+      "source": "36氪",
+      "title": "氪星晚报｜拼多多官宣“新拼姆”方案：开启品牌自营，一期已注资；阿里获评全球最具创新力AI企业，是唯一入选的亚洲公司；三星加入韩国政府倡导的车辆轮换限行计划，以应对能源短缺",
+      "url": "https://36kr.com/p/3737878147203072?f=rss",
+      "publishedAt": "2026-03-25 19:49:36  +0800",
+      "summary": "大公司： 斯里兰卡国家支付网络LankaPay宣布：40万商户已支持微信支付 36氪获悉，3月24日，斯里兰卡国家支付网络LankaPay宣布正式接入微信支付。即日起，中国游客可在斯里兰卡全岛超过40万家支持LANKAQR二维码的商户中，直接使用微信支付进行消费。目前，微信跨境支付已覆盖全球78个国家和地区，支持36种货币，覆盖餐饮、百货、商超便利、交通出行、景点购票、留学缴费等丰富场景。 拼多多"
+    }
+  ],
+  "officialBlogs": [
+    {
+      "source": "OpenAI",
+      "title": "Inside our approach to the Model Spec",
+      "url": "https://openai.com/index/our-approach-to-the-model-spec",
+      "publishedAt": "Wed, 25 Mar 2026 10:00:00 GMT",
+      "summary": "Learn how OpenAI’s Model Spec serves as a public framework for model behavior, balancing safety, user freedom, and accountability as AI systems advance."
+    },
+    {
+      "source": "OpenAI",
+      "title": "Introducing the OpenAI Safety Bug Bounty program",
+      "url": "https://openai.com/index/safety-bug-bounty",
+      "publishedAt": "Wed, 25 Mar 2026 00:00:00 GMT",
+      "summary": "OpenAI launches a Safety Bug Bounty program to identify AI abuse and safety risks, including agentic vulnerabilities, prompt injection, and data exfiltration."
+    },
+    {
+      "source": "OpenAI",
+      "title": "Helping developers build safer AI experiences for teens",
+      "url": "https://openai.com/index/teen-safety-policies-gpt-oss-safeguard",
+      "publishedAt": "Tue, 24 Mar 2026 11:00:00 GMT",
+      "summary": "OpenAI releases prompt-based teen safety policies for developers using gpt-oss-safeguard, helping moderate age-specific risks in AI systems."
+    },
+    {
+      "source": "OpenAI",
+      "title": "Update on the OpenAI Foundation",
+      "url": "https://openai.com/index/update-on-the-openai-foundation",
+      "publishedAt": "Tue, 24 Mar 2026 09:00:00 GMT",
+      "summary": "The OpenAI Foundation announces plans to invest at least $1 billion in curing diseases, economic opportunity, AI resilience, and community programs."
+    },
+    {
+      "source": "OpenAI",
+      "title": "Powering product discovery in ChatGPT",
+      "url": "https://openai.com/index/powering-product-discovery-in-chatgpt",
+      "publishedAt": "Tue, 24 Mar 2026 09:00:00 GMT",
+      "summary": "ChatGPT introduces richer, visually immersive shopping powered by the Agentic Commerce Protocol, enabling product discovery, side-by-side comparisons, and merchant integration."
+    },
+    {
+      "source": "Google AI",
+      "title": "Build with Lyria 3, our newest music generation model",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/lyria-3-developers/",
+      "publishedAt": "Wed, 25 Mar 2026 16:00:00 +0000",
+      "summary": "Lyria 3 is now available in paid preview through the Gemini API and for testing in Google AI Studio."
+    },
+    {
+      "source": "Google AI",
+      "title": "Lyria 3 Pro: Create longer tracks in more Google products",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro/",
+      "publishedAt": "Wed, 25 Mar 2026 16:00:00 +0000",
+      "summary": "We are bringing Lyria 3 to the tools where professionals work and create every day."
+    },
+    {
+      "source": "Google AI",
+      "title": "Bringing the power of Personal Intelligence to more people",
+      "url": "https://blog.google/products-and-platforms/products/search/personal-intelligence-expansion/",
+      "publishedAt": "Tue, 17 Mar 2026 16:00:00 +0000",
+      "summary": "We're expanding Personal Intelligence across AI Mode in Search, the Gemini app and Gemini in Chrome."
+    },
+    {
+      "source": "Google AI",
+      "title": "Our latest investment in open source security for the AI era",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/ai-powered-open-source-security/",
+      "publishedAt": "Tue, 17 Mar 2026 16:00:00 +0000",
+      "summary": "Google is making new investments, building new tools and developing code security to improve open source security."
+    },
+    {
+      "source": "Google AI",
+      "title": "How AI is helping improve heart health in rural Australia",
+      "url": "https://blog.google/innovation-and-ai/technology/health/google-ai-heart-health-australia/",
+      "publishedAt": "Thu, 12 Mar 2026 15:00:00 +0000",
+      "summary": "A new Google AI initiative aims to improve heart health outcomes for people living in remote Australian communities."
+    },
+    {
+      "source": "Hugging Face",
+      "title": "A New Framework for Evaluating Voice Agents (EVA)",
+      "url": "https://huggingface.co/blog/ServiceNow-AI/eva",
+      "publishedAt": "Tue, 24 Mar 2026 02:01:52 GMT",
+      "summary": ""
+    },
+    {
+      "source": "Hugging Face",
+      "title": "Build a Domain-Specific Embedding Model in Under a Day",
+      "url": "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune",
+      "publishedAt": "Fri, 20 Mar 2026 19:38:16 GMT",
+      "summary": ""
+    },
+    {
+      "source": "Hugging Face",
+      "title": "What&apos;s New in Mellea 0.4.0 + Granite Libraries Release",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-libraries",
+      "publishedAt": "Fri, 20 Mar 2026 14:14:46 GMT",
+      "summary": ""
+    },
+    {
+      "source": "Hugging Face",
+      "title": "State of Open Source on Hugging Face: Spring 2026",
+      "url": "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "publishedAt": "Tue, 17 Mar 2026 16:37:55 GMT",
+      "summary": ""
+    },
+    {
+      "source": "Hugging Face",
+      "title": "Holotron-12B - High Throughput Computer Use Agent",
+      "url": "https://huggingface.co/blog/Hcompany/holotron-12b",
+      "publishedAt": "Tue, 17 Mar 2026 12:33:39 GMT",
+      "summary": ""
+    }
+  ],
+  "podcasts": [
+    {
+      "name": "The Artificial Intelligence Show",
+      "title": "How Claude Code Triggered an Industry-Wide Meltdown",
+      "url": "https://youtube.com/watch?v=-zRPBZPWKpY",
+      "publishedAt": "2026-03-25T00:00:00.000Z"
+    }
+  ],
+  "_crossSignals": {
+    "sharedTopics": {
+      "AI": [
+        "swyx",
+        "petergyang",
+        "rauchg",
+        "levie",
+        "garrytan",
+        "danshipper",
+        "emollick",
+        "bindureddy",
+        "Khazix0918",
+        "dotey",
+        "vista8",
+        "Gorden_Sun"
+      ],
+      "Claude": [
+        "_catwu",
+        "danshipper",
+        "claudeai",
+        "vista8",
+        "Gorden_Sun"
+      ],
+      "agent": [
+        "levie",
+        "danshipper",
+        "emollick",
+        "bindureddy",
+        "dotey",
+        "vista8",
+        "Gorden_Sun"
+      ],
+      "coding": [
+        "danshipper",
+        "Khazix0918",
+        "dotey"
+      ],
+      "training": [
+        "karpathy",
+        "emollick"
+      ],
+      "Anthropic": [
+        "mattturck",
+        "danshipper",
+        "Gorden_Sun"
+      ],
+      "vibe coding": [
+        "danshipper",
+        "Khazix0918"
+      ]
+    },
+    "activeBuilders": 22
+  },
+  "stats": {
+    "builders": 22,
+    "tweets": 54,
+    "cnArticles": 5,
+    "officialBlogs": 15,
+    "podcasts": 1
+  }
+}
