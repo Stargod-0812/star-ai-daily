@@ -1,6 +1,6 @@
 {
   "edition": "2026-03-26",
-  "generatedAt": "2026-03-26T06:48:41.002Z",
+  "generatedAt": "2026-03-26T06:49:46.932Z",
   "lookbackHours": 24,
   "builders": [
     {
@@ -29,13 +29,13 @@
           "text": "One common issue with personalization in all LLMs is how distracting memory seems to be for the models. A single question from 2 months ago about some topic can keep coming up as some kind of a deep interest of mine with undue mentions in perpetuity. Some kind of trying too hard.",
           "createdAt": "2026-03-25T16:05:14.000Z",
           "url": "https://x.com/karpathy/status/2036836816654147718",
-          "likes": 16254,
+          "likes": 16262,
           "retweets": 806,
           "replies": 1420,
           "isQuote": false,
           "quotedTweetId": null,
           "_metrics": {
-            "engagementScore": 18672,
+            "engagementScore": 18680,
             "isHighEngagement": true
           }
         }
@@ -181,13 +181,13 @@
           "text": "I really wish we could reclaim design back to meaning “a plan for arranging elements to accomplish a particular purpose”\n\nWe got overly obsessed with arranging elements and forgot about the purpose. https://t.co/Ii2EXoeC0J",
           "createdAt": "2026-03-26T05:43:01.000Z",
           "url": "https://x.com/thenanyu/status/2037042617213481410",
-          "likes": 20,
+          "likes": 21,
           "retweets": 1,
           "replies": 3,
           "isQuote": true,
           "quotedTweetId": "2036972031405658600",
           "_metrics": {
-            "engagementScore": 23,
+            "engagementScore": 24,
             "isHighEngagement": false
           }
         },
@@ -310,13 +310,13 @@
           "text": "Every company will become an AI factory, wherein the unit of production is the token. \n\nTokens, however, create usage tracking  billing headaches that are v unlike SaaS.\n\n▲ AI Gateway now solves the metering problem across models &amp; providers with one /𝚟𝟷/𝚛𝚎𝚙𝚘𝚛𝚝 API call https://t.co/CmrCjzPPK2",
           "createdAt": "2026-03-26T00:29:27.000Z",
           "url": "https://x.com/rauchg/status/2036963706576527623",
-          "likes": 172,
+          "likes": 173,
           "retweets": 4,
           "replies": 24,
           "isQuote": true,
           "quotedTweetId": "2036937626721411241",
           "_metrics": {
-            "engagementScore": 184,
+            "engagementScore": 185,
             "isHighEngagement": false
           }
         }
@@ -333,13 +333,13 @@
           "text": "Jevons paradox is happening in real time. Companies, especially outside of tech, are realizing that they can now afford to take on software projects that they wouldn’t have been able to tackle before because now AI lets them do so. \n\nWe’re going to start to use software for all new things in the economy because it’s incrementally cheaper to produce. Marketing teams at big companies will have engineers helping to automate workflows. Engineers in life sciences and healthcare will automate research. Small businesses will hire engineers for the first to build better digital experiences.\n\nAnd as long as AI agents still require a human who understands what to prompt, how to review when an agent goes off the rails, how it guide back, how to maintain the system that was built, how to fix the ongoing bugs, and more, we will still have humans managing these agents.\n\nThis is why all the advice you get of not going into engineering is wrong. The world is going to increasingly be made up of software, and the people that understand it best will be in a strong economic position. This will happen in other roles as well where output goes up and demand increases.",
           "createdAt": "2026-03-25T15:46:49.000Z",
           "url": "https://x.com/levie/status/2036832183131033977",
-          "likes": 3090,
+          "likes": 3091,
           "retweets": 438,
           "replies": 167,
           "isQuote": true,
           "quotedTweetId": "2036535460726767793",
           "_metrics": {
-            "engagementScore": 4404,
+            "engagementScore": 4405,
             "isHighEngagement": true
           }
         }
@@ -358,7 +358,7 @@
           "url": "https://x.com/garrytan/status/2037055498974093629",
           "likes": 24,
           "retweets": 0,
-          "replies": 6,
+          "replies": 8,
           "isQuote": true,
           "quotedTweetId": "2037002056469536921",
           "_metrics": {
@@ -386,13 +386,13 @@
           "text": "GStack beats Superpowers head to head https://t.co/dJC3PqjfsZ https://t.co/AYTIaNgQC8",
           "createdAt": "2026-03-26T06:17:57.000Z",
           "url": "https://x.com/garrytan/status/2037051410857283967",
-          "likes": 36,
+          "likes": 38,
           "retweets": 2,
           "replies": 7,
           "isQuote": true,
           "quotedTweetId": "2036927243029713284",
           "_metrics": {
-            "engagementScore": 42,
+            "engagementScore": 44,
             "isHighEngagement": false
           }
         },
@@ -401,13 +401,13 @@
           "text": "I do this out loud in meetings sometimes and people look at me like I am crazy \n\nBut actually I am just an external thinker and often my intuition arrives eventually at the right thing after some more thinking https://t.co/vhU230KZ3O",
           "createdAt": "2026-03-26T05:44:28.000Z",
           "url": "https://x.com/garrytan/status/2037042985389740084",
-          "likes": 35,
-          "retweets": 1,
-          "replies": 11,
+          "likes": 37,
+          "retweets": 2,
+          "replies": 12,
           "isQuote": true,
           "quotedTweetId": "2036852068112371938",
           "_metrics": {
-            "engagementScore": 38,
+            "engagementScore": 43,
             "isHighEngagement": false
           }
         },
@@ -416,13 +416,13 @@
           "text": "Dang I thought $40k for this mo was crazy but I guess I am rookie numbers\n\n$150k #april_goals https://t.co/j23ZkFwgCo",
           "createdAt": "2026-03-26T05:22:08.000Z",
           "url": "https://x.com/garrytan/status/2037037364229611884",
-          "likes": 85,
+          "likes": 89,
           "retweets": 6,
           "replies": 17,
           "isQuote": true,
           "quotedTweetId": "2036855323244584973",
           "_metrics": {
-            "engagementScore": 103,
+            "engagementScore": 107,
             "isHighEngagement": false
           }
         }
@@ -599,13 +599,13 @@
           "text": "Your work tools in Claude are now available on mobile.\n\nExplore Figma designs, create Canva slides, check Amplitude dashboards, all from your phone.\n\nGive it a try: https://t.co/hwPB3zlk0w https://t.co/646YMIzYZl",
           "createdAt": "2026-03-25T17:00:44.000Z",
           "url": "https://x.com/claudeai/status/2036850783526719610",
-          "likes": 16586,
-          "retweets": 1233,
+          "likes": 16596,
+          "retweets": 1235,
           "replies": 1053,
           "isQuote": false,
           "quotedTweetId": null,
           "_metrics": {
-            "engagementScore": 20285,
+            "engagementScore": 20301,
             "isHighEngagement": true
           }
         }
@@ -743,13 +743,13 @@
           "text": "发现公司越来越多的小伙伴需要把自己Vibe coding的项目部署到服务器上了，于是有把公司的服务器徒手搓成了一个带权限管理的Skill。。。\n大家只要开箱即用。。。\nAI时代，真的不一样了 https://t.co/W71olSwnkD",
           "createdAt": "2026-03-26T05:33:24.000Z",
           "url": "https://x.com/Khazix0918/status/2037040197465223371",
-          "likes": 13,
+          "likes": 15,
           "retweets": 0,
           "replies": 5,
           "isQuote": false,
           "quotedTweetId": null,
           "_metrics": {
-            "engagementScore": 13,
+            "engagementScore": 15,
             "isHighEngagement": false
           }
         },
@@ -758,13 +758,13 @@
           "text": "https://t.co/lBlcHPYxhD",
           "createdAt": "2026-03-26T03:53:57.000Z",
           "url": "https://x.com/Khazix0918/status/2037015170091016257",
-          "likes": 86,
+          "likes": 89,
           "retweets": 7,
           "replies": 6,
           "isQuote": false,
           "quotedTweetId": null,
           "_metrics": {
-            "engagementScore": 107,
+            "engagementScore": 110,
             "isHighEngagement": false
           }
         }
@@ -811,13 +811,13 @@
           "text": "我现在所有 skills 的脚本，默认用 bun 执行，因为 bun 可以直接执行 TypeScript，不需要预先编译，这带来的好处就是如果出错了，Agent 可以快速定位到代码里面的问题，然后直接修改代码再次运行，如果是打包后的代码这就很难打补丁。\n\n任何语言或者环境，Agent 友好才是王道！ https://t.co/84ZmL36k1x",
           "createdAt": "2026-03-26T02:28:57.000Z",
           "url": "https://x.com/dotey/status/2036993782357324280",
-          "likes": 313,
+          "likes": 314,
           "retweets": 29,
           "replies": 32,
           "isQuote": true,
           "quotedTweetId": "2036989953159422054",
           "_metrics": {
-            "engagementScore": 400,
+            "engagementScore": 401,
             "isHighEngagement": true
           }
         },
@@ -826,13 +826,13 @@
           "text": "我也不知道怎么告诉老板“AI是工具不是魔法”，只能请教睿智的网友们了。\n\n也许可以扮作弱小无知的 AI 小白，给老板上难度让他施法，可能他就知难而退了 https://t.co/OkWGvV5VsY",
           "createdAt": "2026-03-26T02:15:26.000Z",
           "url": "https://x.com/dotey/status/2036990379824750996",
-          "likes": 33,
+          "likes": 34,
           "retweets": 0,
-          "replies": 39,
+          "replies": 40,
           "isQuote": true,
           "quotedTweetId": "2036989507007119776",
           "_metrics": {
-            "engagementScore": 33,
+            "engagementScore": 34,
             "isHighEngagement": false
           }
         },
@@ -990,43 +990,7 @@
       ]
     }
   ],
-  "cnMedia": [
-    {
-      "source": "36氪",
-      "title": "第二期：百融云创、每日互动等AI大模型公司招聘大语言模型算法工程师等岗位｜人才留言板",
-      "url": "https://36kr.com/p/3738062628962563?f=rss",
-      "publishedAt": "2026-03-26 11:00:00  +0800",
-      "summary": "图源:36kr 每周精选 30 + 优质岗位，覆盖 AI 大模型、具身智能、量子计算、3D 打印、半导体等领域，帮你找到下一个职业爆发点。 &nbsp;本期合作企业：国资背景 AI、上市科技龙头、全球独角兽、前沿硬科技新锐｜B 轮及以上占比超 60% &nbsp; 本期亮点速览 图源:36kr &nbsp; 精选岗位 | 中城交科技 · 天使轮 · 交通大模型 一句话卖点： 上海首家国资背景交通垂"
-    },
-    {
-      "source": "36氪",
-      "title": "36氪独家｜红杉中国、Monolith领投AI健康硬件公司「Odyss」，金额近2亿元",
-      "url": "https://36kr.com/p/3738226479874304?f=rss",
-      "publishedAt": "2026-03-26 10:00:58  +0800",
-      "summary": "作者&nbsp;|&nbsp;张子怡 编辑&nbsp;|&nbsp;袁斯来 硬氪获悉，AI健康硬件公司「OdyssLife」（以下简称“Odyss”）已于近期连续完成多轮融资，总金额近2亿元人民币。本次融资由红杉中国、Monolith分别领投，老股东线性资本、Creekstone继续加注。 本轮融资金将主要用于产品软硬件研发、全球市场营销以及团队扩张。 在AI硬件赛道备受资本追捧的当下，Odyss"
-    },
-    {
-      "source": "36氪",
-      "title": "「傲意科技」获1.5亿元C轮融资，海外收入增速反超国内｜36氪首发",
-      "url": "https://36kr.com/p/3738341704270083?f=rss",
-      "publishedAt": "2026-03-26 08:00:00  +0800",
-      "summary": "36氪获悉，傲意科技近期已完成1.5亿元C轮融资。本轮融资由中金资本旗下深圳市脑科学与类脑智能产业投资基金（下称\"中金脑科学基金\"）领投，另有多家老股东持续跟投。 傲意科技成立于2015年，专注于非侵入式神经信号传感与AI解析技术，并已自主研发肌电/脑电传感器、智能仿生手、神经康复外骨骼及具身智能灵巧手等产品，拥有百余项自主知识产权。 作为新一代科技革命的核心前沿赛道，脑机接口和具身智能领域均获得"
-    },
-    {
-      "source": "36氪",
-      "title": "8点1氪丨张雪峰医疗文件疑似泄露，苏州卫生健康委回应；黄仁勋谈死亡：希望在工作中突然离世；OpenAI将停止Sora视频生成服务，精简产品线",
-      "url": "https://36kr.com/p/3739006287216903?f=rss",
-      "publishedAt": "2026-03-26 07:59:56  +0800",
-      "summary": "今日热点导览 于东来：超市总裁峰会门票有点高，每人退3000元 品牌金饰克价一夜大涨近70元，克价重回1400元 央行25日开展785亿元7天期逆回购操作 泡泡玛特将在今年下半年推出LABUBU 4.0系列 “中园石化”加油站被查 TOP3大新闻 张雪峰医疗文件疑似泄露，苏州卫生健康委回应 3月24日晚，江苏苏州峰学蔚来教育科技有限公司发布讣告，知名考研老师张雪峰（本名张子彪）因突发疾病，经抢救无"
-    },
-    {
-      "source": "36氪",
-      "title": "氪星晚报｜拼多多官宣“新拼姆”方案：开启品牌自营，一期已注资；阿里获评全球最具创新力AI企业，是唯一入选的亚洲公司；三星加入韩国政府倡导的车辆轮换限行计划，以应对能源短缺",
-      "url": "https://36kr.com/p/3737878147203072?f=rss",
-      "publishedAt": "2026-03-25 19:49:36  +0800",
-      "summary": "大公司： 斯里兰卡国家支付网络LankaPay宣布：40万商户已支持微信支付 36氪获悉，3月24日，斯里兰卡国家支付网络LankaPay宣布正式接入微信支付。即日起，中国游客可在斯里兰卡全岛超过40万家支持LANKAQR二维码的商户中，直接使用微信支付进行消费。目前，微信跨境支付已覆盖全球78个国家和地区，支持36种货币，覆盖餐饮、百货、商超便利、交通出行、景点购票、留学缴费等丰富场景。 拼多多"
-    }
-  ],
+  "cnMedia": [],
   "officialBlogs": [
     {
       "source": "OpenAI",
@@ -1134,14 +1098,7 @@
       "summary": ""
     }
   ],
-  "podcasts": [
-    {
-      "name": "The Artificial Intelligence Show",
-      "title": "How Claude Code Triggered an Industry-Wide Meltdown",
-      "url": "https://youtube.com/watch?v=-zRPBZPWKpY",
-      "publishedAt": "2026-03-25T00:00:00.000Z"
-    }
-  ],
+  "podcasts": [],
   "_crossSignals": {
     "sharedTopics": {
       "AI": [
@@ -1198,8 +1155,8 @@
   "stats": {
     "builders": 22,
     "tweets": 54,
-    "cnArticles": 5,
+    "cnArticles": 0,
     "officialBlogs": 15,
-    "podcasts": 1
+    "podcasts": 0
   }
 }
