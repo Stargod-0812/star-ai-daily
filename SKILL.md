@@ -462,8 +462,8 @@ cd ${CLAUDE_SKILL_DIR}/scripts && npm install --silent 2>/dev/null && node deliv
 一条命令搞定。deliver.js 会自动生成 HTML 并启动/重启本地预览服务，agent 不需要做任何额外操作。
 
 **第三步：在对话中输出日报全文。**
-末尾加一行：
-"[📖 网页精排详细版点这里](http://localhost:9470/latest.html)"
+末尾加一行纯文字提示（不要用 Markdown 链接，不要输出任何 URL）：
+"📖 网页精排版已生成，打开浏览器访问 localhost:9470 查看（如果无法访问，可以直接打开文件 ~/.star-ai-daily/web/latest.html）"
 
 **⛔ 禁止事项（违反会导致严重问题）：**
 - ❌ **绝对不要用 Write 工具写 .html 文件** — HTML 只由 deliver.js 生成，agent 自己写的 HTML 格式/内容/footer 全是错的
