@@ -98,22 +98,22 @@ async function pushToGitee(token, filename, content) {
   const message = `update ${filename}`;
 
   const existing = await fetch(`${apiUrl}?access_token=${token}`);
+  let existingSha = null;
   if (existing.ok) {
     const data = await existing.json();
-    const res = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ access_token: token, content: encoded, message, sha: data.sha }),
-    });
-    return res.ok;
-  } else {
-    const res = await fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ access_token: token, content: encoded, message }),
-    });
-    return res.ok;
+    // Gitee 对不存在的文件可能返回 200 + []（父目录存在时），需检查 sha
+    if (data && !Array.isArray(data) && data.sha) {
+      existingSha = data.sha;
+    }
   }
+  const method = existingSha ? 'PUT' : 'POST';
+  const body = { access_token: token, content: encoded, message, ...(existingSha && { sha: existingSha }) };
+  const res = await fetch(apiUrl, {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  return res.ok;
 }
 
 // --- X API v2 (Bearer Token) ---
@@ -453,14 +453,14 @@ async function run(env) {
     return { ok: false, archiveOk: false, stats: dailyFeed.stats, errors, message: msg };
   }
 
-  // 推送 feed-daily.json
+  // 并行推送 feed-daily.json 和 archive
   const content = JSON.stringify(dailyFeed, null, 2);
-  const ok = await pushToGitee(env.GITEE_TOKEN, 'feed-daily.json', content);
-
-  // 推送 archive
   const archivePath = `archive/feed-${dailyFeed.edition}.json`;
   const archiveContent = JSON.stringify(buildArchiveFeed(dailyFeed), null, 2);
-  const archiveOk = await pushToGitee(env.GITEE_TOKEN, archivePath, archiveContent);
+  const [ok, archiveOk] = await Promise.all([
+    pushToGitee(env.GITEE_TOKEN, 'feed-daily.json', content),
+    pushToGitee(env.GITEE_TOKEN, archivePath, archiveContent),
+  ]);
 
   const msg = `${dailyFeed.stats.builders} builders, ${dailyFeed.stats.tweets} tweets, ${dailyFeed.stats.cnArticles} cn, ${dailyFeed.stats.officialBlogs} blogs, ${dailyFeed.stats.podcasts} pods → daily:${ok ? 'OK' : 'FAIL'} archive:${archiveOk ? 'OK' : 'FAIL'}`;
   console.log(msg);

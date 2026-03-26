@@ -278,7 +278,7 @@ async function main() {
   if (!podcastsOnly) {
     console.error('正在获取 X/Twitter 内容...');
     builders = await fetchXContent(sources.x_accounts, bearerToken, state, errors);
-    console.error(`  ${builders.length} 位建造者, ${builders.reduce((s, a) => s + a.tweets.length, 0)} 条推文`);
+    console.error(`  ${builders.length} 位人物, ${builders.reduce((s, a) => s + a.tweets.length, 0)} 条推文`);
   }
 
   // RSS
@@ -339,7 +339,7 @@ async function main() {
   await writeFile(join(ARCHIVE_DIR, `feed-${feedDaily.edition}.json`), JSON.stringify(archiveFeed, null, 2));
 
   console.error(`\n✅ feed-daily.json 已生成`);
-  console.error(`   ${builders.length} 位建造者 | ${totalTweets} 条推文 | ${cnArticles.length} 条中文资讯 | ${enBlogs.length} 条官方博客 | ${podcastEpisodes.length} 期播客`);
+  console.error(`   ${builders.length} 位人物 | ${totalTweets} 条推文 | ${cnArticles.length} 条中文资讯 | ${enBlogs.length} 条官方博客 | ${podcastEpisodes.length} 期播客`);
 
   if (errors.length > 0) {
     console.error(`\n⚠️ ${errors.length} 个非致命错误:`);

@@ -127,14 +127,25 @@ async function pushToEmail(plainText, richHtml, apiKey, recipient) {
 
 // ── Markdown → HTML 渲染器 ───────────────────────
 
+/** HTML 转义：正文只转 & < >，属性值额外转 " ' */
 function esc(s) {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+function escAttr(s) {
+  return esc(s).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/** 板块定义：emoji → id / label 的唯一来源 */
+const SECTIONS = [
+  { emoji: '🔥', id: 'north-america', label: '北美 AI 大事' },
+  { emoji: '🇨🇳', id: 'china',         label: '国内 AI 大事' },
+  { emoji: '🌐', id: 'global',        label: 'AI 大厂动态' },
+  { emoji: '🎙', id: 'podcast',       label: 'AI 超一线播客' },
+  { emoji: '📡', id: 'signal',        label: 'Star 信号' },
+];
+const SECTION_MAP   = Object.fromEntries(SECTIONS.map(s => [s.emoji, s.id]));
+const SECTION_LABELS = Object.fromEntries(SECTIONS.map(s => [s.emoji, s.label]));
+const SECTION_RE    = new RegExp(`^(?:${SECTIONS.map(s => s.emoji).join('|')})`);
 
 /**
  * 将一行文本中的 markdown 内联语法转换为 HTML：
@@ -144,12 +155,12 @@ function esc(s) {
  */
 function inlineMarkdown(text) {
   let s = esc(text);
-  // 行内链接 [text](url) — 先处理，避免被粗体匹配干扰
+  // 行内链接 [text](url) — URL 已被 esc() 处理过，需先反转义再 escAttr
   s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-    '<a class="inline-link" href="$2" target="_blank" rel="noopener">$1</a>');
-  // 纯文本链接 → https://... — 文字版日报使用完整 URL 格式
+    (_, label, url) => `<a class="link" href="${escAttr(url.replace(/&amp;/g, '&'))}" target="_blank" rel="noopener">${label} ↗</a>`);
+  // 纯文本链接 → https://...
   s = s.replace(/→\s*(https?:\/\/\S+)/g,
-    '→ <a class="inline-link" href="$1" target="_blank" rel="noopener">$1</a>');
+    (_, url) => `→ <a class="link" href="${escAttr(url.replace(/&amp;/g, '&'))}" target="_blank" rel="noopener">链接 ↗</a>`);
   // 粗体 **text**
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   // 斜体 *text*（排除已被粗体消耗的）
@@ -161,32 +172,23 @@ function inlineMarkdown(text) {
  * 从日报文本中提取统计信息用于顶部统计条
  */
 function extractStats(text) {
-  const sections = {
-    builders: 0,
-    cnArticles: 0,
-    blogs: 0,
-    podcasts: 0
-  };
-  // 统计 ### 开头的人物小标题数量
+  const sections = { builders: 0, cnArticles: 0, blogs: 0, podcasts: 0 };
   const builderMatches = text.match(/^### .+/gm);
   if (builderMatches) sections.builders = builderMatches.length;
-  // 检测板块存在
   if (/🇨🇳/.test(text)) {
-    const cnSection = text.split(/🇨🇳[^\n]*/)[1]?.split(/\n(?=🌐|🎙|---)/)?.[0] || '';
+    const cnSection = text.split(/🇨🇳[^\n]*/)[1]?.split(/\n(?=🌐|🎙|📡|---)/)?.[0] || '';
     const cnParas = cnSection.split(/\n\n/).filter(p => p.trim() && !p.startsWith('🇨🇳'));
     sections.cnArticles = cnParas.length;
   }
   if (/🌐/.test(text)) {
-    const blogSection = text.split(/🌐[^\n]*/)[1]?.split(/\n(?=🎙|---)/)?.[0] || '';
+    const blogSection = text.split(/🌐[^\n]*/)[1]?.split(/\n(?=🎙|📡|---)/)?.[0] || '';
     const blogParas = blogSection.split(/\n\n/).filter(p => p.trim() && !p.startsWith('🌐'));
     sections.blogs = blogParas.length;
   }
   if (/🎙/.test(text)) sections.podcasts = 1;
 
-  // 估算阅读时间（中文约 400 字/分钟）
   const charCount = text.replace(/https?:\/\/\S+/g, '').replace(/\s+/g, '').length;
   const readMin = Math.max(2, Math.round(charCount / 400));
-
   return { ...sections, readMin };
 }
 
@@ -197,32 +199,40 @@ function generateHtmlDigest(text) {
   const dateShort = new Date().toISOString().slice(0, 10).replace(/-/g, '.');
   const stats = extractStats(text);
 
-  // 提取标题和主线
   let titleLine = 'Star AI 日报';
-  let mainThesis = '';
   const lines = text.split('\n');
 
-  // 提取板块导航信息
   const navItems = [];
-  const sectionMap = { '🔥': 'north-america', '🇨🇳': 'china', '🌐': 'global', '🎙': 'podcast' };
-  const sectionLabels = { '🔥': '北美 AI 大事', '🇨🇳': '国内 AI 大事', '🌐': 'AI 大厂动态', '🎙': 'AI 超一线播客' };
-
-  // 提取人物列表用于导航
   const personNames = [];
 
   let html = '';
   let inBlockquote = false;
-  let currentSection = '';
   let personCount = 0;
   let inPersonCard = false;
   let inSection = false;
+  let inHero = false;       // 防止 hero 内插入 spacer
+  let heroClosePending = false;
+
+  /** 关闭 hero header 的 HTML 片段 */
+  function closeHero() {
+    inHero = false;
+    heroClosePending = false;
+    return `  <div class="hero-meta">
+    <span>starrliao</span>
+    <span>${esc(dateShort)}</span>
+    <span>约 ${stats.readMin} 分钟</span>
+  </div>
+</header>`;
+  }
 
   for (const line of lines) {
     const trimmed = line.trim();
+    const bare = trimmed.replace(/^#{1,6}\s+/, '');
 
+    // ── 空行处理：只在正文区域输出 spacer ──
     if (!trimmed) {
       if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
-      html += '<div class="spacer"></div>';
+      if (!inHero) html += '<div class="spacer"></div>';
       continue;
     }
 
@@ -231,51 +241,38 @@ function generateHtmlDigest(text) {
       inBlockquote = false;
     }
 
-    // --- 分隔线
+    // --- 分隔线：只输出一次 divider，不叠加 spacer
     if (/^---+$/.test(trimmed)) {
-      if (inPersonCard) { html += '</div>'; inPersonCard = false; }
+      if (inPersonCard) { html += '</article>'; inPersonCard = false; }
       if (inSection) { html += '</section>'; inSection = false; }
-      html += '<div class="divider"></div>';
-      continue;
+      continue; // section 自带 margin-bottom，不需要额外 divider
     }
 
-    // 主标题 ⭐ Star AI 日报
-    if (trimmed.startsWith('⭐') || /^Star\s?AI/i.test(trimmed)) {
-      titleLine = trimmed.replace(/^⭐\s*/, '');
-      // 分离题眼：Star AI 日报 | 题眼
+    // ── 主标题 ⭐ Star AI 日报 ──
+    if (bare.startsWith('⭐') || /^Star\s?AI/i.test(bare)) {
+      titleLine = bare.replace(/^⭐\s*/, '');
       const titleParts = titleLine.split(/\s*\|\s*/);
-      if (titleParts.length >= 2) {
-        html += `<header class="hero">
+      const headline = titleParts.length >= 2 ? titleParts[1] : titleLine;
+      html += `<header class="hero">
   <div class="hero-eyebrow">STAR AI 日报 · ${esc(dateShort)}</div>
-  <h1>${esc(titleParts[1])}</h1>`;
-      } else {
-        html += `<header class="hero">
-  <div class="hero-eyebrow">STAR AI 日报 · ${esc(dateShort)}</div>
-  <h1>${esc(titleLine)}</h1>`;
-      }
+  <h1>${esc(headline)}</h1>`;
+      inHero = true;
+      heroClosePending = true;
       continue;
     }
 
-    // 日期行（纯日期如 2026年3月23日）
-    if (/^\d{4}年\d{1,2}月\d{1,2}日/.test(trimmed)) {
-      continue; // 已在 hero-eyebrow 中用 dateShort 表示
-    }
+    // 日期行
+    if (/^\d{4}年\d{1,2}月\d{1,2}日/.test(trimmed)) continue;
 
-    // 引用块（> 开头）— 主线判断
+    // ── 引用块 ──
     if (trimmed.startsWith('>')) {
       const content = trimmed.replace(/^>\s*/, '');
-      if (content.startsWith('今日主线')) {
-        mainThesis = content.replace(/^今日主线[：:]\s*/, '');
-        html += `<p class="hero-subtitle">${inlineMarkdown(mainThesis)}</p>
-  <div class="hero-meta">
-    <span>starrliao</span>
-    <span>${esc(dateShort)}</span>
-    <span>约 ${stats.readMin} 分钟</span>
-  </div>
-</header>`;
+      if (content.startsWith('今日主线') && inHero) {
+        const mainThesis = content.replace(/^今日主线[：:]\s*/, '');
+        html += `  <p class="hero-subtitle">${inlineMarkdown(mainThesis)}</p>
+${closeHero()}`;
         continue;
       }
-      // 其他引用（播客原话等）
       if (!inBlockquote) {
         html += '<blockquote class="callout">';
         inBlockquote = true;
@@ -284,55 +281,41 @@ function generateHtmlDigest(text) {
       continue;
     }
 
-    // 如果 hero 还没关闭（没有主线判断的情况）
-    if (html.includes('<header class="hero">') && !html.includes('</header>')) {
-      html += `<div class="hero-meta">
-    <span>starrliao</span>
-    <span>${esc(dateShort)}</span>
-    <span>约 ${stats.readMin} 分钟</span>
-  </div>
-</header>`;
+    // 如果 hero 还没关闭（没有主线的情况），遇到非引用行时关闭
+    if (heroClosePending) {
+      html += closeHero();
     }
 
-    // 板块标题（emoji 开头）
-    if (/^(?:🔥|🏢|🇨🇳|🌐|🎙)/.test(trimmed)) {
-      // 关闭之前打开的 person-card 和 section
-      if (inPersonCard) { html += '</div>'; inPersonCard = false; }
+    // ── 板块标题 ──
+    if (SECTION_RE.test(bare)) {
+      if (inPersonCard) { html += '</article>'; inPersonCard = false; }
       if (inSection) { html += '</section>'; inSection = false; }
-      const emoji = trimmed.match(/^(🔥|🏢|🇨🇳|🌐|🎙)/)?.[1] || '';
-      const sectionId = sectionMap[emoji] || `section-${navItems.length}`;
-      currentSection = sectionId;
-      const label = sectionLabels[emoji] || trimmed;
+      const emoji = bare.match(SECTION_RE)?.[0] || '';
+      const sectionId = SECTION_MAP[emoji] || `section-${navItems.length}`;
+      const label = SECTION_LABELS[emoji] || bare;
       navItems.push({ id: sectionId, label });
       html += `<section class="section" id="${sectionId}">
   <div class="section-num">Section ${String(navItems.length).padStart(2, '0')}</div>
-  <h2>${esc(trimmed)}</h2>`;
+  <h2>${esc(bare)}</h2>`;
       inSection = true;
       continue;
     }
 
-    // 三级标题 ### 人物名 · 身份
+    // ── 三级标题 ### 人物名 · 身份 ──
     if (trimmed.startsWith('### ')) {
-      // 关闭之前打开的 person-card
-      if (inPersonCard) { html += '</div>'; inPersonCard = false; }
+      if (inPersonCard) { html += '</article>'; inPersonCard = false; }
       personCount++;
       const titleText = trimmed.replace(/^###\s*/, '');
       const parts = titleText.split(/\s*·\s*/);
       const personId = `person-${personCount}`;
-      const name = parts[0];
-      personNames.push({ id: personId, name });
-      if (parts.length >= 2) {
-        html += `<div class="person-card" id="${personId}">
-  <h3 class="person-name">${esc(parts[0])}<span class="person-role"> · ${esc(parts[1])}</span></h3>`;
-      } else {
-        html += `<div class="person-card" id="${personId}">
-  <h3 class="person-name">${esc(titleText)}</h3>`;
-      }
+      personNames.push({ id: personId, name: parts[0] });
+      html += `<article class="person-card" id="${personId}">
+  <h3 class="person-name">${esc(parts[0])}${parts.length >= 2 ? `<span class="person-role"> · ${esc(parts[1])}</span>` : ''}</h3>`;
       inPersonCard = true;
       continue;
     }
 
-    // 变化洞察（斜体行 *变化洞察：...*）
+    // 变化洞察
     if (/^\*变化洞察[：:]/.test(trimmed)) {
       const content = trimmed.replace(/^\*/, '').replace(/\*$/, '');
       html += `<div class="callout blue"><p><em>${inlineMarkdown(content)}</em></p></div>`;
@@ -344,20 +327,22 @@ function generateHtmlDigest(text) {
   }
 
   if (inBlockquote) html += '</blockquote>';
-  if (inPersonCard) html += '</div>';
+  if (inPersonCard) html += '</article>';
   if (inSection) html += '</section>';
+  if (heroClosePending) {
+    html += closeHero();
+  }
 
-  // 构建侧边栏导航
+  // 侧边栏导航
   let navHtml = '';
   navItems.forEach(item => {
-    navHtml += `<a href="#${item.id}">${esc(item.label)}</a>\n`;
+    navHtml += `    <a href="#${item.id}">${esc(item.label)}</a>\n`;
   });
-
   let personNavHtml = '';
   if (personNames.length > 0) {
-    personNavHtml = '<div class="nav-group">人物</div>\n';
+    personNavHtml = '    <div class="nav-group">人物</div>\n';
     personNames.forEach(p => {
-      personNavHtml += `<a href="#${p.id}">${esc(p.name)}</a>\n`;
+      personNavHtml += `    <a href="#${p.id}" class="nav-person">${esc(p.name)}</a>\n`;
     });
   }
 
@@ -368,79 +353,116 @@ function generateHtmlDigest(text) {
   if (stats.blogs > 0) statParts.push(`${stats.blogs} 条官方博客`);
   if (stats.podcasts > 0) statParts.push(`${stats.podcasts} 期播客`);
   statParts.push(`约 ${stats.readMin} 分钟`);
+  const statBarHtml = statParts.map(s => `<span class="stat-chip">${esc(s)}</span>`).join('');
 
   return `<!DOCTYPE html>
 <html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#fafaf9">
 <title>Star AI 日报 — ${esc(dateStr)}</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafaf9;--surface:#ffffff;--text-primary:#1a1a19;--text-secondary:#57534e;--text-tertiary:#a8a29e;--accent:#dc2626;--accent-soft:#fef2f2;--accent-mid:#f87171;--border:#e7e5e4;--border-light:#f5f5f4;--blue:#2563eb;--blue-soft:#eff6ff;--green:#16a34a;--green-soft:#f0fdf4;--sidebar-w:240px}
+:root{--bg:#fafaf9;--surface:#ffffff;--text-primary:#1a1a19;--text-secondary:#57534e;--text-tertiary:#a8a29e;--accent:#dc2626;--accent-soft:#fef2f2;--accent-mid:#f87171;--border:#e7e5e4;--border-light:#f5f5f4;--blue:#2563eb;--blue-soft:#eff6ff;--green:#16a34a;--green-soft:#f0fdf4;--sidebar-w:240px;--card-shadow:0 4px 20px rgba(0,0,0,.08)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.8}
+body{font-family:'Noto Sans SC','Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.75}
 ::selection{background:var(--accent);color:#fff}
 
 .scroll-progress{position:fixed;top:0;left:var(--sidebar-w);right:0;height:2px;background:var(--accent);transform-origin:left;transform:scaleX(0);z-index:200;transition:transform .1s linear}
 
-.sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:var(--surface);border-right:1px solid var(--border);padding:32px 20px;overflow-y:auto;z-index:100}
+/* ── 侧边栏 ── */
+.sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:var(--surface);border-right:1px solid var(--border);padding:32px 20px;overflow-y:auto;z-index:100;transition:transform .3s}
 .sidebar-brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .sidebar-brand .logo{width:28px;height:28px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;font-family:'Inter',sans-serif}
 .sidebar-brand span{font-size:12px;font-weight:600;color:var(--text-primary);letter-spacing:.5px}
 .sidebar-meta{font-size:10px;color:var(--text-tertiary);margin-bottom:28px;padding-left:38px}
-.sidebar nav a{display:block;padding:5px 10px;margin:1px 0;font-size:12px;color:var(--text-secondary);text-decoration:none;border-radius:5px;transition:all .15s;line-height:1.6}
+.sidebar nav a{display:block;padding:8px 12px;margin:2px 0;font-size:12.5px;color:var(--text-secondary);text-decoration:none;border-radius:6px;transition:all .15s;line-height:1.5;border-left:2px solid transparent}
 .sidebar nav a:hover{background:var(--border-light);color:var(--text-primary)}
-.sidebar nav a.active{background:var(--accent-soft);color:var(--accent);font-weight:500}
-.sidebar nav .nav-group{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-tertiary);padding:16px 10px 4px}
+.sidebar nav a.active{background:var(--accent-soft);color:var(--accent);font-weight:500;border-left-color:var(--accent)}
+.sidebar nav .nav-group{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-tertiary);padding:18px 12px 6px}
+.sidebar nav .nav-person{padding-left:20px;font-size:12px}
 
-.main{margin-left:var(--sidebar-w);max-width:740px;padding:48px 56px 100px 72px}
+/* ── 移动端汉堡菜单 ── */
+.menu-toggle{display:none;position:fixed;top:16px;left:16px;z-index:200;width:40px;height:40px;border:1px solid var(--border);border-radius:8px;background:var(--surface);cursor:pointer;align-items:center;justify-content:center;font-size:18px;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
 
-.hero{margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+/* ── 主内容区 ── */
+.main{margin-left:var(--sidebar-w);width:min(1080px,calc(100vw - var(--sidebar-w) - 128px));padding:48px 56px 100px 72px}
+
+/* ── Hero ── */
+.hero{margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border)}
 .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .hero h1{font-family:'Noto Serif SC',serif;font-size:32px;font-weight:700;line-height:1.35;color:var(--text-primary);margin-bottom:16px;letter-spacing:-.5px}
-.hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.8;max-width:580px;font-weight:300;margin-bottom:0}
+.hero-subtitle{font-size:15.5px;color:var(--text-secondary);line-height:1.75;font-weight:300;margin-bottom:0}
 .hero-meta{display:flex;gap:20px;margin-top:20px;font-size:11px;color:var(--text-tertiary)}
 
-.section{margin-bottom:48px}
+/* ── 统计条 ── */
+.stat-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.stat-chip{display:inline-block;padding:4px 12px;font-size:11px;font-weight:500;color:var(--text-secondary);background:var(--border-light);border-radius:100px;letter-spacing:.3px}
+
+/* ── Section ── */
+.section{margin-bottom:40px}
 .section-num{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
 h2{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:700;line-height:1.4;margin-bottom:20px;color:var(--text-primary);letter-spacing:-.3px}
 
-.person-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:16px 0;transition:box-shadow .2s}
-.person-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.04)}
+/* ── 人物卡片 ── */
+.person-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:16px 0;transition:box-shadow .2s,border-color .2s}
+.person-card:hover{box-shadow:var(--card-shadow);border-color:var(--accent)}
 .person-name{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:10px}
 .person-role{font-weight:400;color:var(--text-tertiary);font-size:13px}
+.person-card .spacer{height:4px}
 
-p{margin-bottom:12px;color:var(--text-secondary);font-size:14.5px;line-height:1.9}
+/* ── 正文 ── */
+p{margin-bottom:12px;color:var(--text-secondary);font-size:15.5px;line-height:1.8}
 strong{color:var(--text-primary);font-weight:600}
 
+/* ── 引用块 ── */
 .callout{background:var(--border-light);border-left:3px solid var(--accent);padding:16px 20px;margin:16px 0;border-radius:0 8px 8px 0}
-.callout p{margin:0;font-size:14px;color:var(--text-primary);font-weight:500;line-height:1.8}
+.callout p{margin:0;font-size:14.5px;color:var(--text-primary);font-weight:400;line-height:1.8;font-style:italic}
 .callout.blue{background:var(--blue-soft);border-left-color:var(--blue)}
 
-.inline-link{color:var(--blue);text-decoration:none;font-size:12px;font-weight:500;background:var(--blue-soft);padding:1px 8px;border-radius:100px;transition:all .15s;white-space:nowrap}
-.inline-link:hover{background:var(--blue);color:#fff}
+/* ── 链接：正文用下划线，hover 变色 ── */
+.link{color:var(--blue);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--blue) 30%,transparent);text-underline-offset:3px;font-weight:500;transition:all .15s}
+.link:hover{text-decoration-color:var(--blue);color:var(--blue)}
 
-.divider{height:1px;background:var(--border);margin:36px 0}
 .spacer{height:8px}
 
-.colophon{max-width:740px;margin:0 auto;margin-left:var(--sidebar-w);padding:20px 56px 40px 72px;border-top:1px solid var(--border);text-align:center}
-.colophon-brand{font-size:12px;font-weight:600;color:var(--accent);margin-bottom:4px;letter-spacing:.5px}
-.colophon-note{font-size:10px;color:var(--text-tertiary);line-height:1.6}
+/* ── Footer ── */
+.colophon{width:min(1080px,calc(100vw - var(--sidebar-w) - 128px));margin-left:var(--sidebar-w);padding:24px 56px 40px 72px;border-top:1px solid var(--border);text-align:center}
+.colophon-brand{font-size:24px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:.5px}
+.colophon-note{font-size:20px;color:var(--text-secondary);line-height:1.6}
 
+/* ── 大屏 ── */
+@media(min-width:1600px){
+  .main,.colophon{width:min(1280px,calc(100vw - var(--sidebar-w) - 160px))}
+}
+@media(min-width:2000px){
+  .main,.colophon{width:min(1520px,calc(100vw - var(--sidebar-w) - 200px))}
+}
+
+/* ── 移动端 ── */
 @media(max-width:768px){
+  .menu-toggle{display:flex}
   .sidebar{transform:translateX(-100%)}
-  .main{margin-left:0;padding:32px 20px 60px}
+  .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.15)}
+  .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+  .overlay.show{display:block}
+  .main{margin-left:0;padding:60px 20px 60px}
   .scroll-progress{left:0}
-  .colophon{margin-left:0;padding:20px}
+  .colophon{margin-left:0;padding:24px 20px}
   .hero h1{font-size:26px}
+  .stat-bar{gap:6px}
+  .stat-chip{font-size:10px;padding:3px 10px}
 }
 </style></head>
 <body>
 
 <div class="scroll-progress" id="scrollProgress"></div>
+<div class="overlay" id="overlay"></div>
+<button class="menu-toggle" id="menuToggle" aria-label="打开菜单">☰</button>
 
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
     <div class="logo">S</div>
     <span>STAR · AI DAILY</span>
@@ -448,26 +470,41 @@ strong{color:var(--text-primary);font-weight:600}
   <div class="sidebar-meta">by starrliao · ${esc(dateShort)}</div>
   <nav>
     <div class="nav-group">板块</div>
-    ${navHtml}
-    ${personNavHtml}
+${navHtml}
+${personNavHtml}
   </nav>
 </aside>
 
 <main class="main">
+  <div class="stat-bar">${statBarHtml}</div>
   ${html}
 </main>
 
 <footer class="colophon">
   <div class="colophon-brand">Star AI 日报 · by starrliao</div>
-  <div class="colophon-note">横跨 X · YouTube · AI 大厂博客 · 国内媒体 — 关注世界最前沿 AI 阵地，不只 FOMO 跟风</div>
+  <div class="colophon-note">精选 X 付费内容，关注世界最前沿 AI 阵地，别只 FOMO 跟风龙虾热</div>
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight);document.getElementById('scrollProgress').style.transform='scaleX('+p+')'});
-const sects=document.querySelectorAll('.section');const lnks=document.querySelectorAll('.sidebar nav a');
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){lnks.forEach(l=>l.classList.remove('active'));const id=e.target.id;if(id){const l=document.querySelector('.sidebar nav a[href="#'+id+'"]');if(l)l.classList.add('active')}}})},{rootMargin:'-20% 0px -60% 0px'});
+/* 滚动进度条（防 NaN） */
+window.addEventListener('scroll',()=>{const h=document.documentElement;const d=h.scrollHeight-h.clientHeight;const p=d>0?h.scrollTop/d:0;document.getElementById('scrollProgress').style.transform='scaleX('+Math.min(p,1)+')'});
+
+/* 侧边栏导航高亮：section 级别，person 不抢 section 的高亮 */
+const sects=document.querySelectorAll('.section');
+const lnks=document.querySelectorAll('.sidebar nav a');
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;if(!id)return;lnks.forEach(l=>{const href=l.getAttribute('href')?.slice(1);if(href===id)l.classList.add('active');else if(e.target.tagName==='SECTION')l.classList.remove('active')})}})},{rootMargin:'-10% 0px -70% 0px'});
 sects.forEach(s=>{if(s.id)obs.observe(s)});
 document.querySelectorAll('.person-card').forEach(c=>{if(c.id)obs.observe(c)});
+
+/* 移动端汉堡菜单 */
+const sidebar=document.getElementById('sidebar');
+const overlay=document.getElementById('overlay');
+const toggle=document.getElementById('menuToggle');
+function openMenu(){sidebar.classList.add('open');overlay.classList.add('show');toggle.textContent='✕'}
+function closeMenu(){sidebar.classList.remove('open');overlay.classList.remove('show');toggle.textContent='☰'}
+toggle.addEventListener('click',()=>sidebar.classList.contains('open')?closeMenu():openMenu());
+overlay.addEventListener('click',closeMenu);
+document.querySelectorAll('.sidebar nav a').forEach(a=>a.addEventListener('click',closeMenu));
 </script>
 </body></html>`;
 }
