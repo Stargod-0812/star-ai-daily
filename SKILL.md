@@ -463,7 +463,9 @@ cd ${CLAUDE_SKILL_DIR}/scripts && npm install --silent 2>/dev/null && node deliv
 
 **第三步：在对话中输出日报全文。**
 末尾加一行纯文字提示（不要用 Markdown 链接，不要输出任何 URL）：
-"📖 网页精排版已生成，打开浏览器访问 localhost:9470 查看（如果无法访问，可以直接打开文件 ~/.star-ai-daily/web/latest.html）"
+"📖 网页精排版已生成，打开浏览器访问 localhost:9470 查看"
+
+如果用户反馈打不开 localhost，再告诉他们可以直接打开文件 `~/.star-ai-daily/web/latest.html`。不要主动说这句。
 
 **⛔ 禁止事项（违反会导致严重问题）：**
 - ❌ **绝对不要用 Write 工具写 .html 文件** — HTML 只由 deliver.js 生成，agent 自己写的 HTML 格式/内容/footer 全是错的
