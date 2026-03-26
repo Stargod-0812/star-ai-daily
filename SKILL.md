@@ -1,6 +1,6 @@
 ---
 name: star-ai-daily
-description: Star AI 日报 — 横跨 X/YouTube/AI 大厂博客/国内媒体，每天精选最前沿的 AI 信息，用地道中文讲给你听。使用 /ai 触发获取。
+description: Star AI 日报 — 千挑万选的付费 X 信源 + YouTube 播客 + OpenAI/Google/HuggingFace 官方博客 + 国内科技媒体，每天从全球最前沿 AI 阵地精选最有价值的信息。使用 /ai 触发获取。
 metadata:
   author: starrliao
   brand: Star AI 日报
@@ -416,10 +416,12 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 - **详细版**（HTML 网页存档）：同样的板块和人物顺序，但每人 4-8 句，展开更多背景分析、关联推演、数据引用、行业上下文
 
 **铁律：**
-- 绝不编造内容。只用 JSON 里有的。
+- 绝不编造内容。只用 JSON 里有的人物和推文。JSON 里没有的人 → 不存在，不收录。
 - 每条内容必须附带链接。没链接的不要收录。
 - 不要猜职位。用 `bio` 字段或只用人名。
 - 不要访问 x.com，不要搜索网页，不要调用任何 API。
+- **绝对不要自己写 HTML。** HTML 由 deliver.js 自动生成，agent 永远不碰 HTML。
+- **四个板块（北美 AI 大事 / 国内 AI 大事 / AI 大厂动态 / 播客）都必须检查素材并输出**，只有素材确实为空时才跳过。
 
 ### 步骤 5：语言处理
 
@@ -482,8 +484,9 @@ WorkBuddy 右侧产物区展示的就是这个文件。
 末尾加一行：
 "[📖 网页精排详细版点这里](http://localhost:9470/latest.html)"
 
-**⛔ 禁止事项（会导致 WorkBuddy 右侧误展示 HTML）：**
-- ❌ 不要用 Write 工具写 .html / .txt / 任何非 .md 文件
+**⛔ 禁止事项（违反会导致严重问题）：**
+- ❌ **绝对不要用 Write 工具写 .html 文件** — HTML 只由 deliver.js 生成，agent 自己写的 HTML 格式/内容/footer 全是错的
+- ❌ 不要用 Write 工具写 .txt / 任何非 .md 文件
 - ❌ 不要用 Read 工具读取任何 .html 文件
 - ❌ 不要用 open 命令打开任何 .html 文件
 - ❌ 不要用 cat/head/tail 查看任何 .html 文件
@@ -491,6 +494,7 @@ WorkBuddy 右侧产物区展示的就是这个文件。
 - ❌ 不要用 cat heredoc 写大段文本到临时文件（触发风险拦截）
 - 简而言之：**整个投递过程中，agent 不能以任何方式接触 .html 文件。**
   deliver.js 在后台自动生成 HTML，agent 假装不知道这件事。
+- **唯一的交付物是 .md 文件。如果你发现自己在写 HTML 标签，立刻停下来——你做错了。**
 
 ---
 
