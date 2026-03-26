@@ -137,7 +137,7 @@ function escAttr(s) {
 
 /** 板块定义：emoji → id / label 的唯一来源 */
 const SECTIONS = [
-  { emoji: '🔥', id: 'north-america', label: '北美 AI 大事' },
+  { emoji: '🔥', id: 'north-america', label: '北美 AI Top 观点' },
   { emoji: '🇨🇳', id: 'china',         label: '国内 AI 大事' },
   { emoji: '🌐', id: 'global',        label: 'AI 大厂动态' },
   { emoji: '🎙', id: 'podcast',       label: 'AI 超一线播客' },

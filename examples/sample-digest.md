@@ -9,7 +9,7 @@
 
 > 今日主线：Agent 的瓶颈不在智能，在工具调用——Latent Space 这期播客和 Karpathy 的 thread 从不同角度指向同一件事。
 
-🔥 北美 AI 大事
+🔥 北美 AI Top 观点
 
 *变化洞察：注意力从 Claude Code 转向 **Cursor Composer 2**，coding agent 竞争一夜之间多极化了。*
 

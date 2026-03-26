@@ -384,7 +384,7 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 **0. 变化洞察：** 如果 JSON 中 `prev` 字段不为 null：
 1. 对比今天的 `x` 数组中的 handle 列表和 `prev.handles`，找出新出现/消失的人物
 2. 对比今天的 `cnArticles`/`officialBlogs` 标题和 `prev.cnHeads`/`prev.blogHeads`，找出新话题
-3. 按 `prompts.daily_diff` 写一句变化洞察，放在"北美 AI 大事"板块下方
+3. 按 `prompts.daily_diff` 写一句变化洞察，放在"北美 AI Top 观点"板块下方
 4. 如果 `prev` 为 null（首日），跳过此步
 
 **信号参考：** 在整个混编过程中，参考 `prompts.signal_guide` 判断内容优先级。
@@ -409,7 +409,7 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 1. 按 `prompts.summarize_podcast` 混编文字稿
 2. 使用 JSON 中的 `name`、`title` 和 `url`——不要从文字稿中提取
 
-按 `prompts.digest_intro` 的板块顺序组装日报。先写"北美 AI 大事"，从所有素材中挑最重要的 1-2 条。
+按 `prompts.digest_intro` 的板块顺序组装日报。先写"北美 AI Top 观点"，从所有素材中挑最重要的 1-2 条。
 
 **双版本：** agent 需生成两个版本的日报：
 - **精简版**（.md 交付物 + 对话输出）：板块结构完整，每人 2-4 句核心观点
@@ -421,7 +421,7 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 - 不要猜职位。用 `bio` 字段或只用人名。
 - 不要访问 x.com，不要搜索网页，不要调用任何 API。
 - **绝对不要自己写 HTML。** HTML 由 deliver.js 自动生成，agent 永远不碰 HTML。
-- **四个板块（北美 AI 大事 / 国内 AI 大事 / AI 大厂动态 / 播客）都必须检查素材并输出**，只有素材确实为空时才跳过。
+- **四个板块（北美 AI Top 观点 / 国内 AI 大事 / AI 大厂动态 / 播客）都必须检查素材并输出**，只有素材确实为空时才跳过。
 
 ### 步骤 5：语言处理
 
