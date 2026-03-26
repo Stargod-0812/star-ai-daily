@@ -411,9 +411,7 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 
 按 `prompts.digest_intro` 的板块顺序组装日报。先写"北美 AI Top 观点"，从所有素材中挑最重要的 1-2 条。
 
-**双版本：** agent 需生成两个版本的日报：
-- **精简版**（.md 交付物 + 对话输出）：板块结构完整，每人 2-4 句核心观点
-- **详细版**（HTML 网页存档）：同样的板块和人物顺序，但每人 4-8 句，展开更多背景分析、关联推演、数据引用、行业上下文
+**只写一个版本：** 每人 4-8 句，展开背景分析、关联推演、数据引用、行业上下文。这个 .md 同时作为对话输出和 HTML 网页存档的素材。
 
 **铁律：**
 - 绝不编造内容。只用 JSON 里有的人物和推文。JSON 里没有的人 → 不存在，不收录。
@@ -451,17 +449,17 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 
 ### 步骤 6：投递日报
 
-**交付物只有一个：.md 文件（精简版）。** 其他都是后台静默操作。
+**只有两步，严格按顺序执行，不可跳过任何一步。**
 
-**第一步：用 Write 工具保存详细版到临时文件。**
-Write 详细版到 `/tmp/star-digest-detail.md`（临时文件，不是交付物）。
+**第一步：用 Write 工具保存 .md 日报文件。**
+文件名格式：`star-ai-daily-YYYY-MM-DD.md`（如 `star-ai-daily-2026-03-24.md`）。
+必须是 .md 后缀。这是 **唯一的交付物**。
 
-**第二步：确保依赖已安装并生成网页存档。**
+**第二步：用这个 .md 文件生成 HTML 网页存档并启动预览。**
 ```bash
-cd ${CLAUDE_SKILL_DIR}/scripts && npm install --silent 2>/dev/null && node deliver.js --file /tmp/star-digest-detail.md >/dev/null 2>&1
+cd ${CLAUDE_SKILL_DIR}/scripts && npm install --silent 2>/dev/null && node deliver.js --file <第一步写的 .md 文件的绝对路径> >/dev/null 2>&1
 ```
-
-**第三步：启动本地预览服务（如果端口空闲）。**
+然后启动本地预览服务（如果端口空闲）：
 ```bash
 python3 -c "
 import socket, subprocess, os
@@ -473,20 +471,14 @@ except:
     subprocess.Popen(['python3','-m','http.server','9470'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 "
 ```
-用 Python 检测端口避免重复启动，不需要 kill 和后台符号。
 
-**第三步：用 Write 工具保存精简版 .md 日报文件。**
-文件名格式：`star-ai-daily-YYYY-MM-DD.md`（如 `star-ai-daily-2026-03-24.md`）。
-必须是 .md 后缀。这是 **唯一的交付物**。
-WorkBuddy 右侧产物区展示的就是这个文件。
-
-**第四步：在对话中输出精简版日报全文。**
+**第三步：在对话中输出日报全文。**
 末尾加一行：
 "[📖 网页精排详细版点这里](http://localhost:9470/latest.html)"
 
 **⛔ 禁止事项（违反会导致严重问题）：**
 - ❌ **绝对不要用 Write 工具写 .html 文件** — HTML 只由 deliver.js 生成，agent 自己写的 HTML 格式/内容/footer 全是错的
-- ❌ 不要用 Write 工具写 .txt / 任何非 .md 文件
+- ❌ agent 的 Write 工具只能写 **一个** 文件，就是 .md 日报。写第二个文件 = 你做错了
 - ❌ 不要用 Read 工具读取任何 .html 文件
 - ❌ 不要用 open 命令打开任何 .html 文件
 - ❌ 不要用 cat/head/tail 查看任何 .html 文件
@@ -494,7 +486,7 @@ WorkBuddy 右侧产物区展示的就是这个文件。
 - ❌ 不要用 cat heredoc 写大段文本到临时文件（触发风险拦截）
 - 简而言之：**整个投递过程中，agent 不能以任何方式接触 .html 文件。**
   deliver.js 在后台自动生成 HTML，agent 假装不知道这件事。
-- **唯一的交付物是 .md 文件。如果你发现自己在写 HTML 标签，立刻停下来——你做错了。**
+- **如果你发现自己在写 HTML 标签，立刻停下来——你做错了。**
 
 ---
 
