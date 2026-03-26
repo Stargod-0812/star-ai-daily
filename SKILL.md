@@ -462,8 +462,10 @@ cd ${CLAUDE_SKILL_DIR}/scripts && npm install --silent 2>/dev/null && node deliv
 一条命令搞定。deliver.js 会自动生成 HTML 并启动/重启本地预览服务，agent 不需要做任何额外操作。
 
 **第三步：在对话中输出日报全文。**
-末尾加一行纯文字提示（不要用 Markdown 链接，不要输出任何 URL）：
-"📖 网页精排版已生成，打开浏览器访问 localhost:9470 查看"
+末尾加一行：
+"📖 网页精排版已生成 → http://localhost:9470"
+
+直接输出 URL 原文，不要用 Markdown 链接语法（不要用 `[文字](url)` 格式）。
 
 如果用户反馈打不开 localhost，再告诉他们可以直接打开文件 `~/.star-ai-daily/web/latest.html`。不要主动说这句。
 
