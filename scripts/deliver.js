@@ -17,6 +17,8 @@ import { readFile, writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
+import { createServer } from 'net';
+import { spawn, execSync } from 'child_process';
 import { config as loadEnv } from 'dotenv';
 
 // ── 路径 ──────────────────────────────────────────
@@ -549,6 +551,12 @@ async function main() {
   try { archiveMeta = await buildArchive(body); }
   catch (e) { process.stderr.write(`HTML 存档失败: ${e.message}\n`); }
 
+  // HTML 生成成功后，启动/重启本地预览服务
+  if (archiveMeta?.latestPath) {
+    try { await startPreviewServer(); }
+    catch (e) { process.stderr.write(`预览服务启动失败: ${e.message}\n`); }
+  }
+
   if (archiveOnly) {
     emit({ status: 'ok', channel: 'html-only', note: '网页版日报已生成', html: archiveMeta?.latestPath });
     return;
@@ -583,6 +591,22 @@ async function main() {
 }
 
 function emit(obj) { process.stdout.write(JSON.stringify(obj, null, 2) + '\n'); }
+
+// ── 本地预览服务（杀旧启新，确保 serve 正确目录）──
+const PREVIEW_PORT = 9470;
+async function startPreviewServer() {
+  // 无条件杀掉占用 9470 的进程（不管是 node 还是 python）
+  try { execSync(`lsof -ti:${PREVIEW_PORT} | xargs kill -9 2>/dev/null`, { stdio: 'ignore' }); }
+  catch { /* 没有进程占用，正常 */ }
+  // 等一下让端口释放
+  await new Promise(r => setTimeout(r, 500));
+  // 启动 python http.server serve 正确的目录
+  const webDir = join(DATA_HOME, 'web');
+  const child = spawn('python3', ['-m', 'http.server', String(PREVIEW_PORT)], {
+    cwd: webDir, stdio: 'ignore', detached: true,
+  });
+  child.unref();
+}
 
 main().catch(e => {
   process.stderr.write(JSON.stringify({ status: 'error', note: e.message }) + '\n');

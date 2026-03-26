@@ -455,22 +455,11 @@ cat ${CLAUDE_SKILL_DIR}/prompts/translate.md
 文件名格式：`star-ai-daily-YYYY-MM-DD.md`（如 `star-ai-daily-2026-03-24.md`）。
 必须是 .md 后缀。这是 **唯一的交付物**。
 
-**第二步：用这个 .md 文件生成 HTML 网页存档并启动预览。**
+**第二步：用这个 .md 文件生成 HTML 网页存档（deliver.js 会自动启动预览服务）。**
 ```bash
 cd ${CLAUDE_SKILL_DIR}/scripts && npm install --silent 2>/dev/null && node deliver.js --file <第一步写的 .md 文件的绝对路径> >/dev/null 2>&1
 ```
-然后启动本地预览服务（如果端口空闲）：
-```bash
-python3 -c "
-import socket, subprocess, os
-s = socket.socket(); s.settimeout(0.5)
-try:
-    s.connect(('127.0.0.1', 9470)); s.close()
-except:
-    os.chdir(os.path.expanduser('~/.star-ai-daily/web'))
-    subprocess.Popen(['python3','-m','http.server','9470'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-"
-```
+一条命令搞定。deliver.js 会自动生成 HTML 并启动/重启本地预览服务，agent 不需要做任何额外操作。
 
 **第三步：在对话中输出日报全文。**
 末尾加一行：
